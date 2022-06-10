@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: bold;
+}
+.grayBtn {
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  padding: 1% 3%;
+  background-color: #666666;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .grayBtn {
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    font-size: 13px;
+    padding: 10px 5%;
+    background-color: #666666;
+    color: white;
+  }
+}
+.productTitle {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+/*------------------------------- navBar css---------------- */
+.navBar {
+  width: 100%;
+  float: left;
+  padding: 1% 0 0 0;
+  height: 70px;
+  background-color: #c4c4c4;
+}
+.navBar .innerNav {
+  height: 36px;
+  /* background-color: red; */
+  float: left;
+  width: 80%;
+  margin: 0 10%;
+}
+.navBar .logo {
+  width: 15%;
+  float: left;
+  /* background-color: blue; */
+  margin-right: 2%;
+  /* text-align: center; */
+}
+
+.navBar .menu {
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  /* background-color: blue; */
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+}
+
+.navBar .menu p {
+  text-align: center;
+  letter-spacing: 2px;
+  float: left;
+  width: 30%;
+  margin: 0;
+  /* margin: 0 10px; */
+}
+.navBar .search {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  /* background-color: red; */
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* margin-right: 2%; */
+}
+.navBar .search input {
+  padding: 2%;
+  height: 80%;
+  position: absolute;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+}
+.navBar .search input:focus-visible {
+  border: none;
+  outline: none;
+}
+.navBar .search i {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.navBar .icons {
+  width: 15%;
+  float: right;
+  height: 100%;
+  /* background-color: red; */
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.navBar .icons i {
+  position: relative;
+  right: -30px;
+  margin: 0 20px;
+  float: left;
+}
+/* --------------------------------navBar css------------------ */
+
+/* ----------------------------product details css------------------------ */
+
+.productDetails {
+  width: 100%;
+  float: left;
+  padding: 2% 0;
+  color: #545454;
+}
+.productDetails .innerProductDetail {
+  width: 80%;
+  float: left;
+  margin: 0 10%;
+}
+.productDetails .innerProductDetail .productImage {
+  /* background-color: red; */
+  width: 45%;
+  height: 500px;
+  float: left;
+  margin-right: 5%;
+}
+.productDetails .innerProductDetail .productImage .active {
+  width: 60%;
+  height: 100%;
+  float: left;
+  border: 1px solid black;
+  margin-right: 5%;
+}
+.productDetails .innerProductDetail .productImage .nextImg {
+  width: 35%;
+  float: left;
+  height: 500px;
+  /* background-color: blue; */
+  /* border: 1px solid black; */
+  /* margin-bottom: 2.5%; */
+}
+.productDetails .innerProductDetail .productImage .innerNextImg {
+  width: 100%;
+  float: left;
+  height: 150px;
+  border: 1px solid black;
+  margin: 0 0 25px 0;
+}
+.productDetails .innerProductDetail .productDescription {
+  position: relative;
+  width: 50%;
+  float: left;
+  height: 500px;
+  /* padding: 2% 0; */
+  /* border: 1px solid black; */
+}
+.productDetails .innerProductDetail .productDescription p {
+  margin: 0 0 20px 0;
+}
+.productDetails .innerProductDetail .productDescription .innerDescription {
+  width: 80%;
+  text-align: justify;
+  float: left;
+}
+.productDetails .innerProductDetail .innerTitle {
+  width: 100%;
+  float: left;
+}
+.productDetails .innerProductDetail .innerTitle i {
+  float: right;
+  margin-right: 10px;
+}
+.productDetails .innerProductDetail .productDescription .buttons {
+  width: 100%;
+  float: left;
+  position: absolute;
+  bottom: 0;
+}
+.productDetails .innerProductDetail button {
+  background-color: #666666;
+  width: 40%;
+  float: left;
+  color: white;
+  padding: 2% 0;
+  border: none;
+  border-radius: 20px;
+}
+@media screen and (max-width: 1000px) {
+}
+/* ----------------------------product details css------------------------ */
+
+/* ----------------------------product second details----------------------- */
+
+.secondDescription {
+  width: 100%;
+  float: left;
+  /* background-color: red; */
+}
+.secondDescription .innerSecondDescription {
+  width: 80%;
+  float: left;
+  margin: 0 10%;
+}
+
+.secondDescription .innerSecondDescription .iconDescription .text {
+  width: 100%;
+  float: left;
+  margin-bottom: 15px;
+}
+.secondDescription .innerSecondDescription .iconDescription .text i {
+  margin-right: 10px;
+}
+/* ----------------------------product second details----------------------- */
+
+/* ------------------------reviews------------------------------------ */
+.secondDescription .innerSecondDescription .reviews {
+  width: 100%;
+  float: left;
+}
+
+.secondDescription .innerSecondDescription .reviews .innerTitle {
+  width: 100%;
+  float: left;
+  margin: 20px 0 20px 0;
+}
+.secondDescription .innerSecondDescription .reviews .ratings {
+  width: 100%;
+  float: left;
+}
+.secondDescription .innerSecondDescription .reviews .comments {
+  width: 100%;
+  float: left;
+  padding: 2% 0;
+}
+.secondDescription .innerSecondDescription .reviews .comments .users {
+  width: 35%;
+  float: left;
+  margin: 10px 15% 20px 0;
+}
+.secondDescription
+  .innerSecondDescription
+  .reviews
+  .comments
+  .users
+  .userDetails {
+  width: 100%;
+  float: left;
+  /* margin-left: 10%; */
+}
+.secondDescription
+  .innerSecondDescription
+  .reviews
+  .comments
+  .users
+  .userDetails
+  .userImg {
+  width: 15%;
+  height: 60px;
+  float: left;
+  /* margin-left: 10%; */
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  margin: 0 10px 20px;
+}
+.secondDescription
+  .innerSecondDescription
+  .reviews
+  .comments
+  .users
+  .userDetails
+  .userImg
+  img {
+  width: 100%;
+  object-fit: contain;
+}
+.secondDescription
+  .innerSecondDescription
+  .reviews
+  .comments
+  .users
+  .userComment {
+  width: 100%;
+  float: left;
+  /* margin-left: 10%; */
+}
+.secondDescription .innerSecondDescription .reviews .button {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+@media screen and (max-width: 1000px) {
+  .secondDescription .innerSecondDescription .reviews .comments .users {
+    width: 100%;
+    float: left;
+    margin: 10px 0% 20px 0;
+  }
+
+  .secondDescription
+    .innerSecondDescription
+    .reviews
+    .comments
+    .users
+    .userDetails
+    .userImg {
+    width: 10%;
+    height: 60px;
+    float: left;
+    /* margin-left: 10%; */
+    background-color: #c4c4c4;
+    border-radius: 50%;
+    margin: 0 10px 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .secondDescription
+    .innerSecondDescription
+    .reviews
+    .comments
+    .users
+    .userDetails
+    .userImg {
+    width: 15%;
+    height: 60px;
+    float: left;
+    /* margin-left: 10%; */
+    background-color: #c4c4c4;
+    border-radius: 50%;
+    margin: 0 10px 20px;
+  }
+}
+/* ------------------------reviews------------------------------------ */
+/* -----------------------suggestion css--------------------------------- */
+.productSuggestion {
+  width: 100%;
+  float: left;
+  padding: 2% 0;
+}
+.productSuggestion .innerSuggestion {
+  width: 80%;
+  margin: 0 10%;
+  float: left;
+}
+.productSuggestion .innerSuggestion .cards {
+  width: 100%;
+  float: left;
+}
+.productSuggestion .innerSuggestion .cards .lists {
+  position: relative;
+  width: 30%;
+  height: 400px;
+  float: left;
+  margin-right: 5%;
+
+  /* border: 1px solid black; */
+}
+.productSuggestion .innerSuggestion .cards .lists .cardsPic {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 80%;
+  background-color: white;
+}
+.productSuggestion .innerSuggestion .cards .lists .cardsPic .rating {
+  width: 100%;
+  float: left;
+  padding: 5%;
+  position: absolute;
+  bottom: 0;
+}
+.productSuggestion .innerSuggestion .cards .lists .cardsPic .rating i {
+  float: left;
+}
+.productSuggestion
+  .innerSuggestion
+  .cards
+  .lists
+  .cardsPic
+  .rating
+  .fa-regular.fa-heart {
+  float: right;
+  margin-right: 10px;
+}
+.productSuggestion .innerSuggestion .cards .lists .details {
+  position: absolute;
+  bottom: 0;
+}
+@media screen and (max-width: 800px) {
+  .productSuggestion .innerSuggestion .cards .lists {
+    position: relative;
+    width: 50%;
+    height: 400px;
+    float: left;
+    margin: 0 25%;
+  }
+}
+/* -----------------------suggestion css--------------------------------- */

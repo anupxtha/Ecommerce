@@ -1,0 +1,623 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  background-color: #e5e5e5 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: bold !important;
+}
+/* button */
+.grayBtn {
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  padding: 10px 3%;
+  background-color: #666666;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .grayBtn {
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    font-size: 13px;
+    padding: 10px 5%;
+    background-color: #666666;
+    color: white;
+  }
+}
+.productTitle {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+/* button */
+/*------------------------------- navBar css---------------- */
+.navBar {
+  width: 100%;
+  float: left;
+  padding: 1% 0 0 0;
+  height: 70px;
+  background-color: #c4c4c4;
+  font-family: 'Montserrat', sans-serif;
+}
+.navBar .innerNav {
+  height: 36px;
+  /* background-color: red; */
+  float: left;
+  width: 80%;
+  margin: 0 10%;
+}
+.navBar .logo {
+  width: 15%;
+  float: left;
+  /* background-color: blue; */
+  margin-right: 2%;
+  /* text-align: center; */
+}
+
+.navBar .menu {
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  /* background-color: blue; */
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+}
+
+.navBar .menu p {
+  text-align: center;
+  letter-spacing: 2px;
+  float: left;
+  width: 30%;
+  margin: 0;
+  /* margin: 0 10px; */
+}
+.navBar .search {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  /* background-color: red; */
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* margin-right: 2%; */
+}
+.navBar .search input {
+  padding: 2%;
+  height: 80%;
+  position: absolute;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+}
+.navBar .search input:focus-visible {
+  border: none;
+  outline: none;
+}
+.navBar .search i {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.navBar .icons {
+  width: 15%;
+  float: right;
+  height: 100%;
+  /* background-color: red; */
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.navBar .icons i {
+  position: relative;
+  right: -30px;
+  margin: 0 20px;
+  float: left;
+}
+.dropdown {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .navBar .icons {
+    display: none;
+  }
+  .navBar .menu {
+    display: none;
+  }
+  .navBar {
+    padding: 0;
+  }
+  .navBar .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 70px;
+    padding: 0;
+    /* background-color: blue; */
+  }
+  .navBar .search {
+    width: 60%;
+    margin: 15px 0 0 20px;
+    /* background-color: red; */
+  }
+  .dropbtn {
+    background-color: transparent;
+    /* position: absolute; */
+    /* color: white; */
+    /* padding: 16px 0; */
+    right: 0;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    height: 70px;
+    /* background-color: red; */
+  }
+  .dropdown i {
+    /* font-family: 'Montserrat', sans-serif !important; */
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropbtn {
+    /* background-color: #3e8e41; */
+  }
+}
+@media screen and (max-width: 600px) {
+  .navBar .search {
+    width: 50%;
+    margin: 10px 0 0 5px;
+    /* background-color: red; */
+  }
+}
+/* --------------------------------navBar css------------------ */
+
+/*-----------------catSlider---------------------*/
+.catSlider {
+  /* background-color: transparent; */
+  width: 100%;
+  float: left;
+  margin: 20px 0%;
+}
+.catSlider .category {
+  width: 20%;
+  float: left;
+  padding: 1%;
+  background-color: #dadada;
+  height: 507.33px;
+}
+.catSlider .category p {
+  width: 100%;
+  margin: 15px 0;
+  /* background-color: #dadada; */
+}
+.catSlider .category p span {
+  float: right;
+  /* background-color: #dadada; */
+}
+.catSlider .sliders {
+  /* width: 75%;
+  margin: 0 0 0 5%; */
+  width: 80% !important;
+  /* margin: 0 10%; */
+  /* border: 1px solid black; */
+  float: left;
+  margin: 0 10%;
+  /* background-color: red; */
+  height: 507.33px;
+}
+.catSlider .sliders .container {
+  /* width: 1170px; */
+  width: 100% !important;
+  float: left !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  /* background-color: red !important; */
+}
+.container #slideImg img {
+  width: 100% !important;
+  height: 507.33px !important;
+  float: left;
+  /* object-fit: cover !important; */
+}
+.container .carousel-indicators li {
+  margin: 0 5px !important;
+}
+.container .left.carousel-control {
+  display: none !important;
+}
+.container .right.carousel-control {
+  display: none !important;
+}
+/*-----------------catSlider---------------------*/
+
+/*-------------------topSelingProduct and reviewd electronics----------------------*/
+
+.topSell {
+  width: 100%;
+  padding: 2% 0;
+  margin-bottom: 20px;
+  float: left;
+  background-color: #dadada;
+}
+.electronic {
+  width: 100%;
+  padding: 2% 0;
+  margin-bottom: 20px;
+  float: left;
+  /* background-color: #dadada; */
+}
+
+.products .innerTop {
+  width: 80%;
+  margin: 0 10%;
+  float: left;
+}
+.products .innerTop .cards {
+  width: 100%;
+  float: left;
+}
+.products .innerTop .cards .lists {
+  position: relative;
+  width: 23%;
+  height: 400px;
+  float: left;
+  margin-right: 2.6666667%;
+}
+.products .innerTop .cards .lists .cardsPic {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 80%;
+  background-color: white;
+}
+.products .innerTop .cards .lists .cardsPic .rating {
+  width: 100%;
+  float: left;
+  padding: 5%;
+  position: absolute;
+  bottom: 0;
+}
+.products .innerTop .cards .lists .cardsPic .rating i {
+  float: left;
+}
+.products .innerTop .cards .lists .cardsPic .rating .fa-regular.fa-heart {
+  float: right;
+  margin-right: 10px;
+}
+.products .innerTop .cards .lists .details {
+  position: absolute;
+  bottom: 0;
+}
+.products .innerTop .btns {
+  width: 100%;
+  float: left;
+  /* background-color: red; */
+  text-align: center;
+  padding: 2% 0 1% 0;
+}
+.products .innerTop .btns button {
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  padding: 10px 2%;
+  background-color: #666666;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .products .innerTop .cards .lists {
+    position: relative;
+    width: 40%;
+    margin: 0 5%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .products .innerTop .cards .lists {
+    position: relative;
+    width: 70%;
+    margin: 0 15%;
+  }
+}
+/*-------------------topSelingProduct and reviewd electronics----------------------*/
+
+/*-------------------recommendedProduct----------------------*/
+
+.recommendedProducts {
+  width: 100%;
+  padding: 2% 0;
+  margin-bottom: 20px;
+  float: left;
+  background-color: #dadada;
+}
+.recommendedProducts .innerTop {
+  width: 80%;
+  margin: 0 10%;
+  float: left;
+}
+.recommendedProducts .innerTop .cards {
+  width: 100%;
+  float: left;
+}
+.recommendedProducts .innerTop .cards .lists {
+  position: relative;
+  width: 23%;
+  height: 400px;
+  float: left;
+  margin-right: 2.66667%;
+  margin-bottom: 20px;
+  /* border: 1px solid black; */
+}
+.recommendedProducts .innerTop .cards .lists .cardsPic {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 80%;
+  background-color: white;
+}
+.recommendedProducts .innerTop .cards .lists .cardsPic .rating {
+  width: 100%;
+  float: left;
+  padding: 5%;
+  position: absolute;
+  bottom: 0;
+}
+.recommendedProducts .innerTop .cards .lists .cardsPic .rating i {
+  float: left;
+}
+.recommendedProducts
+  .innerTop
+  .cards
+  .lists
+  .cardsPic
+  .rating
+  .fa-regular.fa-heart {
+  float: right;
+  margin-right: 10px;
+}
+.recommendedProducts .innerTop .cards .lists .details {
+  position: absolute;
+  bottom: 0;
+}
+.recommendedProducts .innerTop .btns {
+  width: 100%;
+  float: left;
+  /* background-color: red; */
+  text-align: center;
+  padding: 2% 0 1% 0;
+}
+.recommendedProducts .innerTop .btns button {
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  padding: 10px 2%;
+  background-color: #666666;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .recommendedProducts .innerTop .cards .lists {
+    position: relative;
+    width: 40%;
+    margin: 0 5%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .recommendedProducts .innerTop .cards .lists {
+    position: relative;
+    width: 70%;
+    margin: 0 15%;
+  }
+}
+/*-------------------recommendedProduct----------------------*/
+
+/* <!-- -----------------------shopNow----------------------------------- --> */
+
+.shopNow {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+  /* height: 250px; */
+  padding: 2% 0;
+}
+.shopNow .innerShopNow {
+  width: 80%;
+  margin: 0 10%;
+  float: left;
+}
+.shopNow .innerShopNow .details {
+  width: 50%;
+  float: left;
+  /* height: 100px; */
+}
+.shopNow .innerShopNow .details .titleP {
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+.shopNow .innerShopNow .details .titleP2 {
+  color: #787878;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.shopNow .innerShopNow .shopNowImg {
+  width: 35%;
+  height: 250px;
+  float: right;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+@media screen and (max-width: 1000px) {
+  .shopNow .innerShopNow .details {
+    width: 60%;
+    float: left;
+    /* height: 100px; */
+    /* background-color: red; */
+  }
+  .shopNow .innerShopNow .details .titleP {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+  .shopNow .innerShopNow .details .titleP2 {
+    color: #787878;
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+  .shopNow .innerShopNow .shopNowImg {
+    width: 40%;
+    height: 250px;
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
+/* <!-- -----------------------shopNow----------------------------------- --> */
+
+/* -------------------------------sider css--------------------------------- */
+
+/* .sliders {
+  width: 100%;
+  float: left;
+
+  padding: 2% 0;
+  background-color: #dadada;
+} */
+.sliders .dummySlide {
+  width: 80%;
+  float: left;
+  margin: 0 10%;
+}
+.sliders .dummySlide .cards {
+  width: 20%;
+  height: 350px;
+  border: 1px solid black;
+}
+/* -------------------------------sider css--------------------------------- */
+
+/* -----------------email notification------------------------------- */
+.emailNotification {
+  width: 100%;
+  margin-bottom: 5px;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* text-align: center; */
+  padding: 5% 0 2% 0;
+}
+.emailNotification .email {
+  position: relative;
+  width: 40%;
+  /* background-color: red; */
+  float: left;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: rgba(84, 84, 84, 0.68);
+  border-radius: 20px;
+  color: white;
+}
+.emailNotification .email input {
+  width: 100%;
+  float: left;
+  height: 100%;
+  border-radius: 20px;
+  background: rgba(84, 84, 84, 0.68);
+  border: none;
+  color: white !important;
+  text-indent: 20px;
+}
+.emailNotification .email i {
+  position: absolute;
+  right: 10px;
+  color: white;
+}
+/* -----------------email notification------------------------------- */
+.emailNotification input::-webkit-input-placeholder {
+  color: white;
+}
+.emailNotification input:-moz-placeholder {
+  color: white;
+}
+
+/* -------------------------------footer------------------------------------ */
+
+.footer {
+  width: 100%;
+  padding: 2%;
+  float: left;
+  background-color: #dadada;
+}
+.footer .innerFooter {
+  width: 80%;
+  float: left;
+  margin: 0 10%;
+}
+.footer .logo {
+  width: 30%;
+  margin-right: 5%;
+  float: left;
+}
+.footer .service {
+  width: 30%;
+  float: left;
+  margin-right: 5%;
+  /* background-color: red; */
+}
+.footer .contact {
+  width: 30%;
+  float: right;
+  /* background-color: blue; */
+}
+/* -------------------------------footer------------------------------------ */
+
+@media screen and (max-width: 1000px) {
+  .navBar .menuBar {
+    width: 200px;
+    float: left;
+  }
+  .navBar .menuBar .fa-solid.fa-bars:hover .menuItem {
+    display: block !important;
+  }
+  .navBar .menuBar .menuItem {
+    display: none;
+  }
+}
