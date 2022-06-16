@@ -6,6 +6,14 @@ function NavBar() {
   const [state, dispatch] = useContext(DataContext);
   const { auth } = state;
 
+  const LoggedRouter = () => {
+    return (
+      <>
+        <i className='fa-solid fa-telegram'></i>
+      </>
+    );
+  };
+
   return (
     <div className='navBar'>
       <div className='innerNav'>
@@ -38,7 +46,7 @@ function NavBar() {
               </a>
             </Link>
           ) : (
-            <i className='fa-solid fa-telegram'></i>
+            LoggedRouter()
           )}
 
           <i className='fa-solid fa-heart'></i>
