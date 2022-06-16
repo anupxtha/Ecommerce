@@ -8,49 +8,56 @@ function NavBar() {
 
   const LoggedRouter = () => {
     return (
-      <>
-        <i className='fa-solid fa-telegram'></i>
-      </>
+      <div className="hoverImage">
+        <div className="userImage">
+          <img src="" alt="User Image" />
+          <div className="dropImage">
+            <p>Profile</p>
+            <p>Logout</p>
+          </div>
+        </div>
+        {/* <i className="fa-solid fa-telegram"></i> */}
+      </div>
     );
   };
 
   return (
-    <div className='navBar'>
-      <div className='innerNav'>
-        <div className='logo'>
-          <Link href='/'>
+    <div className="navBar">
+      <div className="innerNav">
+        <div className="logo">
+          <Link href="/">
             <a>
-              <img src='/images/LEGO.png' alt='Logo' />
+              <img src="/images/LEGO.png" alt="Logo" />
             </a>
           </Link>
         </div>
-        <div className='menu'>
+        <div className="menu">
           <p>Shop</p>
-          <Link href='/sells'>
+          <Link href="/sells">
             <a style={{ color: 'black' }}>
               <p>Sale</p>
             </a>
           </Link>
           <p>About</p>
         </div>
-        <div className='search'>
-          <input type='text' placeholder='search' />
+        <div className="search">
+          <input type="text" placeholder="search" />
 
-          <i className='fa-solid fa-magnifying-glass'></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </div>
-        <div className='icons'>
+        <div className="icons">
           {Object.keys(auth).length === 0 ? (
-            <Link href='/login'>
+            <Link href="/login">
               <a style={{ color: 'black' }}>
-                <i className='fa-solid fa-user'></i>
+                <i className="fa-solid fa-user"></i>
               </a>
             </Link>
           ) : (
             LoggedRouter()
           )}
 
-          <i className='fa-solid fa-heart'></i>
-          <i className='fa-solid fa-cart-shopping'></i>
+          <i className="fa-solid fa-heart"></i>
+          <i className="fa-solid fa-cart-shopping"></i>
         </div>
       </div>
     </div>
