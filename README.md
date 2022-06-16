@@ -3,3 +3,5 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).# Ecomm
 6/16/2022
 --hoverable profile image added
 --login button fixed
+--selling page
+--blur background behind ratings
