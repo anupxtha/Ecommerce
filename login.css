@@ -60,3 +60,8 @@
   font-family: 'Nunito', sans-serif;
   letter-spacing: 5px;
 }
+.login .formBtn {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
