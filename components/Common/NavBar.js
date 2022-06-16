@@ -8,6 +8,8 @@ function NavBar() {
   const { auth } = state;
   const router = useRouter();
 
+  const details = Object.keys(auth).length !== 0 && JSON.parse(auth);
+
   const handleLogout = () => {
     sessionStorage.removeItem('loginStatus');
     sessionStorage.removeItem('authToken');
@@ -19,12 +21,18 @@ function NavBar() {
     return (
       <div className='hoverImage'>
         <div className='userImage'>
-          <img src='' alt='pp' />
+          <img
+            src={'http://127.0.0.1:8000' + details.user_proifle.user_image}
+            alt='pp'
+            style={{ borderRadius: '50%', width: '40px', height: '40px' }}
+          />
           <div className='dropImage'>
-            <p>Profile</p>
-            <button onClick={handleLogout}>
-              <p>Logout</p>
-            </button>
+            <Link href='/profile'>
+              <a style={{ color: 'black' }}>
+                <p>Profile</p>
+              </a>
+            </Link>
+            <p onClick={() => handleLogout()}>Logout</p>
           </div>
         </div>
         {/* <i className="fa-solid fa-telegram"></i> */}
