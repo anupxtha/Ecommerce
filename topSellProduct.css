@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  /* background-color: #e5e5e5 !important; */
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: bold !important;
+}
+.grayBtn {
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  padding: 10px 3%;
+  background-color: #666666;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .grayBtn {
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    font-size: 13px;
+    padding: 10px 5%;
+    background-color: #666666;
+    color: white;
+  }
+}
+.productTitle {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+/*------------------------------- navBar css---------------- */
+.navBar {
+  width: 100%;
+  float: left;
+  padding: 1% 0 0 0;
+  height: 70px;
+  background-color: #c4c4c4;
+  font-family: 'Montserrat', sans-serif;
+}
+.navBar .innerNav {
+  height: 36px;
+  /* background-color: red; */
+  float: left;
+  width: 80%;
+  margin: 0 10%;
+}
+.navBar .logo {
+  width: 15%;
+  float: left;
+  /* background-color: blue; */
+  margin-right: 2%;
+  /* text-align: center; */
+}
+
+.navBar .menu {
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  /* background-color: blue; */
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+}
+
+.navBar .menu p {
+  text-align: center;
+  letter-spacing: 2px;
+  float: left;
+  width: 30%;
+  margin: 0;
+  /* margin: 0 10px; */
+}
+.navBar .search {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  /* background-color: red; */
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* margin-right: 2%; */
+}
+.navBar .search input {
+  padding: 2%;
+  height: 80%;
+  position: absolute;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+}
+.navBar .search input:focus-visible {
+  border: none;
+  outline: none;
+}
+.navBar .search i {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.navBar .icons {
+  width: auto;
+  float: right;
+  height: 100%;
+  /* background-color: red; */
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.navBar .icons i {
+  position: relative;
+  right: 0;
+  margin: 0 0 0 40px;
+  float: left;
+}
+.dropdown {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .navBar .icons {
+    display: none;
+  }
+  .navBar .menu {
+    display: none;
+  }
+  .navBar {
+    padding: 0;
+  }
+  .navBar .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 70px;
+    padding: 0;
+    /* background-color: blue; */
+  }
+  .navBar .search {
+    width: 60%;
+    margin: 15px 0 0 20px;
+    /* background-color: red; */
+  }
+  .dropbtn {
+    background-color: transparent;
+    /* position: absolute; */
+    /* color: white; */
+    /* padding: 16px 0; */
+    right: 0;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    height: 70px;
+    /* background-color: red; */
+  }
+  .dropdown i {
+    /* font-family: 'Montserrat', sans-serif !important; */
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropbtn {
+    /* background-color: #3e8e41; */
+  }
+}
+@media screen and (max-width: 600px) {
+  .navBar .search {
+    width: 50%;
+    margin: 10px 0 0 5px;
+    /* background-color: red; */
+  }
+}
+/* --------------------------------navBar css------------------ */
+.topSellingProducts {
+  width: 100%;
+  float: left;
+  padding: 2% 0;
+}
+.topSellingProducts .innerTop {
+  width: 80%;
+  float: left;
+  margin: 0 10%;
+}
+.topSellingProducts .innerTop .head {
+  width: 100%;
+  float: left;
+}
+.topSellingProducts .innerTop .head p {
+  float: left;
+}
+.topSellingProducts .innerTop .head select {
+  float: right;
+}
+.topSellingProducts .innerTop .cards {
+  width: 100%;
+  float: left;
+  /* background-color: red; */
+}
+.topSellingProducts .innerTop .cards .lists {
+  position: relative;
+  width: 30%;
+  height: 500px;
+  float: left;
+  /* display: flex;
+  justify-content: center; */
+  margin: 0 1.667%;
+  /* margin-right: 2.6666667%; */
+}
+.topSellingProducts .innerTop .cards .lists .cardsPic {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 80%;
+  background-color: white;
+}
+.topSellingProducts .innerTop .cards .lists .cardsPic .rating {
+  width: 100%;
+  float: left;
+  padding: 5%;
+  position: absolute;
+  bottom: 0;
+}
+.topSellingProducts .innerTop .cards .lists .cardsPic .rating i {
+  float: left;
+}
+.topSellingProducts
+  .innerTop
+  .cards
+  .lists
+  .cardsPic
+  .rating
+  .fa-regular.fa-heart {
+  float: right;
+  margin-right: 10px;
+}
+.topSellingProducts .innerTop .cards .lists .details {
+  position: absolute;
+  bottom: 0;
+}
+.topSellingProducts .innerTop .btns {
+  width: 100%;
+  float: left;
+  /* background-color: red; */
+  text-align: center;
+  padding: 2% 0 1% 0;
+}
+.topSellingProducts .innerTop .btns button {
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  padding: 10px 2%;
+  background-color: #666666;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .topSellingProducts .innerTop .cards .lists {
+    position: relative;
+    width: 40%;
+    margin: 0 5%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .topSellingProducts .innerTop .cards .lists {
+    position: relative;
+    width: 70%;
+    margin: 0 15%;
+  }
+}

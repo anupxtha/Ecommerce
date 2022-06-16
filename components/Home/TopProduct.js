@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 function TopProduct() {
   return (
@@ -80,7 +81,11 @@ function TopProduct() {
           </div>
         </div>
         <div className='btns'>
-          <button>View More</button>
+          <Link href='/sells'>
+            <a>
+              <button>View More</button>
+            </a>
+          </Link>
         </div>
       </div>
     </div>

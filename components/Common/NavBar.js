@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { DataContext } from '../../store/GlobalState';
 
 function NavBar() {
+  const [state, dispatch] = useContext(DataContext);
+  const { auth } = state;
+
   return (
     <div className='navBar'>
       <div className='innerNav'>
@@ -14,7 +18,11 @@ function NavBar() {
         </div>
         <div className='menu'>
           <p>Shop</p>
-          <p>Sale</p>
+          <Link href='/sells'>
+            <a style={{ color: 'black' }}>
+              <p>Sale</p>
+            </a>
+          </Link>
           <p>About</p>
         </div>
         <div className='search'>
@@ -23,7 +31,16 @@ function NavBar() {
           <i className='fa-solid fa-magnifying-glass'></i>
         </div>
         <div className='icons'>
-          <i className='fa-solid fa-user'></i>
+          {Object.keys(auth).length === 0 ? (
+            <Link href='/login'>
+              <a style={{ color: 'black' }}>
+                <i className='fa-solid fa-user'></i>
+              </a>
+            </Link>
+          ) : (
+            <i className='fa-solid fa-telegram'></i>
+          )}
+
           <i className='fa-solid fa-heart'></i>
           <i className='fa-solid fa-cart-shopping'></i>
         </div>
