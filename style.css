@@ -73,10 +73,12 @@ body {
 
 .navBar .menu p {
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   float: left;
+  font-size: 20px;
   width: 30%;
   margin: 0;
+  font-weight: bold;
   /* margin: 0 10px; */
 }
 .navBar .search {
@@ -346,6 +348,7 @@ body {
   padding: 5%;
   position: absolute;
   bottom: 0;
+  backdrop-filter: blur(5px);
 }
 .products .innerTop .cards .lists .cardsPic .rating i {
   float: left;

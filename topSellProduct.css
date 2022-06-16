@@ -304,3 +304,34 @@ body {
     margin: 0 15%;
   }
 }
+
+.topSellingProducts .search {
+  position: relative;
+  width: 30%;
+  height: 35px;
+  margin-left: 20%;
+  /* background-color: red; */
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* margin-right: 2%; */
+}
+.topSellingProducts .search input {
+  padding: 2%;
+  height: 80%;
+  position: absolute;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+}
+.topSellingProducts .search input:focus-visible {
+  border: none;
+  outline: none;
+}
+.topSellingProducts .search i {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
