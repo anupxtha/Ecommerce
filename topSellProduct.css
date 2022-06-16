@@ -233,12 +233,13 @@ body {
 }
 .topSellingProducts .innerTop .cards .lists {
   position: relative;
-  width: 30%;
+  width: 23%;
   height: 500px;
   float: left;
   /* display: flex;
   justify-content: center; */
-  margin: 0 1.667%;
+  margin: 0 1%;
+  margin-bottom: 20px;
   /* margin-right: 2.6666667%; */
 }
 .topSellingProducts .innerTop .cards .lists .cardsPic {
