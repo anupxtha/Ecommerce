@@ -27,7 +27,7 @@ function NavBar() {
         <div className="logo">
           <Link href="/">
             <a>
-              <img src="/images/LEGO.png" alt="Logo" />
+              <img src="/images/2BGamer.png" alt="Logo" />
             </a>
           </Link>
         </div>

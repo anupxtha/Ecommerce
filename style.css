@@ -61,8 +61,8 @@ body {
   /* text-align: center; */
 }
 .navBar .logo img {
-  width: 70% !important;
-  height: 100% !important;
+  width: 70%;
+  height: 100%;
   float: left;
   object-fit: fill;
   /* background-color: blue; */
@@ -190,6 +190,11 @@ body {
     width: auto;
     height: 70px;
     padding: 0;
+    /* background-color: blue; */
+  }
+  .navBar .logo img {
+    height: 70px;
+    /* padding: 0; */
     /* background-color: blue; */
   }
   .navBar .search {
