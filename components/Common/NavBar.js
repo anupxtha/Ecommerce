@@ -51,7 +51,13 @@ function NavBar() {
           {Object.keys(auth).length === 0 ? (
             <Link href="/login">
               <a style={{ color: 'black', margin: '0' }}>
-                <i className="fa-solid fa-user"></i>
+                <div className="profileIcon">
+                  <i className="fa-solid fa-user"></i>
+                </div>
+                <div className="signinInfo">
+                  <p>Namaste, </p>
+                  <p>Sign In</p>
+                </div>
               </a>
             </Link>
           ) : (

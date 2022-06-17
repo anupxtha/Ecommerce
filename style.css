@@ -125,14 +125,54 @@ body {
 }
 
 .navBar .icons {
-  width: 15%;
+  /* width: 15%; */
   float: right;
   height: 100%;
-  /* background-color: red; */
+  width: 20%;
+  /* background-color: blue; */
 
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
+}
+.navBar .icons a {
+  /* background-color: red; */
+  height: 100%;
+  width: auto;
+  float: left;
+
+  font-size: 10px;
+}
+.navBar .icons a .profileIcon {
+  /* background-color: white; */
+  width: 30px;
+  height: 100%;
+  float: left;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navBar .icons a .profileIcon i {
+  font-size: 20px !important;
+}
+.navBar .icons a .signinInfo {
+  /* background-color: white; */
+  height: 100%;
+  float: left;
+  padding: 20px 0;
+  width: 40px;
+  margin: 0 !important;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
+}
+.navBar .icons a .signinInfo p {
+  /* padding: 0 5px 0 0; */
+  margin: 0;
+  float: left;
+  /* background-color: red; */
 }
 .navBar .icons i {
   position: relative;
