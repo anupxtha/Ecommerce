@@ -24,7 +24,7 @@ function NavBar() {
           <img
             src={'http://127.0.0.1:8000' + details.user_proifle.user_image}
             alt='pp'
-            style={{ borderRadius: '50%', width: '40px', height: '40px' }}
+            style={{ borderRadius: '50%', width: '36px', height: '36px' }}
           />
           <div className='dropImage'>
             <Link href='/profile'>
@@ -46,13 +46,17 @@ function NavBar() {
         <div className='logo'>
           <Link href='/'>
             <a>
-              <img src='/images/LEGO.png' alt='Logo' />
+              <img
+                src='/images/2BGamer.png'
+                alt='Logo'
+                style={{ height: '80px', width: '134px' }}
+              />
             </a>
           </Link>
         </div>
         <div className='menu'>
-          <p>Shop</p>
-          <Link href='/sells'>
+          <p>Category</p>
+          <Link href='/sales'>
             <a style={{ color: 'black' }}>
               <p>Sale</p>
             </a>
