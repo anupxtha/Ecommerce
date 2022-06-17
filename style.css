@@ -39,51 +39,64 @@ body {
 .navBar {
   width: 100%;
   float: left;
-  padding: 1% 0 0 0;
+  /* padding: 1% 0 0 0; */
   height: 70px;
   background-color: #c4c4c4;
   font-family: 'Montserrat', sans-serif;
 }
 .navBar .innerNav {
-  height: 36px;
+  height: 100%;
   /* background-color: red; */
   float: left;
   width: 80%;
   margin: 0 10%;
 }
 .navBar .logo {
-  width: 15%;
+  width: 10%;
   float: left;
+  height: 100%;
   /* background-color: blue; */
   margin-right: 2%;
+
+  /* text-align: center; */
+}
+.navBar .logo img {
+  width: 70% !important;
+  height: 100% !important;
+  float: left;
+  object-fit: fill;
+  /* background-color: blue; */
+  /* float: left;
+  
+  margin-right: 2%; */
   /* text-align: center; */
 }
 
 .navBar .menu {
   text-align: center;
-  width: 30%;
+  width: cover;
   height: 100%;
   /* background-color: blue; */
   float: left;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-right: 5%;
+  /* justify-content: center; */
+  margin-right: 20px;
 }
 
 .navBar .menu p {
   text-align: center;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   float: left;
   font-size: 20px;
-  width: 30%;
-  margin: 0;
+  /* width: 30%; */
+  margin: 0 20px 0 0;
   font-weight: bold;
   /* margin: 0 10px; */
 }
 .navBar .search {
   position: relative;
-  width: 30%;
+  width: 45%;
   height: 100%;
   /* background-color: red; */
   float: left;
@@ -95,7 +108,7 @@ body {
 }
 .navBar .search input {
   padding: 2%;
-  height: 80%;
+  height: 60%;
   position: absolute;
   border-radius: 20px;
   border: none;
@@ -123,7 +136,7 @@ body {
 }
 .navBar .icons i {
   position: relative;
-  right: -30px;
+  /* right: -30px; */
   margin: 0 20px;
   font-size: 20px;
   float: left;
