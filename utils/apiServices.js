@@ -1,5 +1,5 @@
 import ApiBaseURLProps from './apiBaseUrl';
-import { postAxios } from './config';
+import { getAxios, postAxios } from './config';
 
 class ApiService {
   registerUser(userData) {
@@ -8,6 +8,10 @@ class ApiService {
 
   loginUser(userData) {
     return postAxios(ApiBaseURLProps.apiBaseURL + '/login/', userData);
+  }
+
+  getProduct() {
+    return getAxios(ApiBaseURLProps.apiBaseURL + '/product/');
   }
 }
 
