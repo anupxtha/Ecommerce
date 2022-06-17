@@ -20,7 +20,17 @@ function TopSellingProduct() {
         <div className="cards">
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
@@ -37,7 +47,17 @@ function TopSellingProduct() {
           </div>
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
@@ -54,7 +74,17 @@ function TopSellingProduct() {
           </div>
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
@@ -71,7 +101,17 @@ function TopSellingProduct() {
           </div>
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
@@ -88,7 +128,17 @@ function TopSellingProduct() {
           </div>
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
@@ -105,7 +155,17 @@ function TopSellingProduct() {
           </div>
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
@@ -122,7 +182,17 @@ function TopSellingProduct() {
           </div>
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
@@ -139,7 +209,17 @@ function TopSellingProduct() {
           </div>
           <div className="lists">
             <div className="cardsPic">
-              <img src="" alt="" />
+              <div className="cardImage">
+                <img src="" alt="Item" />
+              </div>
+              <div className="descriptions">
+                <p>Title</p>
+                <p>Categoty</p>
+                <p>
+                  <s>price before discount</s>
+                </p>
+                <p>real price</p>
+              </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>

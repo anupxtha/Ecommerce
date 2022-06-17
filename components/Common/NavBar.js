@@ -46,6 +46,8 @@ function NavBar() {
           <i className="fa-solid fa-magnifying-glass"></i>
         </div>
         <div className="icons">
+          <i className="fa-solid fa-heart"></i>
+          <i className="fa-solid fa-cart-shopping"></i>
           {Object.keys(auth).length === 0 ? (
             <Link href="/login">
               <a style={{ color: 'black', margin: '0' }}>
@@ -55,9 +57,6 @@ function NavBar() {
           ) : (
             LoggedRouter()
           )}
-
-          <i className="fa-solid fa-heart"></i>
-          <i className="fa-solid fa-cart-shopping"></i>
         </div>
       </div>
     </div>
