@@ -5,6 +5,7 @@ import apiServices from '../../utils/apiServices';
 function TopProduct() {
   const [productData, SetProductData] = useState([]);
 
+  console.log(productData);
   useEffect(() => {
     apiServices
       .getProduct()
