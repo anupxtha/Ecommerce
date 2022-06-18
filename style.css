@@ -66,6 +66,7 @@ body {
   float: left;
   object-fit: fill;
   /* background-color: blue; */
+
   /* float: left;
   
   margin-right: 2%; */
@@ -74,7 +75,7 @@ body {
 
 .navBar .menu {
   text-align: center;
-  width: cover;
+  width: 25%;
   height: 100%;
   /* background-color: blue; */
   float: left;
@@ -88,7 +89,8 @@ body {
   text-align: center;
   letter-spacing: 2px;
   float: left;
-  font-size: 20px;
+  cursor: pointer;
+  font-size: 18px;
   /* width: 30%; */
   margin: 0 20px 0 0;
   font-weight: bold;
@@ -96,7 +98,7 @@ body {
 }
 .navBar .search {
   position: relative;
-  width: 45%;
+  width: 40%;
   height: 100%;
   /* background-color: red; */
   float: left;
@@ -213,6 +215,67 @@ body {
   display: block;
   z-index: 99999;
 }
+.navBar .menu .catDropDown {
+  position: relative;
+  float: left;
+  height: 100%;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
+}
+.navBar .menu .catDropDown .heading {
+  height: 100%;
+  display: flex;
+  float: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
+}
+
+.navBar .innerCategoryDrop {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 70px;
+  width: 1000px;
+  float: left;
+  background-color: #e5e5e5;
+  padding: 10px 20px;
+}
+.navBar .innerCategoryDrop .first {
+  width: 33.33%;
+  padding: 1% 1%;
+  /* height: 100px; */
+  /* background-color: blue; */
+  float: left;
+  /* margin-bottom: 10px; */
+}
+.navBar .innerCategoryDrop .first .catTitle {
+  font-size: 18px !important;
+  /* background-color: red; */
+}
+.navBar .innerCategoryDrop .first p {
+  width: 100%;
+  /* background-color: white; */
+  float: left;
+  text-align: left;
+  font-size: 13px;
+}
+.navBar .menu .catDropDown:hover .innerCategoryDrop {
+  display: block;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
+}
+
 @media screen and (max-width: 1000px) {
   .navBar .icons {
     display: none;
