@@ -50,7 +50,7 @@ function NavBar() {
           </Link>
         </div>
         <div className='menu'>
-          <p>Shop</p>
+          <p>Category</p>
           <Link href='/sales'>
             <a style={{ color: 'black' }}>
               <p>Sale</p>

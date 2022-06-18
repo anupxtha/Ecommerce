@@ -21,14 +21,15 @@ function TopProduct() {
   }, []);
 
   return (
-    <div className="topSell">
-      <div className="innerTop">
+    <div className='topSell'>
+      <div className='innerTop'>
         <p>Top Selling Product</p>
         <div className='cards'>
           {productData &&
-            productData.map((list, index) => {
+            productData.map(list => {
               return (
-                <div key={index} className='lists'>
+                <div key={list.id} className='lists'>
+                  
                   <div className='cardsPic'>
                     <img
                       src={'http://127.0.0.1:8000' + list.product_image}
@@ -108,8 +109,8 @@ function TopProduct() {
             </div>
           </div> */}
         </div>
-        <div className="btns">
-          <Link href="/sales">
+        <div className='btns'>
+          <Link href='/sales'>
             <a>
               <button>View More</button>
             </a>
