@@ -27,9 +27,7 @@ function NavBar() {
           />
           <div className="dropImage">
             <Link href="/profile">
-              <a style={{ color: 'black' }}>
-                <p>Profile</p>
-              </a>
+              <p style={{ color: 'black' }}>Profile</p>
             </Link>
             <p onClick={() => handleLogout()}>Logout</p>
           </div>
@@ -105,7 +103,12 @@ function NavBar() {
         </div>
         <div className="icons">
           <i className="fa-solid fa-heart"></i>
-          <i className="fa-solid fa-cart-shopping"></i>
+          <i
+            className="fa-solid fa-cart-shopping"
+            style={{ position: 'relative' }}
+          >
+            <span>0</span>
+          </i>
           {Object.keys(auth).length === 0 ? (
             <Link href="/login">
               <a style={{ color: 'black', margin: '0' }}>
