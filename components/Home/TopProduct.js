@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import apiServices from '../../utils/apiServices';
+import { DataContext } from '../../store/GlobalState';
 
 function TopProduct() {
+  const [state, dispatch] = useContext(DataContext);
   const [productData, SetProductData] = useState([]);
 
   console.log(productData);
@@ -29,7 +31,6 @@ function TopProduct() {
             productData.map(list => {
               return (
                 <div key={list.id} className='lists'>
-                  
                   <div className='cardsPic'>
                     <img
                       src={'http://127.0.0.1:8000' + list.product_image}
@@ -49,6 +50,20 @@ function TopProduct() {
                     <p>{list.product_name}</p>
                     <p>{list.product_price}</p>
                   </div>
+                  <Link
+                    href={
+                      '/product/' +
+                      list.product_category.category_name.replace(' ', '-') +
+                      '/' +
+                      list.product_name.replace(' ', '-') +
+                      '-' +
+                      list.id
+                    }
+                  >
+                    <a>
+                      <p>{list.product_name}</p>
+                    </a>
+                  </Link>
                 </div>
               );
             })}
