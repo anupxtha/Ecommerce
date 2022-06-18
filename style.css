@@ -134,7 +134,7 @@ body {
   /* background-color: blue; */
 
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 }
 .navBar .icons a {
@@ -183,6 +183,12 @@ body {
   font-size: 20px;
   float: left;
 }
+.navBar .icons i span {
+  position: absolute;
+  font-size: 13px;
+  top: -10px;
+  color: red;
+}
 .dropdown {
   display: none;
 }
@@ -192,6 +198,7 @@ body {
   height: 40px;
   float: left;
   border-radius: 50px;
+  margin: 0 0 0 20px;
   /* font-size: 5px; */
   /* border: 1px solid black; */
 }
@@ -294,6 +301,9 @@ body {
     height: 70px;
     padding: 0;
     /* background-color: blue; */
+  }
+  .navBar .userImage {
+    margin: 0 20px;
   }
   .navBar .logo img {
     height: 70px;
