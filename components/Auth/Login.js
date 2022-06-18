@@ -3,6 +3,7 @@ import Link from 'next/link';
 import apiServices from '../../utils/apiServices';
 import { DataContext } from '../../store/GlobalState';
 import { useRouter } from 'next/router';
+import valid from '../../utils/valid';
 
 function Login() {
   const [state, dispatch] = useContext(DataContext);
@@ -17,19 +18,22 @@ function Login() {
     }
   }, [auth]);
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = e => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
     dispatch({ type: 'NOTIFY', payload: {} });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
+    const errMsg = valid(userData.email, userData.password);
+
+    if (errMsg) return dispatch({ type: 'NOTIFY', payload: { error: errMsg } });
     // dispatch({ type: 'NOTIFY', payload: { loading: true } });
 
     apiServices
       .loginUser(userData)
-      .then((response) => {
+      .then(response => {
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'Welcome ' + response.data.user_id },
@@ -45,7 +49,7 @@ function Login() {
         sessionStorage.setItem('authToken', JSON.stringify(response.data));
         router.push('/');
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -54,10 +58,10 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <p className="head">LOGIN</p>
+    <div className='login'>
+      <p className='head'>LOGIN</p>
       <form style={{ width: '100%' }} onSubmit={handleSubmit}>
-        <div className="form">
+        <div className='form'>
           <label>
             Email{' '}
             <span style={{ color: 'red' }}>
@@ -65,14 +69,14 @@ function Login() {
             </span>
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type='email'
+            id='email'
+            name='email'
             value={userData.email}
             onChange={handleChangeInput}
           />
         </div>
-        <div className="form">
+        <div className='form'>
           <label>
             Password{' '}
             <span style={{ color: 'red' }}>
@@ -80,27 +84,27 @@ function Login() {
             </span>
           </label>
           <input
-            type="password"
-            id="password"
-            name="password"
+            type='password'
+            id='password'
+            name='password'
             value={userData.password}
             onChange={handleChangeInput}
           />
         </div>
-        <div className="formBtn">
-          <button type="submit" className="grayBtn">
+        <div className='formBtn'>
+          <button type='submit' className='grayBtn'>
             Login
           </button>
         </div>
       </form>
-      <div className="Line">
-        <span className="shortLine"></span>
+      <div className='Line'>
+        <span className='shortLine'></span>
         <span>OR</span>
-        <span className="shortLine"></span>
+        <span className='shortLine'></span>
       </div>
-      <Link href="/register">
+      <Link href='/register'>
         <a>
-          <p className="registerMsg">CREATE NEW ACCOUNT</p>
+          <p className='registerMsg'>CREATE NEW ACCOUNT</p>
         </a>
       </Link>
     </div>

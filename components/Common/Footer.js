@@ -6,7 +6,7 @@ function Footer() {
       <div className='innerFooter'>
         <div className='logo'>
           <div className='innerLogo'>
-            <img src='images/LEGO.png' alt='Logo' />
+            <img src='/images/LEGO.png' alt='Logo' />
           </div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent

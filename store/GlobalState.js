@@ -7,6 +7,7 @@ export const DataProvider = ({ children }) => {
   const initialState = {
     notify: {},
     auth: {},
+    cart: [],
   };
 
   useEffect(() => {

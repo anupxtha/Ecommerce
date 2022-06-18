@@ -13,6 +13,10 @@ class ApiService {
   getProduct() {
     return getAxios(ApiBaseURLProps.apiBaseURL + '/product/');
   }
+
+  getUniqueProduct(id) {
+    return postAxios(ApiBaseURLProps.apiBaseURL + '/unique/product/?id=' + id);
+  }
 }
 
 export default new ApiService();

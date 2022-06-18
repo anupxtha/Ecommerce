@@ -8,13 +8,14 @@ function TopProduct() {
   const [productData, SetProductData] = useState([]);
 
   console.log(productData);
+
   useEffect(() => {
     apiServices
       .getProduct()
-      .then((response) => {
+      .then(response => {
         SetProductData(response.data.slice(0, 4));
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -23,30 +24,30 @@ function TopProduct() {
   }, []);
 
   return (
-    <div className="topSell">
-      <div className="innerTop">
+    <div className='topSell'>
+      <div className='innerTop'>
         <p>Top Selling Product</p>
-        <div className="cards">
+        <div className='cards'>
           {productData &&
-            productData.map((list) => {
+            productData.map(list => {
               return (
                 <div key={list.id} className='lists'>
                   <div className='cardsPic'>
                     <img
                       src={'http://127.0.0.1:8000' + list.product_image}
-                      alt=""
+                      alt=''
                       style={{ width: '100%', height: '100%' }}
                     />
-                    <div className="rating">
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-regular fa-heart"></i>
+                    <div className='rating'>
+                      <i className='fa-solid fa-star'></i>
+                      <i className='fa-solid fa-star'></i>
+                      <i className='fa-solid fa-star'></i>
+                      <i className='fa-solid fa-star'></i>
+                      <i className='fa-solid fa-star'></i>
+                      <i className='fa-regular fa-heart'></i>
                     </div>
                   </div>
-                  <div className="details">
+                  <div className='details'>
                     <p>{list.product_name}</p>
                     <p>{list.product_price}</p>
                   </div>
@@ -124,8 +125,8 @@ function TopProduct() {
             </div>
           </div> */}
         </div>
-        <div className="btns">
-          <Link href="/sales">
+        <div className='btns'>
+          <Link href='/sales'>
             <a>
               <button>View More</button>
             </a>
