@@ -15,25 +15,48 @@
   letter-spacing: 10px;
   font-size: 25px;
 }
-.register .form {
+.register .containForm {
   width: 100%;
+  float: left;
+  height: 120px;
+}
+.register .form {
+  width: 50%;
+  float: left;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .register .form label {
-  width: 60%;
+  /* width: 90%; */
   /* padding: 10px; */
   float: left;
   margin-bottom: 20px;
 }
 .register .form input {
-  width: 60%;
+  width: 90%;
   padding: 10px;
   float: left;
   margin-bottom: 30px !important;
+}
+.register .form select {
+  width: 90%;
+  padding: 10px;
+  float: left;
+  margin-bottom: 30px !important;
+}
+.register .radios {
+}
+.register .radios input {
+  width: auto !important;
+  background-color: red !important;
+}
+.register .radios label {
+  width: auto !important;
+  /* background-color: red; */
+  float: left !important;
 }
 .Line {
   width: 50%;

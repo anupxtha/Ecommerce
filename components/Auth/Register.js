@@ -18,13 +18,13 @@ function Register() {
     }
   }, [auth]);
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
     dispatch({ type: 'NOTIFY', payload: {} });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const errMsg = valid(userData.email, userData.password);
 
@@ -34,7 +34,7 @@ function Register() {
 
     apiServices
       .registerUser(userData)
-      .then(response => {
+      .then((response) => {
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'Successfully Register' },
@@ -42,7 +42,7 @@ function Register() {
         router.push('/login');
         // console.log(response.data);
       })
-      .catch(err => {
+      .catch((err) => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -51,38 +51,108 @@ function Register() {
   };
 
   return (
-    <div className='register'>
-      <p className='head'>WELCOME TO LEGO</p>
+    <div className="register">
+      <p className="head">WELCOME TO LEGO</p>
       <form style={{ width: '60%' }} onSubmit={handleSubmit}>
-        <div className='form'>
-          <label>
-            Email{' '}
-            <span style={{ color: 'red' }}>
-              *<br />
-            </span>
-          </label>
-          <input
-            type='email'
-            id='email'
-            name='email'
-            value={userData.email}
-            onChange={handleChangeInput}
-          />
+        <div className="containForm">
+          <div className="form">
+            <label>
+              First Name
+              <span style={{ color: 'red' }}>
+                *<br />
+              </span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={userData.email}
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div className="form">
+            <label>
+              Email
+              <span style={{ color: 'red' }}>
+                *<br />
+              </span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={userData.email}
+              onChange={handleChangeInput}
+            />
+          </div>
         </div>
-        <div className='form'>
-          <label>
-            Password{' '}
-            <span style={{ color: 'red' }}>
-              *<br />
-            </span>
-          </label>
-          <input
-            type='password'
-            id='password'
-            name='password'
-            value={userData.password}
-            onChange={handleChangeInput}
-          />
+        <div className="containForm">
+          <div className="form">
+            <label>
+              Address
+              <span style={{ color: 'red' }}>
+                *<br />
+              </span>
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={userData.email}
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div className="form radios">
+            <label>
+              Gender
+              <span style={{ color: 'red' }}>
+                *<br />
+              </span>
+            </label>
+            {/* <input
+              type="text"
+              id="gender"
+              name="gender"
+              value={userData.email}
+              onChange={handleChangeInput}
+            /> */}
+            <select name="gender" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div className="containForm">
+          <div className="form">
+            <label>
+              Phone
+              <span style={{ color: 'red' }}>
+                *<br />
+              </span>
+            </label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              value={userData.email}
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div className="form">
+            <label>
+              Password
+              <span style={{ color: 'red' }}>
+                *<br />
+              </span>
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={userData.password}
+              onChange={handleChangeInput}
+            />
+          </div>
         </div>
         {/* <div className='form'>
           <label className='label'>
@@ -102,19 +172,19 @@ function Register() {
           </label>
           <input type='text' id='email' name='email' />
         </div> */}
-        <div className='registerBtn'>
-          <button type='submit' className='grayBtn'>
+        <div className="registerBtn">
+          <button type="submit" className="grayBtn">
             SIGN ME UP
           </button>
         </div>
       </form>
 
-      <div className='Line'>
-        <span className='shortLine'></span>
+      <div className="Line">
+        <span className="shortLine"></span>
         <span>OR</span>
-        <span className='shortLine'></span>
+        <span className="shortLine"></span>
       </div>
-      <p className='grayBtn'>SIGN ME UP WITH GOOGLE</p>
+      <p className="grayBtn">SIGN ME UP WITH GOOGLE</p>
     </div>
   );
 }
