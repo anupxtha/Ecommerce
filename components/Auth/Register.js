@@ -117,8 +117,12 @@ function Register() {
               onChange={handleChangeInput}
             /> */}
             <select name="gender" id="gender">
+              <option value="male" defaultChecked disabled>
+                Choose Your Gender
+              </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
+              <option value="male">Other</option>
             </select>
           </div>
         </div>
