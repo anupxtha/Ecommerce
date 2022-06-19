@@ -178,12 +178,15 @@ function ProductDetail(props) {
                 {/* <div>Quantity</div>  */}
                 <div className='btns'>
                   <button
+                    className='cartBtn'
                     style={{ backgroundColor: '#787878', marginLeft: '7.5%' }}
                     onClick={() => checkLoginStatus(uniProduct)}
                   >
                     Add to cart
                   </button>
-                  <button style={{ marginLeft: '5%' }}>Buy Now</button>
+                  <button className='cartBtn' style={{ marginLeft: '5%' }}>
+                    Buy Now
+                  </button>
                 </div>
               </div>
               {/* </form> */}
