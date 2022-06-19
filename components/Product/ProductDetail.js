@@ -151,7 +151,7 @@ function ProductDetail(props) {
                     >
                       -
                     </button>
-                  </span>
+                  </span> 
                   <span className='count'>{count}</span>
                   <span>
                     <button
