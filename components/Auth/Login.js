@@ -34,9 +34,10 @@ function Login() {
     apiServices
       .loginUser(userData)
       .then(response => {
+        console.log(response.data);
         dispatch({
           type: 'NOTIFY',
-          payload: { success: 'Welcome ' + response.data.user_id },
+          payload: { success: 'Welcome ' + response.data.user_proifle.name },
         });
 
         dispatch({

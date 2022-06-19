@@ -34,7 +34,12 @@ function TopProduct() {
                 <div key={list.id} className='lists'>
                   <div className='cardsPic'>
                     <img
-                      src={'http://127.0.0.1:8000' + list.product_image}
+                      src={
+                        'http://127.0.0.1:8000' +
+                        list.product_image[
+                          Math.floor(Math.random() * list.product_image.length)
+                        ].product_image
+                      }
                       alt=''
                       style={{ width: '100%', height: '100%' }}
                     />

@@ -1,5 +1,5 @@
 import ApiBaseURLProps from './apiBaseUrl';
-import { getAxios, postAxios } from './config';
+import { getAxios, getCartAxios, postAxios, postCartAxios } from './config';
 
 class ApiService {
   registerUser(userData) {
@@ -16,6 +16,16 @@ class ApiService {
 
   getUniqueProduct(id) {
     return postAxios(ApiBaseURLProps.apiBaseURL + '/unique/product/?id=' + id);
+  }
+
+  postAddToCart(id, quantity) {
+    return postCartAxios(
+      ApiBaseURLProps.apiBaseURL + '/cart/?id=' + id + '&quantity=' + quantity
+    );
+  }
+
+  getAddToCart() {
+    return getCartAxios(ApiBaseURLProps.apiBaseURL + '/cart/');
   }
 }
 

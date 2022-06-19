@@ -15,7 +15,7 @@ const Post = () => {
       {num && (
         <>
           <ProductDetail pid={num} />
-          <ProductDescription />
+          {/* <ProductDescription /> */}
           <ProductSuggestion />
         </>
       )}

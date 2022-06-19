@@ -134,7 +134,7 @@ body {
   /* background-color: blue; */
 
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 .navBar .icons a {

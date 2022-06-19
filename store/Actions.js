@@ -4,15 +4,15 @@ export const ACTIONS = {
   ADD_CART: 'ADD_CART',
 };
 
-export const addToCart = (product, cart) => {
-  if (product.product_discount === 0)
+export const addToCart = (product, quantity, cart) => {
+  if (product.product_quantity === 0)
     return {
       type: 'NOTIFY',
       payload: { error: 'This product is out of stock' },
     };
 
   const check = cart.every(item => {
-    return item._id !== product.id;
+    return item.id !== product.id;
   });
 
   if (!check)
@@ -21,5 +21,8 @@ export const addToCart = (product, cart) => {
       payload: { error: 'The product is already in cart' },
     };
 
-  return { type: 'ADD_CART', payload: [...cart, { ...product, quantity: 1 }] };
+  return {
+    type: 'ADD_CART',
+    payload: [...cart, { ...product, quantity: quantity }],
+  };
 };

@@ -23,11 +23,19 @@ function Toast(props) {
 
   const msgNotify = () => {
     if (!toast.isActive(toastId.current)) {
-      toastId.current = toast(props.msg);
-      let timer1 = setTimeout(() => props.handleShow(), 2500);
-      return () => {
-        clearTimeout(timer1);
-      };
+      if (props.error) {
+        toastId.current = toast.error(props.error);
+        let timer1 = setTimeout(() => props.handleShow(), 2500);
+        return () => {
+          clearTimeout(timer1);
+        };
+      } else {
+        toastId.current = toast.success(props.success);
+        let timer1 = setTimeout(() => props.handleShow(), 2500);
+        return () => {
+          clearTimeout(timer1);
+        };
+      }
     }
   };
 
@@ -36,8 +44,8 @@ function Toast(props) {
   };
 
   const CloseButton = () => (
-    <i className='material-icons' onClick={closeToast}>
-      Del
+    <i className='material-icons'>
+      <span className='fa-solid fa-times' onClick={closeToast}></span>
     </i>
   );
 

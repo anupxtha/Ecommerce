@@ -10,6 +10,10 @@ export const DataProvider = ({ children }) => {
     cart: [],
   };
 
+  const [state, dispatch] = useReducer(reducers, initialState);
+
+  const { cart } = state;
+
   useEffect(() => {
     const status = sessionStorage.getItem('loginStatus');
     if (status) {
@@ -17,7 +21,20 @@ export const DataProvider = ({ children }) => {
     }
   }, []);
 
-  const [state, dispatch] = useReducer(reducers, initialState);
+  useEffect(() => {
+    const cartProduct = JSON.parse(localStorage.getItem('cartProduct'));
+
+    if (cartProduct) {
+      dispatch({
+        type: 'ADD_CART',
+        payload: cartProduct,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cartProduct', JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <DataContext.Provider value={[state, dispatch]}>
