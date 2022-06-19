@@ -210,7 +210,7 @@ body {
   display: none;
 
   float: left;
-  background-color: rgb(224, 224, 224);
+
   width: 150px;
 }
 .navBar .hoverImage .dropImage p {
@@ -224,7 +224,16 @@ body {
 .navBar .hoverImage:hover .dropImage {
   position: relative;
   display: block;
+  float: right;
   z-index: 99999;
+  padding-top: 10px;
+}
+.navBar .hoverImage:hover .dropImage .innerDropImage {
+  /* margin-top: 50px; */
+  width: 100%;
+  float: left;
+  /* background-color: rgb(224, 224, 224); */
+  background-color: white;
 }
 .navBar .menu .catDropDown {
   position: relative;
