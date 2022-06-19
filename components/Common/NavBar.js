@@ -124,8 +124,11 @@ function NavBar() {
                   <i className="fa-solid fa-user"></i>
                 </div>
                 <div className="signinInfo">
-                  <p>Namaste, </p>
-                  <p>Sign In</p>
+                  <p>
+                    Namaste, <br />
+                    Sign In
+                  </p>
+                  {/* <p></p> */}
                 </div>
               </a>
             </Link>

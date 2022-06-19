@@ -134,7 +134,7 @@ body {
   /* width: 15%; */
   float: right;
   height: 100%;
-  width: 15%;
+  /* width: 15%; */
   /* background-color: blue; */
 
   display: flex;
@@ -151,23 +151,24 @@ body {
 }
 .navBar .icons a .profileIcon {
   /* background-color: white; */
-  width: 30px;
+  /* width: 30px; */
   height: 100%;
   float: left;
-  margin: 0 !important;
+  margin: 0 0 0 20px !important;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .navBar .icons a .profileIcon i {
   font-size: 20px !important;
+  margin: 0;
 }
 .navBar .icons a .signinInfo {
   /* background-color: white; */
   height: 100%;
   float: left;
   padding: 20px 0;
-  width: 40px;
+  /* width: 40px; */
   margin: 0 !important;
   /* display: flex;
   align-items: center;
@@ -176,14 +177,15 @@ body {
 }
 .navBar .icons a .signinInfo p {
   /* padding: 0 5px 0 0; */
-  margin: 0;
+  margin: 0 0 0 5px;
+  width: 50px;
   float: left;
   /* background-color: red; */
 }
 .navBar .icons i {
   position: relative;
   /* right: -30px; */
-  margin: 0 20px;
+  margin: 0 0 0 20px;
   font-size: 20px;
   float: left;
 }
