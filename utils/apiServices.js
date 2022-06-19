@@ -20,7 +20,14 @@ class ApiService {
 
   postAddToCart(id, quantity) {
     return postCartAxios(
-      ApiBaseURLProps.apiBaseURL + '/cart/?id=' + id + '&quantity=' + quantity
+      ApiBaseURLProps.apiBaseURL +
+        '/cart/?id=' +
+        id +
+        '&quantity=' +
+        quantity +
+        '&size=' +
+        42 +
+        '&color=Red'
     );
   }
 

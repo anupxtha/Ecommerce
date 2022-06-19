@@ -44,13 +44,13 @@ function ProductDetail(props) {
     const status = sessionStorage.getItem('loginStatus');
     const authToken = sessionStorage.getItem('authToken');
     if (status) {
-      dispatch(addToCart(selectedProduct, userData.quantity, cart));
+      // dispatch(addToCart(selectedProduct, userData.quantity, cart));
 
       // apiServices
-      //   .postAddToCart(selectedProduct.id, userData.quantity)
+      //   .getAddToCart()
       //   .then(response => {
       //     console.log(response);
-      //     dispatch(addToCart(selectedProduct, userData.quantity, cart));
+      //     // dispatch(addToCart(selectedProduct, userData.quantity, cart));
       //   })
       //   .catch(err => {
       //     dispatch({
@@ -58,6 +58,18 @@ function ProductDetail(props) {
       //       payload: { error: err.message },
       //     });
       //   });
+      apiServices
+        .postAddToCart(selectedProduct.id, userData.quantity)
+        .then(response => {
+          console.log(response);
+          dispatch(addToCart(selectedProduct, userData.quantity, cart));
+        })
+        .catch(err => {
+          dispatch({
+            type: 'NOTIFY',
+            payload: { error: err.message },
+          });
+        });
     } else {
       router.push('/login');
     }
@@ -131,7 +143,7 @@ function ProductDetail(props) {
                 </p>
                 <p>
                   Quantity
-                  <button
+                  {/* <button
                     onClick={() => {
                       count + 1 > uniProduct.product_quantity
                         ? setCount(count)
@@ -147,15 +159,15 @@ function ProductDetail(props) {
                     }}
                   >
                     -
-                  </button>
-                  {/* Qunatity :{' '}
+                  </button> */}
+                  Qunatity :{' '}
                   <input
                     type='number'
                     id='quantity'
                     name='quantity'
                     value={userData.quantity}
                     onChange={handleChangeInput}
-                  /> */}
+                  />
                 </p>
                 <div className='filter'>
                   <p>Color</p>
