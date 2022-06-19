@@ -141,37 +141,50 @@ function ProductDetail(props) {
                   {uniProduct.product_price - uniProduct.get_discounted_price}{' '}
                   {'  '}({uniProduct.product_discount}%)
                 </p>
-                <p>
-                  Quantity
-                  {/* <button
-                    onClick={() => {
-                      count + 1 > uniProduct.product_quantity
-                        ? setCount(count)
-                        : setCount(count + 1);
-                    }}
-                  >
-                    +
-                  </button>
-                  {count}
-                  <button
-                    onClick={() => {
-                      count - 1 < 0 ? setCount(0) : setCount(count - 1);
-                    }}
-                  >
-                    -
-                  </button> */}
-                  Qunatity :{' '}
+                <div className='quantity'>
+                  <p>Quantity</p>
+                  <span>
+                    <button
+                      onClick={() => {
+                        count - 1 < 0 ? setCount(0) : setCount(count - 1);
+                      }}
+                    >
+                      -
+                    </button>
+                  </span>
+                  <span className='count'>{count}</span>
+                  <span>
+                    <button
+                      onClick={() => {
+                        count + 1 > uniProduct.product_quantity
+                          ? setCount(count)
+                          : setCount(count + 1);
+                      }}
+                    >
+                      +
+                    </button>
+                  </span>
+
+                  {/* Qunatity :{' '}
                   <input
                     type='number'
                     id='quantity'
                     name='quantity'
                     value={userData.quantity}
                     onChange={handleChangeInput}
-                  />
-                </p>
+                  /> */}
+                </div>
                 <div className='filter'>
-                  <p>Color</p>
-                  <p>Size</p>
+                  <div className='color'>
+                    <p>Color</p>
+                    <span className=''>Red</span>
+                    <span className=''>Green</span>
+                  </div>
+                  <div className='size'>
+                    <p>Size</p>
+                    <span className=''>L</span>
+                    <span className=''>M</span>
+                  </div>
                 </div>
               </div>
               <div className='buttons'>
