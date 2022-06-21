@@ -123,13 +123,14 @@ function NavBar() {
                 <div className="profileIcon">
                   <i className="fa-solid fa-user"></i>
                 </div>
+
                 <div className="signinInfo">
                   <p>
                     Namaste, <br />
                     Sign In
                   </p>
-                  {/* <p></p> */}
                 </div>
+                {/* <p></p> */}
               </a>
             </Link>
           ) : (

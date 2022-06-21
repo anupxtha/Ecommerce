@@ -20,7 +20,7 @@ function ProductDetail(props) {
 
   console.log(uniProduct);
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = e => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
     dispatch({ type: 'NOTIFY', payload: {} });
@@ -29,10 +29,10 @@ function ProductDetail(props) {
   useEffect(() => {
     apiServices
       .getUniqueProduct(pid)
-      .then((response) => {
+      .then(response => {
         SetUniProduct(response.data);
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -40,17 +40,17 @@ function ProductDetail(props) {
       });
   }, []);
 
-  const checkLoginStatus = (selectedProduct) => {
+  const checkLoginStatus = selectedProduct => {
     const status = sessionStorage.getItem('loginStatus');
     const authToken = sessionStorage.getItem('authToken');
     if (status) {
-      dispatch(addToCart(selectedProduct, userData.quantity, cart));
+      // dispatch(addToCart(selectedProduct, userData.quantity, cart));
 
       // apiServices
-      //   .postAddToCart(selectedProduct.id, userData.quantity)
+      //   .getAddToCart()
       //   .then(response => {
       //     console.log(response);
-      //     dispatch(addToCart(selectedProduct, userData.quantity, cart));
+      //     // dispatch(addToCart(selectedProduct, userData.quantity, cart));
       //   })
       //   .catch(err => {
       //     dispatch({
@@ -58,6 +58,18 @@ function ProductDetail(props) {
       //       payload: { error: err.message },
       //     });
       //   });
+      apiServices
+        .postAddToCart(selectedProduct.id, userData.quantity)
+        .then(response => {
+          console.log(response);
+          dispatch(addToCart(selectedProduct, userData.quantity, cart));
+        })
+        .catch(err => {
+          dispatch({
+            type: 'NOTIFY',
+            payload: { error: err.message },
+          });
+        });
     } else {
       router.push('/login');
     }
@@ -66,71 +78,81 @@ function ProductDetail(props) {
   return (
     <>
       {uniProduct && (
-        <div className="productDetails">
-          <div className="innerProductDetail">
-            <div className="productImage">
-              <div className="active">
+        <div className='productDetails'>
+          <div className='innerProductDetail'>
+            <div className='productImage'>
+              <div className='active'>
                 <img
                   src={
                     'http://127.0.0.1:8000' +
                     uniProduct.product_image[0].product_image
                   }
-                  alt=""
+                  alt=''
                   style={{ width: '100%', height: '100%' }}
                 />
               </div>
-              <div className="nextImg">
-                <div className="innerNextImg" style={{ marginTop: '0%' }}>
+              <div className='nextImg'>
+                <div className='innerNextImg' style={{ marginTop: '0%' }}>
                   <img
                     src={
                       'http://127.0.0.1:8000' +
                       uniProduct.product_image[1].product_image
                     }
-                    alt=""
+                    alt=''
                     style={{ width: '100%', height: '100%' }}
                   />
                 </div>
-                <div className="innerNextImg">
+                <div className='innerNextImg'>
                   <img
                     src={
                       'http://127.0.0.1:8000' +
                       uniProduct.product_image[2].product_image
                     }
-                    alt=""
+                    alt=''
                     style={{ width: '100%', height: '100%' }}
                   />
                 </div>
-                <div className="innerNextImg" style={{ marginBottom: '0%' }}>
+                <div className='innerNextImg' style={{ marginBottom: '0%' }}>
                   <img
                     src={
                       'http://127.0.0.1:8000' +
                       uniProduct.product_image[3].product_image
                     }
-                    alt=""
+                    alt=''
                     style={{ width: '100%', height: '100%' }}
                   />
                 </div>
               </div>
             </div>
-            <div className="productDescription">
+            <div className='productDescription'>
               {/* <form action=''> */}
-              <p className="innerTitle">
+              <p className='innerTitle'>
                 Title
                 <span>
-                  <i className="fa-solid fa-share-nodes"></i>
-                  <i className="fa-regular fa-heart"></i>
+                  <i className='fa-solid fa-share-nodes'></i>
+                  <i className='fa-regular fa-heart'></i>
                 </span>
               </p>
-              <div className="innerDescription">
-                <p className="description">{uniProduct.product_description}</p>
-                <p className="price">Price : Rs. {uniProduct.product_price}</p>
-                <p className="price">
+              <div className='innerDescription'>
+                <p className='description'>{uniProduct.product_description}</p>
+                <p className='price'>Price : Rs. {uniProduct.product_price}</p>
+                <p className='price'>
                   After Discount : Rs.{' '}
                   {uniProduct.product_price - uniProduct.get_discounted_price}{' '}
                   {'  '}({uniProduct.product_discount}%)
                 </p>
-                <div className="quantity">
+                <div className='quantity'>
                   <p>Quantity</p>
+                  <span>
+                    <button
+                      onClick={() => {
+                        count - 1 < 0 ? setCount(0) : setCount(count - 1);
+                      }}
+                    >
+                      -
+                    </button>
+                  </span>
+                  <span className='count'>{count}</span>
                   <span>
                     <button
                       onClick={() => {
@@ -143,16 +165,6 @@ function ProductDetail(props) {
                     </button>
                   </span>
 
-                  <span className="count">{count}</span>
-                  <span>
-                    <button
-                      onClick={() => {
-                        count - 1 < 0 ? setCount(0) : setCount(count - 1);
-                      }}
-                    >
-                      -
-                    </button>
-                  </span>
                   {/* Qunatity :{' '}
                   <input
                     type='number'
@@ -162,30 +174,30 @@ function ProductDetail(props) {
                     onChange={handleChangeInput}
                   /> */}
                 </div>
-                <div className="filter">
-                  <div className="color">
+                <div className='filter'>
+                  <div className='color'>
                     <p>Color</p>
-                    <span className="">Red</span>
-                    <span className="">Green</span>
+                    <span className=''>Red</span>
+                    <span className=''>Green</span>
                   </div>
-                  <div className="size">
+                  <div className='size'>
                     <p>Size</p>
-                    <span className="">L</span>
-                    <span className="">M</span>
+                    <span className=''>L</span>
+                    <span className=''>M</span>
                   </div>
                 </div>
               </div>
-              <div className="buttons">
+              <div className='buttons'>
                 {/* <div>Quantity</div>  */}
-                <div className="btns">
+                <div className='btns'>
                   <button
-                    className="cartBtn"
+                    className='cartBtn'
                     style={{ backgroundColor: '#787878', marginLeft: '7.5%' }}
                     onClick={() => checkLoginStatus(uniProduct)}
                   >
                     Add to cart
                   </button>
-                  <button className="cartBtn" style={{ marginLeft: '5%' }}>
+                  <button className='cartBtn' style={{ marginLeft: '5%' }}>
                     Buy Now
                   </button>
                 </div>
