@@ -11,19 +11,29 @@ function ProductDetail(props) {
   const { pid } = props;
   const [uniProduct, SetUniProduct] = useState(null);
 
-  const initialState = { quantity: '' };
-  const [userData, setUserData] = useState(initialState);
+  // const initialState = { quantity: '' };
+  // const [userData, setUserData] = useState(initialState);
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
+  const [size, setSize] = useState(0);
+  const [color, setColor] = useState('');
 
   const router = useRouter();
 
-  console.log(uniProduct);
+  console.log(color, size, count);
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
     dispatch({ type: 'NOTIFY', payload: {} });
+  };
+
+  const chooseColor = color => {
+    setColor(color);
+  };
+
+  const chooseSize = size => {
+    setSize(size);
   };
 
   useEffect(() => {
@@ -58,11 +68,21 @@ function ProductDetail(props) {
       //       payload: { error: err.message },
       //     });
       //   });
+
+      const result = addToCart(selectedProduct, count, cart, size, color);
+
+      if (result.payload.error) {
+        return dispatch(result);
+      }
+
       apiServices
-        .postAddToCart(selectedProduct.id, userData.quantity)
+        .postAddToCart(selectedProduct.id, count, size, color)
         .then(response => {
-          console.log(response);
-          dispatch(addToCart(selectedProduct, userData.quantity, cart));
+          dispatch(addToCart(selectedProduct, count, cart, size, color));
+          dispatch({
+            type: 'NOTIFY',
+            payload: { success: 'The product is added in Cart' },
+          });
         })
         .catch(err => {
           dispatch({
@@ -146,7 +166,7 @@ function ProductDetail(props) {
                   <span>
                     <button
                       onClick={() => {
-                        count - 1 < 0 ? setCount(0) : setCount(count - 1);
+                        count - 1 < 1 ? setCount(1) : setCount(count - 1);
                       }}
                     >
                       -
@@ -177,13 +197,31 @@ function ProductDetail(props) {
                 <div className='filter'>
                   <div className='color'>
                     <p>Color</p>
-                    <span className=''>Red</span>
-                    <span className=''>Green</span>
+                    {uniProduct.product_color.map((item, index) => {
+                      return (
+                        <span
+                          key={index}
+                          className=''
+                          onClick={() => chooseColor(item)}
+                        >
+                          {item.product_color}
+                        </span>
+                      );
+                    })}
                   </div>
                   <div className='size'>
                     <p>Size</p>
-                    <span className=''>L</span>
-                    <span className=''>M</span>
+                    {uniProduct.product_size.map((size, index) => {
+                      return (
+                        <span
+                          key={index}
+                          className=''
+                          onClick={() => chooseSize(size)}
+                        >
+                          {size.product_size}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

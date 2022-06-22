@@ -57,7 +57,7 @@ body {
   width: 60%;
   height: 100%;
   float: left;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-right: 5%;
 }
 .productDetails .innerProductDetail .productImage .active img {

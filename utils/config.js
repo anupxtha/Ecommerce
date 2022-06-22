@@ -40,10 +40,9 @@ export async function getAxios(apiBaseUrl) {
 }
 
 // axios request post function
-export async function postCartAxios(apiBaseUrl) {
+export async function postCartAxios(apiBaseUrl, data) {
   showLoading();
   try {
-    var data = '';
     var res = await axios.post(apiBaseUrl, data, { ...authorizationHeader() });
   } catch (e) {
     throw e;

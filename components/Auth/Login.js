@@ -42,12 +42,31 @@ function Login() {
 
         dispatch({
           type: 'AUTH',
-          payload: JSON.stringify(response.data),
+          payload: response.data,
         });
         // Cookie.set('OurSiteJWT', response.data.access);
         // localStorage.setItem('loginStatus', true);
         sessionStorage.setItem('loginStatus', true);
         sessionStorage.setItem('authToken', JSON.stringify(response.data));
+
+        apiServices
+          .getAddToCart()
+          .then(res => {
+            dispatch({
+              type: 'ADD_CART',
+              payload: res.data.item,
+            });
+            sessionStorage.setItem(
+              'cartProduct',
+              JSON.stringify(res.data.item)
+            );
+          })
+          .catch(err => {
+            dispatch({
+              type: 'NOTIFY',
+              payload: { error: err.message },
+            });
+          });
         router.push('/');
       })
       .catch(err => {

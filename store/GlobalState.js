@@ -17,23 +17,35 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const status = sessionStorage.getItem('loginStatus');
     if (status) {
-      dispatch({ type: 'AUTH', payload: sessionStorage.getItem('authToken') });
-    }
-  }, []);
-
-  useEffect(() => {
-    const cartProduct = JSON.parse(localStorage.getItem('cartProduct'));
-
-    if (cartProduct) {
       dispatch({
-        type: 'ADD_CART',
-        payload: cartProduct,
+        type: 'AUTH',
+        payload: JSON.parse(sessionStorage.getItem('authToken')),
       });
+
+      const cartProduct = JSON.parse(sessionStorage.getItem('cartProduct'));
+
+      if (cartProduct) {
+        dispatch({
+          type: 'ADD_CART',
+          payload: cartProduct,
+        });
+      }
     }
   }, []);
 
+  // useEffect(() => {
+  //   const cartProduct = JSON.parse(localStorage.getItem('cartProduct'));
+
+  //   if (cartProduct) {
+  //     dispatch({
+  //       type: 'ADD_CART',
+  //       payload: cartProduct,
+  //     });
+  //   }
+  // }, []);
+
   useEffect(() => {
-    localStorage.setItem('cartProduct', JSON.stringify(cart));
+    sessionStorage.setItem('cartProduct', JSON.stringify(cart));
   }, [cart]);
 
   return (
