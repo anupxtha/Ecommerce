@@ -43,33 +43,32 @@ function TopProduct() {
                       alt=''
                       style={{ width: '100%', height: '100%' }}
                     />
-                    <div className='rating'>
+                    {/* <div className='rating'>
                       <i className='fa-solid fa-star'></i>
                       <i className='fa-solid fa-star'></i>
                       <i className='fa-solid fa-star'></i>
                       <i className='fa-solid fa-star'></i>
                       <i className='fa-solid fa-star'></i>
                       <i className='fa-regular fa-heart'></i>
-                    </div>
+                    </div> */}
                   </div>
                   <div className='details'>
-                    <p>{list.product_name}</p>
+                    <Link
+                      href={
+                        '/product/' +
+                        list.product_category.category_name.replace(' ', '-') +
+                        '/' +
+                        list.product_name.replace(' ', '-') +
+                        '-' +
+                        list.id
+                      }
+                    >
+                      <a>
+                        <p>{list.product_name}</p>
+                      </a>
+                    </Link>
                     <p>{list.product_price}</p>
                   </div>
-                  <Link
-                    href={
-                      '/product/' +
-                      list.product_category.category_name.replace(' ', '-') +
-                      '/' +
-                      list.product_name.replace(' ', '-') +
-                      '-' +
-                      list.id
-                    }
-                  >
-                    <a>
-                      <p>{list.product_name}</p>
-                    </a>
-                  </Link>
                 </div>
               );
             })}

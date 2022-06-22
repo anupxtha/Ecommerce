@@ -18,6 +18,11 @@ function ProductDetail(props) {
   const [size, setSize] = useState(0);
   const [color, setColor] = useState('');
 
+  useEffect(() => {
+    setColor(uniProduct && uniProduct.product_color[0].product_color);
+    setSize(uniProduct && uniProduct.product_size[0].product_size);
+  }, [uniProduct]);
+
   const router = useRouter();
 
   console.log(color, size, count);
