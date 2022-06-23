@@ -21,15 +21,16 @@ function TopSellingProduct() {
           <div className="lists">
             <div className="cardsPic">
               <div className="cardImage">
-                <img src="" alt="Item" />
+                <img src="/images/i.jpg" alt="Item" />
               </div>
               <div className="descriptions">
                 <p>Title</p>
                 <p>Categoty</p>
                 <p>
-                  <s>price before discount</s>
+                  <s>price before discount </s>
+                  <span> Real price</span>
                 </p>
-                <p>real price</p>
+                {/* <p>real price</p> */}
               </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
@@ -48,15 +49,16 @@ function TopSellingProduct() {
           <div className="lists">
             <div className="cardsPic">
               <div className="cardImage">
-                <img src="" alt="Item" />
+                <img src="/images/j.jpg" alt="Item" />
               </div>
               <div className="descriptions">
                 <p>Title</p>
                 <p>Categoty</p>
                 <p>
-                  <s>price before discount</s>
+                  <s>price before discount </s>
+                  <span> Real price</span>
                 </p>
-                <p>real price</p>
+                {/* <p>real price</p> */}
               </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
@@ -75,15 +77,16 @@ function TopSellingProduct() {
           <div className="lists">
             <div className="cardsPic">
               <div className="cardImage">
-                <img src="" alt="Item" />
+                <img src="/images/k.jpg" alt="Item" />
               </div>
               <div className="descriptions">
                 <p>Title</p>
                 <p>Categoty</p>
                 <p>
-                  <s>price before discount</s>
+                  <s>price before discount </s>
+                  <span> Real price</span>
                 </p>
-                <p>real price</p>
+                {/* <p>real price</p> */}
               </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
@@ -102,15 +105,16 @@ function TopSellingProduct() {
           <div className="lists">
             <div className="cardsPic">
               <div className="cardImage">
-                <img src="" alt="Item" />
+                <img src="/images/l.jpg" alt="Item" />
               </div>
               <div className="descriptions">
                 <p>Title</p>
                 <p>Categoty</p>
                 <p>
-                  <s>price before discount</s>
+                  <s>price before discount </s>
+                  <span> Real price</span>
                 </p>
-                <p>real price</p>
+                {/* <p>real price</p> */}
               </div>
               <div className="rating">
                 <i className="fa-solid fa-star"></i>
