@@ -8,11 +8,12 @@ export const DataProvider = ({ children }) => {
     notify: {},
     auth: {},
     cart: [],
+    wishlist: [],
   };
 
   const [state, dispatch] = useReducer(reducers, initialState);
 
-  const { cart } = state;
+  const { cart, wishlist } = state;
 
   useEffect(() => {
     const status = sessionStorage.getItem('loginStatus');
@@ -23,11 +24,19 @@ export const DataProvider = ({ children }) => {
       });
 
       const cartProduct = JSON.parse(sessionStorage.getItem('cartProduct'));
+      const wishProduct = JSON.parse(sessionStorage.getItem('wishProduct'));
 
       if (cartProduct) {
         dispatch({
           type: 'ADD_CART',
           payload: cartProduct,
+        });
+      }
+
+      if (wishProduct) {
+        dispatch({
+          type: 'ADD_WISHLIST',
+          payload: wishProduct,
         });
       }
     }
@@ -47,6 +56,10 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     sessionStorage.setItem('cartProduct', JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => {
+    sessionStorage.setItem('wishProduct', JSON.stringify(wishlist));
+  }, [wishlist]);
 
   return (
     <DataContext.Provider value={[state, dispatch]}>

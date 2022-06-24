@@ -17,6 +17,11 @@ const reducers = (state, action) => {
         ...state,
         cart: action.payload,
       };
+    case ACTIONS.ADD_WISHLIST:
+      return {
+        ...state,
+        wishlist: action.payload,
+      };
     default:
       return state;
   }

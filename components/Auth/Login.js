@@ -3,7 +3,7 @@ import Link from 'next/link';
 import apiServices from '../../utils/apiServices';
 import { DataContext } from '../../store/GlobalState';
 import { useRouter } from 'next/router';
-import valid from '../../utils/valid';
+import { validLogin } from '../../utils/valid';
 
 function Login() {
   const [state, dispatch] = useContext(DataContext);
@@ -26,7 +26,7 @@ function Login() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const errMsg = valid(userData.email, userData.password);
+    const errMsg = validLogin(userData.email, userData.password);
 
     if (errMsg) return dispatch({ type: 'NOTIFY', payload: { error: errMsg } });
     // dispatch({ type: 'NOTIFY', payload: { loading: true } });
@@ -34,7 +34,6 @@ function Login() {
     apiServices
       .loginUser(userData)
       .then(response => {
-        console.log(response.data);
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'Welcome ' + response.data.user_proifle.name },
@@ -54,17 +53,36 @@ function Login() {
           .then(res => {
             dispatch({
               type: 'ADD_CART',
-              payload: res.data.item,
+              payload: res.data.length > 0 ? res.data[0].item : [],
             });
             sessionStorage.setItem(
               'cartProduct',
-              JSON.stringify(res.data.item)
+              JSON.stringify(res.data.length > 0 ? res.data[0].item : [])
             );
           })
           .catch(err => {
             dispatch({
               type: 'NOTIFY',
-              payload: { error: err.message },
+              payload: { error: 'This is get add cart error' },
+            });
+          });
+
+        apiServices
+          .getAddToWishlist()
+          .then(resp => {
+            dispatch({
+              type: 'ADD_WISHLIST',
+              payload: resp.data.length > 0 ? resp.data[0].product : [],
+            });
+            sessionStorage.setItem(
+              'wishProduct',
+              JSON.stringify(resp.data.length > 0 ? resp.data[0].product : [])
+            );
+          })
+          .catch(err => {
+            dispatch({
+              type: 'NOTIFY',
+              payload: { error: 'this is wishlist error' },
             });
           });
         router.push('/');
@@ -72,7 +90,7 @@ function Login() {
       .catch(err => {
         dispatch({
           type: 'NOTIFY',
-          payload: { error: err.message },
+          payload: { error: 'this is login error' },
         });
       });
   };

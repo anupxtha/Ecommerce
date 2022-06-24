@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import apiServices from '../../utils/apiServices';
-import valid from '../../utils/valid';
+import { validRegister } from '../../utils/valid';
 import { DataContext } from '../../store/GlobalState';
 import { useRouter } from 'next/router';
 
@@ -33,7 +33,7 @@ function Register() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const errMsg = valid(
+    const errMsg = validRegister(
       userData.email,
       userData.password,
       userData.name,

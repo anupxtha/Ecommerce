@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import apiServices from '../../utils/apiServices';
 import { DataContext } from '../../store/GlobalState';
+import { addToWishlist } from '../../store/Actions';
+import { useRouter } from 'next/router';
 
 function TopProduct() {
   const [state, dispatch] = useContext(DataContext);
+  const { wishlist } = state;
   const [productData, SetProductData] = useState([]);
-
-  console.log(productData);
+  const router = useRouter();
 
   useEffect(() => {
     apiServices
@@ -22,6 +24,36 @@ function TopProduct() {
         });
       });
   }, []);
+
+  const handlewishlist = listProduct => {
+    const status = sessionStorage.getItem('loginStatus');
+    const authToken = sessionStorage.getItem('authToken');
+    if (status) {
+      const result = addToWishlist(listProduct, wishlist);
+
+      if (result.payload.error) {
+        return dispatch(result);
+      }
+
+      apiServices
+        .postAddToWishlist(listProduct.id)
+        .then(res => {
+          dispatch(addToWishlist(listProduct, wishlist));
+          dispatch({
+            type: 'NOTIFY',
+            payload: { success: 'The product is added in Wishlist' },
+          });
+        })
+        .catch(err => {
+          dispatch({
+            type: 'NOTIFY',
+            payload: { error: err.message },
+          });
+        });
+    } else {
+      router.push('/login');
+    }
+  };
 
   return (
     <div className='topSell'>
@@ -67,6 +99,7 @@ function TopProduct() {
                         <p>{list.product_name}</p>
                       </a>
                     </Link>
+                    <button onClick={() => handlewishlist(list)}>love</button>
                     <p>{list.product_price}</p>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ export const ACTIONS = {
   NOTIFY: 'NOTIFY',
   AUTH: 'AUTH',
   ADD_CART: 'ADD_CART',
+  ADD_WISHLIST: 'ADD_WISHLIST',
 };
 
 export const addToCart = (product, quantity, cart, color, size) => {
@@ -27,5 +28,22 @@ export const addToCart = (product, quantity, cart, color, size) => {
       ...cart,
       { item: product, quantity: quantity, item_color: color, item_size: size },
     ],
+  };
+};
+
+export const addToWishlist = (product, wishlist) => {
+  const check = wishlist.every(items => {
+    return items.item.id !== product.id;
+  });
+
+  if (!check)
+    return {
+      type: 'NOTIFY',
+      payload: { error: 'The product is already in wishlist' },
+    };
+
+  return {
+    type: 'ADD_WISHLIST',
+    payload: [...wishlist, { item: product }],
   };
 };

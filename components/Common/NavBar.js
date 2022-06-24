@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 function NavBar() {
   const [state, dispatch] = useContext(DataContext);
-  const { auth, cart } = state;
+  const { auth, cart, wishlist } = state;
   const router = useRouter();
   const details = Object.keys(auth).length !== 0 && auth;
 
@@ -15,6 +15,7 @@ function NavBar() {
     sessionStorage.removeItem('cartProduct');
     dispatch({ type: 'AUTH', payload: {} });
     dispatch({ type: 'ADD_CART', payload: [] });
+    dispatch({ type: 'ADD_WISHLIST', payload: [] });
     return router.push('/');
   };
 
@@ -116,7 +117,7 @@ function NavBar() {
                 className='fa-solid fa-heart'
                 style={{ position: 'relative', marginTop: '25px' }}
               >
-                <span>{cart.length}</span>
+                <span>{wishlist.length}</span>
               </i>
             </a>
           </Link>

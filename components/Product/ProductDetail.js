@@ -207,7 +207,7 @@ function ProductDetail(props) {
                         <span
                           key={index}
                           className=''
-                          onClick={() => chooseColor(item)}
+                          onClick={() => chooseColor(item.product_color)}
                         >
                           {item.product_color}
                         </span>
@@ -221,7 +221,7 @@ function ProductDetail(props) {
                         <span
                           key={index}
                           className=''
-                          onClick={() => chooseSize(size)}
+                          onClick={() => chooseSize(size.product_size)}
                         >
                           {size.product_size}
                         </span>

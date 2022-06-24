@@ -36,6 +36,16 @@ class ApiService {
   getAddToCart() {
     return getCartAxios(ApiBaseURLProps.apiBaseURL + '/cart/');
   }
+
+  getAddToWishlist() {
+    return getCartAxios(ApiBaseURLProps.apiBaseURL + '/wishitem/');
+  }
+
+  postAddToWishlist(id) {
+    return postCartAxios(ApiBaseURLProps.apiBaseURL + '/wishitem/?id=' + id, {
+      id: id,
+    });
+  }
 }
 
 export default new ApiService();
