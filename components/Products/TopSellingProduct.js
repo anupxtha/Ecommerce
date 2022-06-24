@@ -32,19 +32,23 @@ function TopSellingProduct() {
                 </p>
                 {/* <p>real price</p> */}
               </div>
-              <div className="rating">
+              <div className="saleCardBtn">
+                <button>View Details</button>
+                <i className="fa-regular fa-heart"></i>
+              </div>
+              {/* <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-regular fa-heart"></i>
-              </div>
+              </div> */}
             </div>
-            <div className="details">
+            {/* <div className="details">
               <p>name</p>
               <p>price</p>
-            </div>
+            </div> */}
           </div>
           <div className="lists">
             <div className="cardsPic">
@@ -60,19 +64,23 @@ function TopSellingProduct() {
                 </p>
                 {/* <p>real price</p> */}
               </div>
-              <div className="rating">
+              <div className="saleCardBtn">
+                <button>View Details</button>
+                <i className="fa-regular fa-heart"></i>
+              </div>
+              {/* <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-regular fa-heart"></i>
-              </div>
+              </div> */}
             </div>
-            <div className="details">
+            {/* <div className="details">
               <p>name</p>
               <p>price</p>
-            </div>
+            </div> */}
           </div>
           <div className="lists">
             <div className="cardsPic">
@@ -88,19 +96,23 @@ function TopSellingProduct() {
                 </p>
                 {/* <p>real price</p> */}
               </div>
-              <div className="rating">
+              <div className="saleCardBtn">
+                <button>View Details</button>
+                <i className="fa-regular fa-heart"></i>
+              </div>
+              {/* <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-regular fa-heart"></i>
-              </div>
+              </div> */}
             </div>
-            <div className="details">
+            {/* <div className="details">
               <p>name</p>
               <p>price</p>
-            </div>
+            </div> */}
           </div>
           <div className="lists">
             <div className="cardsPic">
@@ -116,19 +128,23 @@ function TopSellingProduct() {
                 </p>
                 {/* <p>real price</p> */}
               </div>
-              <div className="rating">
+              <div className="saleCardBtn">
+                <button>View Details</button>
+                <i className="fa-regular fa-heart"></i>
+              </div>
+              {/* <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-regular fa-heart"></i>
-              </div>
+              </div> */}
             </div>
-            <div className="details">
+            {/* <div className="details">
               <p>name</p>
               <p>price</p>
-            </div>
+            </div> */}
           </div>
           <div className="lists">
             <div className="cardsPic">
