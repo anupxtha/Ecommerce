@@ -12,9 +12,9 @@ function Wishlist() {
           <thead>
             <tr>
               <th scope="col"></th>
-              <th scope="col">Product Name</th>
+              <th scope="col">Product name</th>
               <th scope="col">Unit price</th>
-              <th scope="col">Stuck status</th>
+              <th scope="col">Stock status</th>
               <th scope="col"></th>
             </tr>
           </thead>
