@@ -1,9 +1,20 @@
-import { createContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer, useState } from 'react';
 import reducers from './Reducers';
 
 export const DataContext = createContext();
 
+// const useConstructor = (callBack = () => {}) => {
+//   const [hasBeenCalled, setHasBeenCalled] = useState(false);
+//   if (hasBeenCalled) return;
+//   callBack();
+//   setHasBeenCalled(true);
+// };
+
 export const DataProvider = ({ children }) => {
+  // useConstructor(() => {
+  //   console.log('Occurs ONCE, BEFORE the initial render.');
+  // });
+
   const initialState = {
     notify: {},
     auth: {},
@@ -61,9 +72,15 @@ export const DataProvider = ({ children }) => {
     sessionStorage.setItem('wishProduct', JSON.stringify(wishlist));
   }, [wishlist]);
 
+  const [initState, setInitState] = useState([]);
+
+  const constructor = () => {
+    if (initState.length === 0) return setInitState([state, dispatch]);
+  };
+
+  constructor();
+
   return (
-    <DataContext.Provider value={[state, dispatch]}>
-      {children}
-    </DataContext.Provider>
+    <DataContext.Provider value={initState}>{children}</DataContext.Provider>
   );
 };
