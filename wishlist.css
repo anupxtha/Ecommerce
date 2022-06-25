@@ -1,0 +1,60 @@
+.mainWishlist {
+  width: 100%;
+  float: left;
+  background-color: white;
+  padding: 2% 0%;
+}
+.innerWishlist {
+  width: 80%;
+  margin: 20px 10%;
+  float: left;
+}
+.mainWishlist .title {
+  text-align: center;
+  width: 100%;
+  float: left;
+  font-size: 40px;
+  /* font-family: none; */
+
+  letter-spacing: 3px;
+}
+.mainWishlist .wishImage {
+  float: left;
+  width: 40px !important;
+  height: 50px !important;
+  background-color: red !important;
+}
+.mainWishlist table p {
+  margin: 0 0 10px 0;
+}
+.mainWishlist table td,
+th {
+  text-align: center;
+}
+.mainWishlist table th .fa-solid.fa-trash-can {
+  font-size: 20px;
+  cursor: pointer;
+}
+.mainWishlist thead {
+  font-size: 20px;
+}
+.mainWishlist table td {
+  height: 100px;
+  /* background-color: red; */
+}
+.mainWishlist img {
+  /* float: left; */
+  width: 40px !important;
+  height: 50px !important;
+  font-size: 1px !important;
+  background-color: red !important;
+  margin-right: 10px;
+}
+.mainWishlist .wishListBtn {
+  background-color: #603f98;
+  border: none;
+  color: white;
+  font-size: 13px;
+  padding: 1% 4%;
+  border-radius: 5px;
+}
