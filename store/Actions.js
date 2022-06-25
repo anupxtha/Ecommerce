@@ -47,3 +47,21 @@ export const addToWishlist = (product, wishlist) => {
     payload: [...wishlist, { item: product }],
   };
 };
+
+export const removeFromWishlist = (id, wishlist) => {
+  const afterRemove = wishlist.filter(items => items.item.id !== id);
+
+  return {
+    type: 'ADD_WISHLIST',
+    payload: afterRemove,
+  };
+};
+
+export const removeFromCard = (id, cart) => {
+  const afterRemove = cart.filter(items => items.item.id !== id);
+
+  return {
+    type: 'ADD_CART',
+    payload: afterRemove,
+  };
+};

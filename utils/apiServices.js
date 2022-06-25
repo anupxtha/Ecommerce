@@ -46,6 +46,18 @@ class ApiService {
       id: id,
     });
   }
+
+  removeWishlistById(id) {
+    return postCartAxios(ApiBaseURLProps.apiBaseURL + '/removewish/?id=' + id, {
+      id: id,
+    });
+  }
+
+  removeCartlistById(id) {
+    return postCartAxios(ApiBaseURLProps.apiBaseURL + '/removeall/?id=' + id, {
+      id: id,
+    });
+  }
 }
 
 export default new ApiService();

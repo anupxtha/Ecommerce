@@ -111,7 +111,7 @@ function NavBar() {
           <i className='fa-solid fa-magnifying-glass'></i>
         </div>
         <div className='icons'>
-          <Link href='/cart'>
+          <Link href='/wishlist'>
             <a style={{ color: 'black' }}>
               <i
                 className='fa-solid fa-heart'

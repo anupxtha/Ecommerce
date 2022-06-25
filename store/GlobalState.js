@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer, useState } from 'react';
+import { createContext, useEffect, useMemo, useReducer, useState } from 'react';
 import reducers from './Reducers';
 
 export const DataContext = createContext();
@@ -24,7 +24,12 @@ export const DataProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducers, initialState);
 
-  const { cart, wishlist } = state;
+  const { cart, wishlist, auth, notify } = state;
+
+  const value = useMemo(
+    () => [state, dispatch],
+    [auth, cart, wishlist, notify]
+  );
 
   useEffect(() => {
     const status = sessionStorage.getItem('loginStatus');
@@ -72,15 +77,5 @@ export const DataProvider = ({ children }) => {
     sessionStorage.setItem('wishProduct', JSON.stringify(wishlist));
   }, [wishlist]);
 
-  const [initState, setInitState] = useState([]);
-
-  const constructor = () => {
-    if (initState.length === 0) return setInitState([state, dispatch]);
-  };
-
-  constructor();
-
-  return (
-    <DataContext.Provider value={initState}>{children}</DataContext.Provider>
-  );
+  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

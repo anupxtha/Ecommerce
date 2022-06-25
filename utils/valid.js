@@ -44,7 +44,7 @@ function validatePassword(p) {
     );
   }
   if (errors.length > 0) {
-    console.log(errors.join('\n'));
+    // console.log(errors.join('\n'));
     return { status: false, errors: errors };
   }
   return { status: true, errors: [] };

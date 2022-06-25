@@ -11,9 +11,14 @@ function Login() {
   const initialState = { email: '', password: '' };
   const [userData, setUserData] = useState(initialState);
   const router = useRouter();
+  const [status, setStatus] = useState(true);
 
   useEffect(() => {
-    if (Object.keys(auth).length !== 0) {
+    // if (Object.keys(auth).length !== 0) {
+    //   router.push('/');
+    // }
+    if (sessionStorage.getItem('authToken') !== null) {
+      setStatus(false);
       router.push('/');
     }
   }, [auth]);
@@ -96,56 +101,60 @@ function Login() {
   };
 
   return (
-    <div className='login'>
-      <p className='head'>LOGIN</p>
-      <form style={{ width: '100%' }} onSubmit={handleSubmit}>
-        <div className='form'>
-          <label>
-            Email{' '}
-            <span style={{ color: 'red' }}>
-              *<br />
-            </span>
-          </label>
-          <input
-            type='email'
-            id='email'
-            name='email'
-            value={userData.email}
-            onChange={handleChangeInput}
-          />
+    <>
+      {status && (
+        <div className='login'>
+          <p className='head'>LOGIN</p>
+          <form style={{ width: '100%' }} onSubmit={handleSubmit}>
+            <div className='form'>
+              <label>
+                Email{' '}
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              <input
+                type='email'
+                id='email'
+                name='email'
+                value={userData.email}
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className='form'>
+              <label>
+                Password{' '}
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              <input
+                type='password'
+                id='password'
+                name='password'
+                value={userData.password}
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className='formBtn'>
+              <button type='submit' className='grayBtn'>
+                Login
+              </button>
+            </div>
+          </form>
+          <div className='Line'>
+            <span className='shortLine'></span>
+            <span>OR</span>
+            <span className='shortLine'></span>
+          </div>
+          <Link href='/register'>
+            <a>
+              <p className='registerMsg'>CREATE NEW ACCOUNT</p>
+            </a>
+          </Link>
         </div>
-        <div className='form'>
-          <label>
-            Password{' '}
-            <span style={{ color: 'red' }}>
-              *<br />
-            </span>
-          </label>
-          <input
-            type='password'
-            id='password'
-            name='password'
-            value={userData.password}
-            onChange={handleChangeInput}
-          />
-        </div>
-        <div className='formBtn'>
-          <button type='submit' className='grayBtn'>
-            Login
-          </button>
-        </div>
-      </form>
-      <div className='Line'>
-        <span className='shortLine'></span>
-        <span>OR</span>
-        <span className='shortLine'></span>
-      </div>
-      <Link href='/register'>
-        <a>
-          <p className='registerMsg'>CREATE NEW ACCOUNT</p>
-        </a>
-      </Link>
-    </div>
+      )}
+    </>
   );
 }
 

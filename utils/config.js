@@ -4,7 +4,7 @@ import { hideLoading, showLoading } from '../components/Common/Loading';
 export function authorizationHeader() {
   const authToken = JSON.parse(sessionStorage.getItem('authToken'));
   const accessToken = authToken && authToken.access;
-  console.log('Bearer ' + accessToken);
+  // console.log('Bearer ' + accessToken);
   return {
     headers: {
       'Content-Type': 'application/json',

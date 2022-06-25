@@ -25,7 +25,7 @@ function ProductDetail(props) {
 
   const router = useRouter();
 
-  console.log(color, size, count);
+  // console.log(color, size, count);
 
   const handleChangeInput = e => {
     const { name, value } = e.target;

@@ -5,14 +5,14 @@ import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 function Slider() {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
-  const increase = (e) => {
+  const increase = e => {
     e.preventDefault();
     setCount(count + 1);
     if (count >= data.length - 1) {
       setCount(0);
     }
   };
-  const decrease = (e) => {
+  const decrease = e => {
     e.preventDefault();
     setCount(count - 1);
   };
@@ -32,16 +32,16 @@ function Slider() {
     return () => clearInterval(slider);
   }, [count]);
 
-  const showActive = (index) => {
+  const showActive = index => {
     if (index === count) {
       setActive(true);
     }
   };
   return (
     <>
-      <div className="slideContain">
+      <div className='slideContain'>
         {data && (
-          <div className="slideImage">
+          <div className='slideImage'>
             {data.map((newData, index) => {
               let activeSlide = '';
               const { id, name, image } = newData;
@@ -63,22 +63,22 @@ function Slider() {
               }
               return (
                 <>
-                  <article className={activeSlide} key={id} id="slider">
-                    <img src={image} alt="" />
+                  <article className={activeSlide} key={id} id='slider'>
+                    <img src={image} alt='' />
                   </article>
                 </>
               );
             })}
           </div>
         )}
-        <button className="prev" onClick={(e) => decrease(e)}>
+        <button className='prev' onClick={e => decrease(e)}>
           <FiChevronLeft />
         </button>
-        <button className="next" onClick={(e) => increase(e)}>
+        <button className='next' onClick={e => increase(e)}>
           <FiChevronRight />
         </button>
 
-        <div className="dots">
+        <div className='dots'>
           {data.map((newData, index) => {
             const { id } = newData;
             let active = '';
@@ -86,12 +86,12 @@ function Slider() {
               active = 'active';
             }
             return (
-              <div className="innerDots">
+              <div className='innerDots'>
                 <div
-                  className="none"
+                  className='none'
                   onClick={() => {
                     setCount(index);
-                    console.log(count);
+                    // console.log(count);
                     showActive(index);
                   }}
                   id={active}
