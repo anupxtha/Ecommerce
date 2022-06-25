@@ -8,6 +8,7 @@ import '../register.css';
 import '../topSellProduct.css';
 import '../cart.css';
 import '../loader.css';
+import '../wishlist.css';
 import Footer from '../components/Common/Footer';
 import { DataProvider } from '../store/GlobalState';
 import Loading from '../components/Common/Loading';
@@ -47,8 +48,8 @@ export default function App({ Component, pageProps }) {
         <Head>
           <title>Ecommerce</title>
           <meta
-            name='viewport'
-            content='width=device-width, initial-scale=1.0'
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
           />
         </Head>
         <Component {...pageProps} />
