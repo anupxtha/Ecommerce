@@ -1,0 +1,61 @@
+.mainProfile {
+  width: 100%;
+  height: calc(100vh - 70px);
+  float: left;
+  background-color: white;
+}
+.mainProfile .innerProfile {
+  width: 80%;
+  float: left;
+  margin: 20px 10%;
+}
+.mainProfile .innerProfile .tabs {
+  width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  float: left;
+  /* border: 1px solid black; */
+}
+.mainProfile .innerProfile .tabs p {
+  padding: 2% 3%;
+  /* background-color: red; */
+  margin: 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.mainProfile .innerProfile .tabs .active {
+  background-color: red;
+}
+
+.mainProfile .mainCustomerInfo {
+  width: 65%;
+  margin-left: 5%;
+  height: calc(100vh - 70px - 40px);
+  float: left;
+  border: 1px solid black;
+  /* padding: 0 2%; */
+  /* background-color: blue; */
+}
+.mainProfile .mainCustomerInfo p {
+  padding-left: 2.5%;
+}
+.mainProfile .mainCustomerInfo .form {
+  width: 100%;
+  float: left;
+}
+.mainProfile .mainCustomerInfo .form .innerForm {
+  width: 45%;
+  margin: 0 2.5%;
+  float: left;
+}
+.mainProfile .mainCustomerInfo .form .full {
+  width: 95%;
+  margin: 0 2.5%;
+  float: left;
+}
+.required {
+  color: red;
+}
+.mainProfile .mainCustomerInfo .form .innerForm input {
+  width: 100%;
+  float: left;
+}

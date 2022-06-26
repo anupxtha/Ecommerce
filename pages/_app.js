@@ -9,6 +9,7 @@ import '../topSellProduct.css';
 import '../cart.css';
 import '../loader.css';
 import '../wishlist.css';
+import '../profile.css';
 import Footer from '../components/Common/Footer';
 import { DataProvider } from '../store/GlobalState';
 import Loading from '../components/Common/Loading';
