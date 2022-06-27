@@ -5,9 +5,9 @@ export default function payment() {
     <>
       <div className="khaltiPay">
         <div className="innerPayment">
-          <div className="paymentDetails" onClick={() => setShow(true)}>
+          <div className="paymentDetails">
             <h3>Payment Method</h3>
-            <div className="paymentLogo">
+            <div className="paymentLogo" onClick={() => setShow(true)}>
               <img src="/images/khalti-logo.svg" alt="Khalti Logo" />
               <p>Khalti Mobile Wallet</p>
             </div>
