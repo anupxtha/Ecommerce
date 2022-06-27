@@ -1,0 +1,78 @@
+.mainProfile {
+  width: 100%;
+  height: calc(100vh - 70px);
+  float: left;
+  background-color: white;
+}
+.mainProfile .innerProfile {
+  width: 80%;
+  float: left;
+  margin: 20px 10%;
+}
+.mainProfile .innerProfile .tabs {
+  width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  float: left;
+  /* border: 1px solid black; */
+}
+.mainProfile .innerProfile .tabs p {
+  padding: 4% 3%;
+  /* background-color: red; */
+  margin: 0;
+  font-weight: 400;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.mainProfile .innerProfile .tabs .active {
+  background-color: red;
+  color: white;
+}
+
+.mainProfile .mainCustomerInfo {
+  width: 65%;
+  margin-left: 5%;
+  height: calc(100vh - 70px - 40px);
+  float: left;
+  color: black;
+  /* border: 1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  /* padding: 0 2%; */
+  /* background-color: blue; */
+}
+.mainProfile .mainCustomerInfo p {
+  padding: 2% 0 2% 2.5%;
+  font-size: 18px;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.mainProfile .mainCustomerInfo .form {
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.mainProfile .mainCustomerInfo .form .innerForm {
+  width: 45%;
+  margin: 5% 2.5%;
+  float: left;
+}
+.mainProfile .mainCustomerInfo .form .full {
+  width: 95%;
+  margin: 0 2.5%;
+  float: left;
+}
+.required {
+  color: red;
+}
+.mainProfile .mainCustomerInfo .form .innerForm label {
+  font-weight: 400;
+}
+.mainProfile .mainCustomerInfo .form .innerForm input {
+  width: 100%;
+  float: left;
+  height: 40px;
+  padding-left: 10px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+input:focus-visible {
+  outline: none !important;
+}
