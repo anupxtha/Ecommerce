@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
 .mainProfile {
   width: 100%;
   height: calc(100vh - 70px);
@@ -40,7 +39,6 @@
   /* padding: 0 2%; */
   /* background-color: blue; */
 }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 .mainProfile .mainCustomerInfo p {
   padding: 2% 0 2% 2.5%;
   font-size: 18px;
