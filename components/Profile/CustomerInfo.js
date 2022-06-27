@@ -14,14 +14,21 @@ function CustomerInfo() {
         </div>
         <div className="innerForm">
           <label>
-            First Name: <span className="required">*</span>
+            Last Name: <span className="required">*</span>
           </label>
           <br />
           <input type="text" name="fname" />
         </div>
         <div className="innerForm full">
           <label>
-            First Name: <span className="required">*</span>
+            Email: <span className="required">*</span>
+          </label>
+          <br />
+          <input type="text" name="fname" />
+        </div>
+        <div className="innerForm">
+          <label>
+            Phone Number: <span className="required">*</span>
           </label>
           <br />
           <input type="text" name="fname" />
