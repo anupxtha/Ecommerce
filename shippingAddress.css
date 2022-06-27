@@ -2,8 +2,7 @@
   width: 100%;
   float: left;
   height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
+
   background-color: white;
   /* background-color: red; */
 }
@@ -12,6 +11,10 @@
   margin: 20px 10%;
 
   /* background-color: blue; */
+  float: left;
+}
+.mainShippingAddress .innerMainShipping .innerDetails {
+  width: 65%;
   float: left;
 }
 .mainShippingAddress .innerMainShipping p {
@@ -53,4 +56,62 @@
 .mainShippingAddress .shippBtn button {
   float: right;
   margin-left: 10px;
+}
+
+.mainShippingAddress .summary {
+  float: right;
+  width: 30%;
+  /* background-color: red; */
+  height: 400px;
+  /* background-color: blue; */
+}
+.mainShippingAddress .summary .innerSummary {
+  float: right;
+  width: 100%;
+  background-color: #eeeeee;
+  padding: 30px 5%;
+}
+.mainShippingAddress .summary .innerSummary p {
+  float: left;
+  font-weight: 400;
+  width: 100%;
+  font-size: 15px !important;
+  margin-bottom: 10px;
+}
+.mainShippingAddress .summary .innerSummary p span {
+  float: right;
+  /* width: 100%; */
+}
+.mainShippingAddress .summary .innerSummary .buttons {
+  width: 100%;
+  text-align: center;
+  /* background-color: red; */
+  float: left;
+  margin-bottom: 5px;
+}
+.mainShippingAddress .summary .buttons button {
+  width: 90%;
+  float: left;
+  margin: 0 5%;
+  padding: 2% 0;
+}
+
+.mainShippingAddress .summary .voucher {
+  width: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+.mainShippingAddress .summary .voucher input {
+  height: 40px;
+  width: 80%;
+  border: 1px solid #5cb85c;
+  float: left;
+  margin-right: 10px;
+}
+.mainShippingAddress .summary .voucher button {
+  height: 40px;
+}
+.mainShippingAddress .summary .voucher button:focus {
+  outline: none;
 }
