@@ -74,7 +74,7 @@ function ProductDetail(props) {
       //     });
       //   });
 
-      const result = addToCart(selectedProduct, count, cart, size, color);
+      const result = addToCart(selectedProduct, count, cart, color, size);
 
       if (result.payload.error) {
         return dispatch(result);
@@ -83,7 +83,7 @@ function ProductDetail(props) {
       apiServices
         .postAddToCart(selectedProduct.id, count, size, color)
         .then(response => {
-          dispatch(addToCart(selectedProduct, count, cart, size, color));
+          dispatch(addToCart(selectedProduct, count, cart, color, size));
           dispatch({
             type: 'NOTIFY',
             payload: { success: 'The product is added in Cart' },

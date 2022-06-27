@@ -65,3 +65,33 @@ export const removeFromCard = (id, cart) => {
     payload: afterRemove,
   };
 };
+
+export const increaseItemQty = (id, cart) => {
+  const afterIncrease = cart.map(items => {
+    if (items.item.id === id) {
+      items.quantity += 1;
+      return items;
+    }
+    return items;
+  });
+
+  return {
+    type: 'ADD_CART',
+    payload: afterIncrease,
+  };
+};
+
+export const decreaseItemQuantity = (id, cart) => {
+  const afterDecrease = cart.map(items => {
+    if (items.item.id === id) {
+      items.quantity -= 1;
+      return items;
+    }
+    return items;
+  });
+
+  return {
+    type: 'ADD_CART',
+    payload: afterDecrease,
+  };
+};

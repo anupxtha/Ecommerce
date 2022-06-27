@@ -19,6 +19,7 @@ class ApiService {
   }
 
   postAddToCart(id, quantity, size, color) {
+    console.log(size, color);
     return postCartAxios(
       ApiBaseURLProps.apiBaseURL +
         '/cart/?id=' +
@@ -53,10 +54,34 @@ class ApiService {
     });
   }
 
-  removeCartlistById(id) {
-    return postCartAxios(ApiBaseURLProps.apiBaseURL + '/removeall/?id=' + id, {
-      id: id,
-    });
+  removeCartlistById(id, color, size) {
+    return postCartAxios(
+      ApiBaseURLProps.apiBaseURL +
+        '/removeall/?id=' +
+        id +
+        '&color=' +
+        color +
+        '&size=' +
+        size,
+      {
+        id: id,
+        color: color,
+        size: size,
+      }
+    );
+  }
+
+  decreaseItemQty(id, size, color) {
+    return postCartAxios(
+      ApiBaseURLProps.apiBaseURL +
+        '/removeitem/?id=' +
+        id +
+        '&color=' +
+        color +
+        '&size=' +
+        size,
+      { id: id, size: size, color: color }
+    );
   }
 }
 

@@ -3,7 +3,12 @@ import { DataContext } from '../../store/GlobalState';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import apiServices from '../../utils/apiServices';
-import { removeFromCard, removeFromWishlist } from '../../store/Actions';
+import {
+  decreaseItemQuantity,
+  increaseItemQty,
+  removeFromCard,
+  removeFromWishlist,
+} from '../../store/Actions';
 
 function Cart() {
   const [state, dispatch] = useContext(DataContext);
@@ -18,9 +23,9 @@ function Cart() {
     setCartProduct(cart);
   }, [auth, cart, wishlist]);
 
-  const removeCartList = id => {
+  const removeCartList = (id, color, size) => {
     apiServices
-      .removeCartlistById(id)
+      .removeCartlistById(id, color, size)
       .then(response => {
         dispatch(removeFromCard(id, cart));
         dispatch({
@@ -36,7 +41,54 @@ function Cart() {
       });
   };
 
-  console.log(cartProduct);
+  const IncreaseQuantity = (item, color, size, qty) => {
+    if (qty >= item.product_quantity) {
+      return dispatch({
+        type: 'NOTIFY',
+        payload: { error: 'Product is out of Stock' },
+      });
+    }
+
+    apiServices
+      .postAddToCart(item.id, 1, size, color)
+      .then(response => {
+        dispatch(increaseItemQty(item.id, cart));
+        dispatch({
+          type: 'NOTIFY',
+          payload: { success: 'The product Quantity is Increased' },
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: 'NOTIFY',
+          payload: { error: err.message },
+        });
+      });
+  };
+  const DecreaseQuantity = (item, color, size, qty) => {
+    if (qty <= 1) {
+      return dispatch({
+        type: 'NOTIFY',
+        payload: { error: "Product quantity can't be less than 1" },
+      });
+    }
+
+    apiServices
+      .decreaseItemQty(item.id, size, color)
+      .then(response => {
+        dispatch(decreaseItemQuantity(item.id, cart));
+        dispatch({
+          type: 'NOTIFY',
+          payload: { success: 'The product Quantity is Decreased' },
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: 'NOTIFY',
+          payload: { error: err.message },
+        });
+      });
+  };
 
   return (
     <>
@@ -66,27 +118,56 @@ function Cart() {
                         <p>Title : {items.item.product_name}</p>
                         <p>Price : {items.item.product_price}</p>
                         <p>
-                          Color <span>{items.item_color}</span>
+                          Color <span>{items.item_size}</span>
                         </p>
                         <p>
-                          Size <span>{items.item_size}</span>
+                          Size <span>{items.item_color}</span>
                         </p>
                         <div>
                           Quantity : &nbsp; &nbsp; &nbsp;
                           <span>
-                            <button>-</button>
+                            <button
+                              onClick={() =>
+                                DecreaseQuantity(
+                                  items.item,
+                                  items.item_color,
+                                  items.item_size,
+                                  items.quantity
+                                )
+                              }
+                            >
+                              -
+                            </button>
                           </span>
                           &nbsp; &nbsp; &nbsp;
                           <span className='count'>{items.quantity}</span>
                           &nbsp; &nbsp; &nbsp;
                           <span>
-                            <button>+</button>
+                            <button
+                              onClick={() =>
+                                IncreaseQuantity(
+                                  items.item,
+                                  items.item_color,
+                                  items.item_size,
+                                  items.quantity
+                                )
+                              }
+                            >
+                              +
+                            </button>
                           </span>
                         </div>
                         <br />
                         <button
                           className='cartBtn'
-                          onClick={() => removeCartList(items.item.id)}
+                          onClick={() =>
+                            removeCartList(
+                              items.item.id,
+                              items.item_color,
+                              items.item_size,
+                              items.quantity
+                            )
+                          }
                         >
                           REMOVE
                         </button>
