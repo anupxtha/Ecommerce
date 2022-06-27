@@ -18,17 +18,17 @@ function Cart() {
     setCartProduct(cart);
   }, [auth, cart, wishlist]);
 
-  const removeCartList = id => {
+  const removeCartList = (id) => {
     apiServices
       .removeCartlistById(id)
-      .then(response => {
+      .then((response) => {
         dispatch(removeFromCard(id, cart));
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'The product is removed from cart' },
         });
       })
-      .catch(err => {
+      .catch((err) => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -41,15 +41,15 @@ function Cart() {
   return (
     <>
       {cartProduct && (
-        <div className='cart'>
-          <div className='innerCart'>
-            <div className='items'>
-              <p className='title'>SHOPPING LIST</p>
-              {cartProduct.map(items => {
+        <div className="cart">
+          <div className="innerCart">
+            <div className="items">
+              <p className="title">SHOPPING LIST</p>
+              {cartProduct.map((items) => {
                 return (
                   <>
-                    <div className='cartList'>
-                      <div className='cartImage'>
+                    <div className="cartList">
+                      <div className="cartImage">
                         <img
                           src={
                             'http://127.0.0.1:8000' +
@@ -59,10 +59,10 @@ function Cart() {
                               )
                             ].product_image
                           }
-                          alt=''
+                          alt=""
                         />
                       </div>
-                      <div className='cartDetails'>
+                      <div className="cartDetails">
                         <p>Title : {items.item.product_name}</p>
                         <p>Price : {items.item.product_price}</p>
                         <p>
@@ -77,7 +77,7 @@ function Cart() {
                             <button>-</button>
                           </span>
                           &nbsp; &nbsp; &nbsp;
-                          <span className='count'>{items.quantity}</span>
+                          <span className="count">{items.quantity}</span>
                           &nbsp; &nbsp; &nbsp;
                           <span>
                             <button>+</button>
@@ -85,7 +85,7 @@ function Cart() {
                         </div>
                         <br />
                         <button
-                          className='cartBtn'
+                          className="cartBtn"
                           onClick={() => removeCartList(items.item.id)}
                         >
                           REMOVE
@@ -95,6 +95,99 @@ function Cart() {
                   </>
                 );
               })}
+
+              <div className="cartSecondList">
+                <div className="producDetail">
+                  <input type="checkbox" style={{ marginRight: '20px' }} />
+                  <div className="productImg">
+                    <img src="" alt="Product image" />
+                  </div>
+                  <div className="titles">
+                    <p>title</p>
+                  </div>
+                </div>
+
+                <div className="price">
+                  <p style={{ marginRight: '10px' }}>price</p>
+                  <p>
+                    <s>price</s>
+                  </p>
+                </div>
+                <div className="quantity">
+                  Quantity : &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>-</button>
+                  </span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span className="count">2</span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>+</button>
+                  </span>
+                </div>
+              </div>
+
+              <div className="cartSecondList">
+                <div className="producDetail">
+                  <input type="checkbox" style={{ marginRight: '20px' }} />
+                  <div className="productImg">
+                    <img src="" alt="Product image" />
+                  </div>
+                  <div className="titles">
+                    <p>title</p>
+                  </div>
+                </div>
+
+                <div className="price">
+                  <p style={{ marginRight: '10px' }}>price</p>
+                  <p>
+                    <s>price</s>
+                  </p>
+                </div>
+                <div className="quantity">
+                  Quantity : &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>-</button>
+                  </span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span className="count">2</span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>+</button>
+                  </span>
+                </div>
+              </div>
+
+              <div className="cartSecondList">
+                <div className="producDetail">
+                  <input type="checkbox" style={{ marginRight: '20px' }} />
+                  <div className="productImg">
+                    <img src="" alt="Product image" />
+                  </div>
+                  <div className="titles">
+                    <p>title</p>
+                  </div>
+                </div>
+
+                <div className="price">
+                  <p style={{ marginRight: '10px' }}>price</p>
+                  <p>
+                    <s>price</s>
+                  </p>
+                </div>
+                <div className="quantity">
+                  Quantity : &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>-</button>
+                  </span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span className="count">2</span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>+</button>
+                  </span>
+                </div>
+              </div>
 
               {/* <div className='cartList'>
                 <div className='cartImage'>
@@ -131,29 +224,29 @@ function Cart() {
                 </div>
               </div> */}
             </div>
-            <div className='summary'>
-              <div className='innerSummary'>
-                <p className='title'>ORDER SUMMARY</p>
+            <div className="summary">
+              <div className="innerSummary">
+                <p className="title">ORDER SUMMARY</p>
                 <p>
                   Item Subtotal <span>Price</span>
                 </p>
                 <p>
                   Delivery <span>Free</span>
                 </p>
-                <div className='underline'></div>
+                <div className="underline"></div>
                 <p>Estimated Total</p>
 
-                <div className='buttons'>
-                  <button className='grayBtnPadding'>
+                <div className="buttons">
+                  <button className="grayBtnPadding">
                     Proceed to checkout
                   </button>
                   {/* <button className="secondGrayBtn">Continue Shopping</button>  */}
                 </div>
-                <div className='buttons'>
+                <div className="buttons">
                   {/* <button className="grayBtn">Proceed to checkout</button>  */}
-                  <button className='secondGrayBtnPadding'>
+                  {/* <button className='secondGrayBtnPadding'>
                     Continue Shopping
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

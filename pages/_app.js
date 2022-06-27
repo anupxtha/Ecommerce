@@ -10,6 +10,7 @@ import '../cart.css';
 import '../loader.css';
 import '../wishlist.css';
 import '../profile.css';
+import '../shippingAddress.css';
 import Footer from '../components/Common/Footer';
 import { DataProvider } from '../store/GlobalState';
 import Loading from '../components/Common/Loading';
