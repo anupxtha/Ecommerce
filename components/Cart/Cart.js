@@ -177,6 +177,99 @@ function Cart() {
                 );
               })}
 
+              <div className='cartSecondList'>
+                <div className='producDetail'>
+                  <input type='checkbox' style={{ marginRight: '20px' }} />
+                  <div className='productImg'>
+                    <img src='' alt='Product image' />
+                  </div>
+                  <div className='titles'>
+                    <p>title</p>
+                  </div>
+                </div>
+
+                <div className='price'>
+                  <p style={{ marginRight: '10px' }}>price</p>
+                  <p>
+                    <s>price</s>
+                  </p>
+                </div>
+                <div className='quantity'>
+                  Quantity : &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>-</button>
+                  </span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span className='count'>2</span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>+</button>
+                  </span>
+                </div>
+              </div>
+
+              <div className='cartSecondList'>
+                <div className='producDetail'>
+                  <input type='checkbox' style={{ marginRight: '20px' }} />
+                  <div className='productImg'>
+                    <img src='' alt='Product image' />
+                  </div>
+                  <div className='titles'>
+                    <p>title</p>
+                  </div>
+                </div>
+
+                <div className='price'>
+                  <p style={{ marginRight: '10px' }}>price</p>
+                  <p>
+                    <s>price</s>
+                  </p>
+                </div>
+                <div className='quantity'>
+                  Quantity : &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>-</button>
+                  </span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span className='count'>2</span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>+</button>
+                  </span>
+                </div>
+              </div>
+
+              <div className='cartSecondList'>
+                <div className='producDetail'>
+                  <input type='checkbox' style={{ marginRight: '20px' }} />
+                  <div className='productImg'>
+                    <img src='' alt='Product image' />
+                  </div>
+                  <div className='titles'>
+                    <p>title</p>
+                  </div>
+                </div>
+
+                <div className='price'>
+                  <p style={{ marginRight: '10px' }}>price</p>
+                  <p>
+                    <s>price</s>
+                  </p>
+                </div>
+                <div className='quantity'>
+                  Quantity : &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>-</button>
+                  </span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span className='count'>2</span>
+                  &nbsp; &nbsp; &nbsp;
+                  <span>
+                    <button>+</button>
+                  </span>
+                </div>
+              </div>
+
               {/* <div className='cartList'>
                 <div className='cartImage'>
                   <img src='' alt='' />
@@ -232,9 +325,9 @@ function Cart() {
                 </div>
                 <div className='buttons'>
                   {/* <button className="grayBtn">Proceed to checkout</button>  */}
-                  <button className='secondGrayBtnPadding'>
+                  {/* <button className='secondGrayBtnPadding'>
                     Continue Shopping
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
