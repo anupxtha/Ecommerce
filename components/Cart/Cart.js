@@ -16,6 +16,8 @@ function Cart() {
   const router = useRouter();
   const [cartProduct, setCartProduct] = useState([]);
 
+  // console.log(cartProduct);
+
   useEffect(() => {
     if (sessionStorage.getItem('authToken') === null) {
       router.push('/');
@@ -90,6 +92,10 @@ function Cart() {
       });
   };
 
+  const selectedItem = items => {
+    console.log(items);
+  };
+
   return (
     <>
       {cartProduct && (
@@ -97,7 +103,7 @@ function Cart() {
           <div className='innerCart'>
             <div className='items'>
               <p className='title'>SHOPPING LIST</p>
-              {cartProduct.map(items => {
+              {/* {cartProduct.map(items => {
                 return (
                   <>
                     <div className='cartList'>
@@ -175,9 +181,102 @@ function Cart() {
                     </div>
                   </>
                 );
+              })} */}
+
+              {cartProduct.map(items => {
+                return (
+                  <>
+                    <div className='cartSecondList'>
+                      <div className='producDetail'>
+                        <input
+                          type='checkbox'
+                          style={{ marginRight: '20px' }}
+                          onChange={() => selectedItem(items)}
+                        />
+                        <div className='productImg'>
+                          <img
+                            src={
+                              'http://127.0.0.1:8000' +
+                              items.item.product_image[
+                                Math.floor(
+                                  Math.random() *
+                                    items.item.product_image.length
+                                )
+                              ].product_image
+                            }
+                            alt='Product image'
+                          />
+                        </div>
+                        <div className='titles'>
+                          <p>{items.item.product_name}</p>
+                          <p>Color : {items.item_size}</p>
+                          <p>Size : {items.item_color}</p>
+                        </div>
+                      </div>
+
+                      <div className='price'>
+                        <p style={{ marginRight: '10px' }}>
+                          {items.item.get_discounted_price}
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span>
+                            <s>{items.item.product_price}</s>
+                          </span>
+                        </p>
+
+                        {/* <p></p> */}
+                        <i
+                          class='fa-solid fa-trash-can'
+                          onClick={() =>
+                            removeCartList(
+                              items.item.id,
+                              items.item_color,
+                              items.item_size,
+                              items.quantity
+                            )
+                          }
+                          style={{ cursor: 'pointer' }}
+                        ></i>
+                      </div>
+                      <div className='quantity'>
+                        Quantity : &nbsp; &nbsp; &nbsp;
+                        <span>
+                          <button
+                            onClick={() =>
+                              DecreaseQuantity(
+                                items.item,
+                                items.item_color,
+                                items.item_size,
+                                items.quantity
+                              )
+                            }
+                          >
+                            -
+                          </button>
+                        </span>
+                        &nbsp; &nbsp; &nbsp;
+                        <span className='count'>{items.quantity}</span>
+                        &nbsp; &nbsp; &nbsp;
+                        <span>
+                          <button
+                            onClick={() =>
+                              IncreaseQuantity(
+                                items.item,
+                                items.item_color,
+                                items.item_size,
+                                items.quantity
+                              )
+                            }
+                          >
+                            +
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </>
+                );
               })}
 
-              <div className='cartSecondList'>
+              {/* <div className='cartSecondList'>
                 <div className='producDetail'>
                   <input type='checkbox' style={{ marginRight: '20px' }} />
                   <div className='productImg'>
@@ -237,38 +336,7 @@ function Cart() {
                     <button>+</button>
                   </span>
                 </div>
-              </div>
-
-              <div className='cartSecondList'>
-                <div className='producDetail'>
-                  <input type='checkbox' style={{ marginRight: '20px' }} />
-                  <div className='productImg'>
-                    <img src='' alt='Product image' />
-                  </div>
-                  <div className='titles'>
-                    <p>title</p>
-                  </div>
-                </div>
-
-                <div className='price'>
-                  <p style={{ marginRight: '10px' }}>price</p>
-                  <p>
-                    <s>price</s>
-                  </p>
-                </div>
-                <div className='quantity'>
-                  Quantity : &nbsp; &nbsp; &nbsp;
-                  <span>
-                    <button>-</button>
-                  </span>
-                  &nbsp; &nbsp; &nbsp;
-                  <span className='count'>2</span>
-                  &nbsp; &nbsp; &nbsp;
-                  <span>
-                    <button>+</button>
-                  </span>
-                </div>
-              </div>
+              </div> */}
 
               {/* <div className='cartList'>
                 <div className='cartImage'>

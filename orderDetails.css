@@ -1,0 +1,252 @@
+.title {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.orderDetails {
+  width: 100%;
+  float: left;
+  /* height: calc(100vh - 60px); */
+  background-color: white;
+}
+.orderDetails .underline {
+  width: 100%;
+  height: 2px;
+  background-color: #787878;
+  margin-bottom: 20px;
+  float: left;
+}
+.orderDetails .innerorderDetails {
+  width: 80%;
+  margin: 0 10%;
+  float: left;
+  height: 100%;
+  /* border: 1px solid black; */
+}
+.orderDetails .innerorderDetails .innerItems {
+  height: 100%;
+  float: left;
+  /* overflow-y: scroll; */
+  width: 40%;
+}
+.orderDetails .innerorderDetails .items {
+  float: left;
+  width: 65%;
+  /* background-color: red; */
+  height: 100%;
+  /* overflow-y: scroll; */
+}
+.orderDetails .innerorderDetails .items .orderDetailsList {
+  width: 100%;
+  height: 350px;
+  float: left;
+  margin-bottom: 20px;
+}
+.orderDetails .innerorderDetails .items .orderDetailsList .orderDetailsImage {
+  width: 50%;
+  float: left;
+  height: 100%;
+  margin-right: 5%;
+  background-color: #e5e5e5;
+}
+.orderDetails
+  .innerorderDetails
+  .items
+  .orderDetailsList
+  .orderDetailsImage
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.orderDetails .innerorderDetails .items .orderDetailsDetails {
+  width: 45%;
+  float: left;
+  /* background-color: blue; */
+}
+
+.orderDetails
+  .innerorderDetails
+  .items
+  .orderDetailsList
+  .orderDetailsDetails
+  p {
+  width: 100%;
+  margin: 15px 0 40px 0;
+  /* background-color: red; */
+}
+.orderDetails
+  .innerorderDetails
+  .items
+  .orderDetailsList
+  .orderDetailsDetails
+  p
+  span {
+  float: right;
+  /* margin: 15px 0 40px 0; */
+  text-align: center;
+
+  padding: 2% 5%;
+  width: 140px;
+  border: 1px solid black;
+  background-color: #eeeded;
+  border-radius: 20px;
+}
+.orderDetails .innerorderDetails .summary {
+  float: right;
+  width: 30%;
+  margin-bottom: 20px;
+  /* background-color: red; */
+  /* height: 400px; */
+  /* background-color: blue; */
+}
+.orderDetails .innerorderDetails .summary .innerSummary {
+  float: right;
+  width: 100%;
+  background-color: #eeeeee;
+  padding: 30px 5%;
+}
+.orderDetails .innerorderDetails .summary .innerSummary p {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.orderDetails .innerorderDetails .summary .innerSummary p span {
+  float: right;
+  /* width: 100%; */
+}
+.orderDetails .innerorderDetails .summary .innerSummary .buttons {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.orderDetails .summary .buttons button {
+  width: 90%;
+  float: left;
+  padding: 2% 0;
+}
+.orderDetailsBtn {
+  border: none;
+  letter-spacing: 2px;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  font-size: 15px;
+}
+.orderDetails .tableTitle {
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin: 20px 0;
+  /* background-color: red; */
+}
+.orderDetails .tableTitle p {
+  margin: 0;
+}
+.orderDetails .tableTitle .producDetail {
+  width: 50%;
+  height: 100%;
+  /* background-color: blue;
+  border: 1px solid black; */
+  float: left;
+  display: flex;
+  align-items: center;
+}
+.orderDetails .tableTitle .price {
+  width: 40%;
+  height: 100%;
+  /* background-color: blue; */
+  /* border: 1px solid black; */
+  float: left;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.orderDetails .tableTitle .quantity {
+  width: 10%;
+  height: 100%;
+  /* background-color: blue; */
+  /* border: 1px solid black; */
+  float: left;
+  display: flex;
+  align-items: center;
+}
+
+.orderDetails .orderDetailsSecondList {
+  width: 100%;
+  height: 100px;
+  float: left;
+  margin: 20px 0;
+  /* background-color: red; */
+}
+.orderDetails .orderDetailsSecondList .producDetail {
+  width: 50%;
+  height: 100%;
+  /* background-color: blue;
+  border: 1px solid black; */
+  float: left;
+  display: flex;
+  align-items: center;
+}
+.orderDetails .orderDetailsSecondList .price {
+  width: 40%;
+  height: 100%;
+  /* background-color: blue; */
+  /* border: 1px solid black; */
+  float: left;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.orderDetails .orderDetailsSecondList .quantity {
+  width: 10%;
+  height: 100%;
+  /* background-color: blue; */
+  /* border: 1px solid black; */
+  float: left;
+  display: flex;
+  align-items: center;
+}
+.orderDetails .orderDetailsSecondList .producDetail .titles {
+  float: left;
+  margin-left: 20px;
+  /* background-color: red; */
+}
+.orderDetails .orderDetailsSecondList .producDetail .titles p {
+  margin: 0;
+}
+.orderDetails .orderDetailsSecondList .producDetail .productImg {
+  /* width: 20%; */
+  /* background-color: black; */
+  border: 1px solid black;
+  float: left;
+}
+.orderDetails .orderDetailsSecondList .producDetail .productImg img {
+  width: 80px;
+  height: 80px;
+  object-fit: fill;
+  float: left;
+}
+
+.orderDetails .summary .voucher {
+  width: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+.orderDetails .summary .voucher input {
+  height: 40px;
+  width: 80%;
+  border: 1px solid #5cb85c;
+  float: left;
+  margin-right: 10px;
+}
+.orderDetails .summary .voucher button {
+  height: 40px;
+}
+.orderDetails .summary .voucher button:focus {
+  outline: none;
+}

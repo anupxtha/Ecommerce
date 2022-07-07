@@ -141,7 +141,9 @@
   /* border: 1px solid black; */
   float: left;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .cart .cartSecondList .quantity {
   width: 30%;
@@ -151,6 +153,7 @@
   float: left;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .cart .cartSecondList .producDetail .titles {
   float: left;
@@ -160,7 +163,7 @@
 .cart .cartSecondList .producDetail .productImg {
   /* width: 20%; */
   /* background-color: black; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
   float: left;
 }
 .cart .cartSecondList .producDetail .productImg img {
