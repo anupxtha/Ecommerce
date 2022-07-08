@@ -12,8 +12,8 @@ function Product() {
       <TopProduct />
       <BestProduct />
       {/* <RecomProduct /> */}
-      <ShopNow />
       <FooterSlider />
+      <ShopNow />
       <EmailNotification />
     </div>
   );
