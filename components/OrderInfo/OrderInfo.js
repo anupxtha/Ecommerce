@@ -76,7 +76,7 @@ function OrderInfo() {
               </p>
 
               <div className='buttons'>
-                <button className='grayBtnPadding'>Proceed to checkout</button>
+                <button className='grayBtnPadding'>Proceed to Payout</button>
               </div>
               <div className='buttons'></div>
             </div>

@@ -9,6 +9,7 @@ import {
   removeFromCard,
   removeFromWishlist,
 } from '../../store/Actions';
+import Link from 'next/link';
 
 function Cart() {
   const [state, dispatch] = useContext(DataContext);
@@ -386,9 +387,13 @@ function Cart() {
                 <p>Estimated Total</p>
 
                 <div className='buttons'>
-                  <button className='grayBtnPadding'>
-                    Proceed to checkout
-                  </button>
+                  <Link href='/shippingAddress'>
+                    <a style={{ color: 'black' }}>
+                      <button className='grayBtnPadding'>
+                        Continue Shopping
+                      </button>
+                    </a>
+                  </Link>
                   {/* <button className="secondGrayBtn">Continue Shopping</button>  */}
                 </div>
                 <div className='buttons'>

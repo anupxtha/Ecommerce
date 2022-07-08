@@ -11,9 +11,9 @@ function Product() {
     <div className='products'>
       <TopProduct />
       <BestProduct />
-      <RecomProduct />
+      {/* <RecomProduct /> */}
       <ShopNow />
-      {/* <FooterSlider /> */}
+      <FooterSlider />
       <EmailNotification />
     </div>
   );
