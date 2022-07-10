@@ -55,7 +55,7 @@ th {
   width: 40px !important;
   height: 50px !important;
   font-size: 1px !important;
-  background-color: red !important;
+  /* background-color: red !important; */
   margin-right: 10px;
 }
 .mainWishlist .wishListBtn {

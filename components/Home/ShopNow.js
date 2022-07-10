@@ -11,8 +11,8 @@ function ShopNow() {
           <button className="grayBtn">Shop Now</button>
         </div>
         <div className="shopNowImg">
-          <img src="/images/model.png" alt="" />
-          <img src="/images/dress.png" alt="" />
+          <img src="/images/model.png" alt="" className="model" />
+          <img src="/images/dress.png" alt="" className="dress" />
         </div>
       </div>
     </div>

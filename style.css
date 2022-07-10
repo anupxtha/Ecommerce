@@ -490,13 +490,15 @@ body {
 .products .innerTop .cards {
   width: 100%;
   float: left;
+  display: flex;
+  justify-content: space-between;
 }
 .products .innerTop .cards .lists {
   position: relative;
-  width: 23%;
+  width: 22%;
   height: 400px;
   float: left;
-  margin: 0 1%;
+  /* margin: 0 1%; */
 }
 .products .innerTop .cards .lists .cardsPic {
   border-radius: 5px;
@@ -704,17 +706,20 @@ body {
   /* background-color: red; */
 }
 .shopNow .innerShopNow .details .titleP {
-  font-size: 25px;
-  letter-spacing: 2px;
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin: 15px 0;
 }
 .shopNow .innerShopNow .details .titleP2 {
   color: #787878;
   font-size: 15px;
-  letter-spacing: 2px;
+  margin: 40px 0;
+  letter-spacing: 5px;
 }
 .shopNow .innerShopNow .shopNowImg {
   width: 50%;
   height: 300px;
+
   /* background: blue; */
   /* display: flex;
   justify-content: center;
@@ -723,10 +728,19 @@ body {
   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 .shopNow .innerShopNow .shopNowImg img {
-  width: 45%;
+  width: 50%;
   height: 300px;
-  float: left;
+  margin-left: -30px;
+  /* float: left; */
   object-fit: contain !important;
+}
+.shopNow .innerShopNow .shopNowImg .model {
+  margin-left: -40px;
+  float: left;
+}
+.shopNow .innerShopNow .shopNowImg .dress {
+  margin-right: 20px;
+  float: right;
 }
 @media screen and (max-width: 1000px) {
   .shopNow .innerShopNow .details {
