@@ -992,7 +992,7 @@ body {
 }
 
 .dots #active {
-  background-color: white !important;
-  width: 15px !important;
-  height: 15px !important;
+  background-color: blueviolet !important;
+  width: 10px !important;
+  height: 10px !important;
 }
