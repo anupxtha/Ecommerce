@@ -14,10 +14,10 @@ function TopProduct() {
   useEffect(() => {
     apiServices
       .getProduct()
-      .then(response => {
+      .then((response) => {
         SetProductData(response.data.slice(0, 4));
       })
-      .catch(err => {
+      .catch((err) => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -25,7 +25,7 @@ function TopProduct() {
       });
   }, []);
 
-  const handlewishlist = listProduct => {
+  const handlewishlist = (listProduct) => {
     const status = sessionStorage.getItem('loginStatus');
     const authToken = sessionStorage.getItem('authToken');
     if (status) {
@@ -37,14 +37,14 @@ function TopProduct() {
 
       apiServices
         .postAddToWishlist(listProduct.id)
-        .then(res => {
+        .then((res) => {
           dispatch(addToWishlist(listProduct, wishlist));
           dispatch({
             type: 'NOTIFY',
             payload: { success: 'The product is added in Wishlist' },
           });
         })
-        .catch(err => {
+        .catch((err) => {
           dispatch({
             type: 'NOTIFY',
             payload: { error: err.message },
@@ -56,15 +56,15 @@ function TopProduct() {
   };
 
   return (
-    <div className='topSell'>
-      <div className='innerTop'>
+    <div className="topSell">
+      <div className="innerTop">
         <p>Top Selling Product</p>
-        <div className='cards'>
+        <div className="cards">
           {productData &&
-            productData.map(list => {
+            productData.map((list) => {
               return (
-                <div key={list.id} className='lists'>
-                  <div className='cardsPic'>
+                <div key={list.id} className="lists">
+                  <div className="cardsPic">
                     <img
                       src={
                         'http://127.0.0.1:8000' +
@@ -72,9 +72,16 @@ function TopProduct() {
                           Math.floor(Math.random() * list.product_image.length)
                         ].product_image
                       }
-                      alt=''
+                      alt=""
                       style={{ width: '100%', height: '100%' }}
                     />
+                    <div className="love">
+                      <button className="wishListBtn">Add to cart</button>
+                      <i
+                        className="fa-regular fa-heart"
+                        onClick={() => handlewishlist(list)}
+                      ></i>
+                    </div>
                     {/* <div className='rating'>
                       <i className='fa-solid fa-star'></i>
                       <i className='fa-solid fa-star'></i>
@@ -84,7 +91,7 @@ function TopProduct() {
                       <i className='fa-regular fa-heart'></i>
                     </div> */}
                   </div>
-                  <div className='details'>
+                  <div className="details">
                     <Link
                       href={
                         '/product/' +
@@ -99,8 +106,8 @@ function TopProduct() {
                         <p>{list.product_name}</p>
                       </a>
                     </Link>
-                    <button onClick={() => handlewishlist(list)}>love</button>
-                    <p>{list.product_price}</p>
+                    {/* <button onClick={() => handlewishlist(list)}>love</button> */}
+                    <p>${list.product_price}</p>
                   </div>
                 </div>
               );
@@ -162,8 +169,8 @@ function TopProduct() {
             </div>
           </div> */}
         </div>
-        <div className='btns'>
-          <Link href='/sales'>
+        <div className="btns">
+          <Link href="/sales">
             <a>
               <button>View More</button>
             </a>
