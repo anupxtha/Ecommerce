@@ -172,7 +172,7 @@ function TopProduct() {
         <div className="btns">
           <Link href="/sales">
             <a>
-              <button>View More</button>
+              <button className="viewMore">View More</button>
             </a>
           </Link>
         </div>

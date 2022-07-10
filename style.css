@@ -17,6 +17,9 @@ body {
   background-color: #666666;
   color: white;
 }
+.viewMore {
+  background-color: #9b47dc !important;
+}
 @media screen and (max-width: 1000px) {
   .grayBtn {
     border-radius: 30px;
