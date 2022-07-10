@@ -221,6 +221,10 @@ body {
   /* font-size: 5px; */
   /* border: 1px solid black; */
 }
+.navBar .hoverImage .userImage img {
+  object-fit: fill;
+  /* border-radius: 50px; */
+}
 .navBar .hoverImage .dropImage {
   display: none;
 
@@ -690,28 +694,39 @@ body {
 }
 .shopNow .innerShopNow {
   width: 80%;
-  margin: 0 10%;
+  margin: 0 0 0 10%;
   float: left;
 }
 .shopNow .innerShopNow .details {
   width: 50%;
   float: left;
   /* height: 100px; */
+  /* background-color: red; */
 }
 .shopNow .innerShopNow .details .titleP {
-  font-size: 36px;
+  font-size: 25px;
   letter-spacing: 2px;
 }
 .shopNow .innerShopNow .details .titleP2 {
   color: #787878;
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 2px;
 }
 .shopNow .innerShopNow .shopNowImg {
-  width: 35%;
-  height: 250px;
+  width: 50%;
+  height: 300px;
+  /* background: blue; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
   float: right;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+.shopNow .innerShopNow .shopNowImg img {
+  width: 45%;
+  height: 300px;
+  float: left;
+  object-fit: contain !important;
 }
 @media screen and (max-width: 1000px) {
   .shopNow .innerShopNow .details {
