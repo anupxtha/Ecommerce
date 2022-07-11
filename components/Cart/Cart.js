@@ -96,12 +96,24 @@ function Cart() {
   };
 
   const selectedItem = (items, e) => {
-    console.log(items);
-    console.log(e);
-    console.log(e.target.checked);
-    setSelectedCart(items);
-    console.log(selectedCart);
+    // console.log(items);
+    // console.log(e);
+    // console.log(e.target.checked);
+
+    if (e.target.checked === true) {
+      setSelectedCart([...selectedCart, { items }]);
+    } else {
+      // console.log(selectedCart[0].items);
+      const filterCheck = selectedCart.filter((newData) => {
+        const { id } = newData.items;
+        // console.log(e.target.value);
+        return id != e.target.value;
+      });
+      setSelectedCart(filterCheck);
+    }
+    // console.log(selectedCart);
   };
+  console.log(selectedCart);
   const shopping = (e) => {
     const checkBoxCart = document.querySelectorAll('.cartCheck');
     console.log(selectedCart.length);
@@ -116,6 +128,7 @@ function Cart() {
         // checkBoxCart[i].checked = true;
         // console.log(checkBoxCart[i].checked);
         if (checkBoxCart[i].checked === true) {
+          console.log(checkBoxCart[i].value);
           router.push('/shippingAddress');
         } else if (checkBoxCart[i].checked === false) {
           setSelectedCart([]);
@@ -244,6 +257,7 @@ function Cart() {
                         <input
                           type="checkbox"
                           className="cartCheck"
+                          value={items.id}
                           style={{ marginRight: '20px' }}
                           onChange={(e) => selectedItem(items, e)}
                         />
