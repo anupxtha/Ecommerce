@@ -118,6 +118,19 @@ function Cart() {
     if (e.target.checked) {
       setSelectedCart(cart);
     }
+    const checkBoxCart = document.querySelectorAll('.cartCheck');
+    console.log(checkBoxCart.length);
+    if (e.target.checked === true) {
+      for (let i = 0; i < checkBoxCart.length; i++) {
+        checkBoxCart[i].checked = true;
+        console.log(checkBoxCart[i].checked);
+      }
+    } else {
+      for (let i = 0; i < checkBoxCart.length; i++) {
+        checkBoxCart[i].checked = false;
+        console.log(checkBoxCart[i].checked);
+      }
+    }
   };
   return (
     <>
@@ -215,6 +228,7 @@ function Cart() {
                       <div className="producDetail">
                         <input
                           type="checkbox"
+                          className="cartCheck"
                           style={{ marginRight: '20px' }}
                           onChange={(e) => selectedItem(items, e)}
                         />
