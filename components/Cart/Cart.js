@@ -101,11 +101,12 @@ function Cart() {
     // console.log(e.target.checked);
 
     if (e.target.checked === true) {
-      setSelectedCart([...selectedCart, { items }]);
+      setSelectedCart([...selectedCart, { ...items }]);
     } else {
-      // console.log(selectedCart[0].items);
+      console.log(selectedCart);
       const filterCheck = selectedCart.filter((newData) => {
-        const { id } = newData.items;
+        console.log(newData);
+        const { id } = newData;
         // console.log(e.target.value);
         return id != e.target.value;
       });
@@ -128,8 +129,9 @@ function Cart() {
         // checkBoxCart[i].checked = true;
         // console.log(checkBoxCart[i].checked);
         if (checkBoxCart[i].checked === true) {
-          console.log(checkBoxCart[i].value);
+          // console.log(checkBoxCart[i].value);
           router.push('/shippingAddress');
+          console.log('send selectedC');
         } else if (checkBoxCart[i].checked === false) {
           setSelectedCart([]);
           dispatch({
@@ -141,10 +143,14 @@ function Cart() {
       }
     }
   };
-
+  console.log(cartProduct);
   const selectAll = (e) => {
     if (e.target.checked) {
-      setSelectedCart(cart);
+      setSelectedCart(cartProduct);
+    }
+    if (e.target.checked === false) {
+      // alert('hey');
+      setSelectedCart([]);
     }
     const checkBoxCart = document.querySelectorAll('.cartCheck');
     console.log(checkBoxCart.length);
