@@ -10,96 +10,80 @@ function FooterSlider() {
   ];
 
   return (
-    <div className="sliderCategory">
-      <Slide breakPoints={breakPoints}>
-        {/* <Item> */}
-        <div className="card">
-          <div className="imageInfo">
-            <div>Caterory</div>
-            <img src="/images/model.png" alt="photo" />
-          </div>
-          <div className="desc">
-            <h4>Title</h4>
-            <p>Address</p>
-            <p>Price</p>
-          </div>
-          <div className="userInfo">
-            {/* <div className="userInfo"> */}
-            <img src="" alt="photo" />
-            <span> Model</span>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className="card">
-          <div className="imageInfo">
-            <div>Caterory</div>
-            <img src="/images/dress.png" alt="photo" />
-          </div>
-          <div className="desc">
-            <h4>Title</h4>
-            <p>Address</p>
-            <p>Price</p>
-          </div>
-          <div className="userInfo"></div>
-        </div>
-        <div className="card">
-          <div className="imageInfo">
-            <div>Caterory</div>
-            <img src="/images/model.png" alt="photo" />
-          </div>
-          <div className="desc">
-            <h4>Title</h4>
-            <p>Address</p>
-            <p>Price</p>
-          </div>
-          <div className="userInfo"></div>
-        </div>
-        <div className="card">
-          <div className="imageInfo">
-            <div>Caterory</div>
-            <img src="" alt="photo" />
-          </div>
-          <div className="desc">
-            <h4>Title</h4>
-            <p>Address</p>
-            <p>Price</p>
-          </div>
-          <div className="userInfo"></div>
-        </div>
-        <div className="card">
-          <div className="imageInfo">
-            <div>Caterory</div>
-            <img src="" alt="photo" />
-          </div>
-          <div className="desc">
-            <h4>Title</h4>
-            <p>Address</p>
-            <p>Price</p>
-          </div>
-          <div className="userInfo"></div>
-        </div>
-        <div className="card">
-          <div className="imageInfo">
-            <div>Caterory</div>
-            <img src="" alt="photo" />
-          </div>
-          <div className="desc">
-            <h4>Title</h4>
-            <p>Address</p>
-            <p>Price</p>
-          </div>
-          <div className="userInfo"></div>
-        </div>
+    <div className="mainSlideCat">
+      <div className="sliderCategory">
+        <p className="listTitle " style={{ margin: '40px 0 0 0' }}>
+          Explore Categories
+        </p>
+        <Slide breakPoints={breakPoints}>
+          {/* <Item> */}
 
-        {/* </Item> */}
-        {/* <Item>Two</Item>
+          <div className="card">
+            <div className="imageInfo">
+              <img src="/images/model.png" alt="photo" />
+            </div>
+            <div className="desc">
+              <h4>Title</h4>
+              {/* <p>Address</p>
+              <p>Price</p> */}
+            </div>
+          </div>
+          <div className="card">
+            <div className="imageInfo">
+              <img src="/images/dress.png" alt="photo" />
+            </div>
+            <div className="desc">
+              <h4>Title</h4>
+            </div>
+            <div className="userInfo"></div>
+          </div>
+          <div className="card">
+            <div className="imageInfo">
+              <img src="/images/model.png" alt="photo" />
+            </div>
+            <div className="desc">
+              <h4>Title</h4>
+            </div>
+            <div className="userInfo"></div>
+          </div>
+          <div className="card">
+            <div className="imageInfo">
+              <img src="" alt="photo" />
+            </div>
+            <div className="desc">
+              <h4>Title</h4>
+            </div>
+            <div className="userInfo"></div>
+          </div>
+          <div className="card">
+            <div className="imageInfo">
+              <img src="" alt="photo" />
+            </div>
+            <div className="desc">
+              <h4>Title</h4>
+            </div>
+            <div className="userInfo"></div>
+          </div>
+          <div className="card">
+            <div className="imageInfo">
+              <img src="" alt="photo" />
+            </div>
+            <div className="desc">
+              <h4>Title</h4>
+            </div>
+            <div className="userInfo"></div>
+          </div>
+
+          {/* </Item> */}
+          {/* <Item>Two</Item>
                 <Item>Three</Item>
                 <Item>Four</Item>
                 <Item>Five</Item>
                 <Item>Six</Item>
                 <Item>Seven</Item>
                 <Item>Eight</Item> */}
-      </Slide>
+        </Slide>
+      </div>
     </div>
   );
 }

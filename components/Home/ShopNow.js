@@ -8,7 +8,9 @@ function ShopNow() {
           <p className="titleP">New Womens's Clothing</p>
           <p className="titleP">Witer Collection 2022</p>
           <p className="titleP2">Browse and find new winter outfits...</p>
-          <button className="grayBtn">Shop Now</button>
+          <button className="grayBtn" style={{ marginTop: '20px' }}>
+            Shop Now
+          </button>
         </div>
         <div className="shopNowImg">
           <img src="/images/model.png" alt="" className="model" />

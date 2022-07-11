@@ -107,7 +107,7 @@ function TopProduct() {
   return (
     <div className="topSell">
       <div className="innerTop">
-        <p>Top Selling Product</p>
+        <p className="listTitle">Top Selling Product</p>
         <div className="cards">
           {productData &&
             productData.map((list) => {
