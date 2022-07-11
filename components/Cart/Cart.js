@@ -114,6 +114,11 @@ function Cart() {
     }
   };
 
+  const selectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedCart(cart);
+    }
+  };
   return (
     <>
       {cartProduct && (
@@ -121,6 +126,8 @@ function Cart() {
           <div className="innerCart">
             <div className="items">
               <p className="title">SHOPPING LIST</p>
+              <input type="checkbox" onChange={selectAll} />
+              <label>Select All</label>
               {/* {cartProduct.map(items => {
                 return (
                   <>
