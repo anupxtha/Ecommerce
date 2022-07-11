@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import apiServices from '../../utils/apiServices';
 import { DataContext } from '../../store/GlobalState';
-import { addToWishlist } from '../../store/Actions';
+import { addToCart, addToWishlist } from '../../store/Actions';
 import { useRouter } from 'next/router';
 
 function TopProduct() {
   const [state, dispatch] = useContext(DataContext);
-  const { wishlist } = state;
+  const { wishlist, cart } = state;
   const [productData, SetProductData] = useState([]);
   const router = useRouter();
 
@@ -55,6 +55,55 @@ function TopProduct() {
     }
   };
 
+  const addToListFromHomePage = (selectedProduct) => {
+    const status = sessionStorage.getItem('loginStatus');
+    const authToken = sessionStorage.getItem('authToken');
+    if (status) {
+      const result = addToCart(
+        selectedProduct,
+        1,
+        cart,
+        selectedProduct.product_size[0].product_size,
+        selectedProduct.product_color[0].product_color
+      );
+
+      if (result.payload.error) {
+        return dispatch(result);
+      }
+
+      apiServices
+        .postAddToCart(
+          selectedProduct.id,
+          1,
+          selectedProduct.product_size[0].product_size,
+          selectedProduct.product_color[0].product_color
+        )
+        .then((response) => {
+          dispatch(
+            addToCart(
+              selectedProduct,
+              1,
+              cart,
+              selectedProduct.product_size[0].product_size,
+              selectedProduct.product_color[0].product_color
+            )
+          );
+          dispatch({
+            type: 'NOTIFY',
+            payload: { success: 'The product is added in Cart' },
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: 'NOTIFY',
+            payload: { error: err.message },
+          });
+        });
+    } else {
+      router.push('/login');
+    }
+  };
+
   return (
     <div className="topSell">
       <div className="innerTop">
@@ -76,7 +125,12 @@ function TopProduct() {
                       style={{ width: '100%', height: '100%' }}
                     />
                     <div className="love">
-                      <button className="wishListBtn">Add to cart</button>
+                      <button
+                        className="wishListBtn"
+                        onClick={() => addToListFromHomePage(list)}
+                      >
+                        Add to cart
+                      </button>
                       <i
                         className="fa-regular fa-heart"
                         onClick={() => handlewishlist(list)}
