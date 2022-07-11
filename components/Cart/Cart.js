@@ -103,14 +103,29 @@ function Cart() {
     console.log(selectedCart);
   };
   const shopping = (e) => {
+    const checkBoxCart = document.querySelectorAll('.cartCheck');
     console.log(selectedCart.length);
+
     if (selectedCart.length === 0) {
       dispatch({
         type: 'NOTIFY',
         payload: { error: 'Please Select Items' },
       });
     } else {
-      router.push('/shippingAddress');
+      for (let i = 0; i < checkBoxCart.length; i++) {
+        // checkBoxCart[i].checked = true;
+        // console.log(checkBoxCart[i].checked);
+        if (checkBoxCart[i].checked === true) {
+          router.push('/shippingAddress');
+        } else if (checkBoxCart[i].checked === false) {
+          setSelectedCart([]);
+          dispatch({
+            type: 'NOTIFY',
+            payload: { error: 'Please Select Items' },
+          });
+          console.log(selectedCart);
+        }
+      }
     }
   };
 
