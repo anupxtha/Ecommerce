@@ -20,15 +20,16 @@ export const DataProvider = ({ children }) => {
     auth: {},
     cart: [],
     wishlist: [],
+    selected_items: [],
   };
 
   const [state, dispatch] = useReducer(reducers, initialState);
 
-  const { cart, wishlist, auth, notify } = state;
+  const { cart, wishlist, auth, notify, selected_items } = state;
 
   const value = useMemo(
     () => [state, dispatch],
-    [auth, cart, wishlist, notify]
+    [auth, cart, wishlist, notify, selected_items]
   );
 
   useEffect(() => {
@@ -76,6 +77,9 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     sessionStorage.setItem('wishProduct', JSON.stringify(wishlist));
   }, [wishlist]);
+  useEffect(() => {
+    sessionStorage.setItem('selectedItems', JSON.stringify(selected_items));
+  }, []);
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

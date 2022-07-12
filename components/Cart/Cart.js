@@ -114,7 +114,7 @@ function Cart() {
     }
     // console.log(selectedCart);
   };
-  console.log(selectedCart);
+  console.log('sss', selectedCart);
   const shopping = (e) => {
     const checkBoxCart = document.querySelectorAll('.cartCheck');
     console.log(selectedCart.length);
@@ -125,22 +125,22 @@ function Cart() {
         payload: { error: 'Please Select Items' },
       });
     } else {
-      for (let i = 0; i < checkBoxCart.length; i++) {
-        // checkBoxCart[i].checked = true;
-        // console.log(checkBoxCart[i].checked);
-        if (checkBoxCart[i].checked === true) {
-          // console.log(checkBoxCart[i].value);
-          router.push('/shippingAddress');
-          console.log('send selectedC');
-        } else if (checkBoxCart[i].checked === false) {
-          setSelectedCart([]);
-          dispatch({
-            type: 'NOTIFY',
-            payload: { error: 'Please Select Items' },
-          });
-          console.log(selectedCart);
-        }
-      }
+      router.push('/shippingAddress');
+      // for (let i = 0; i < checkBoxCart.length; i++) {
+
+      //   if (checkBoxCart[i].checked === true) {
+
+      //     router.push('/shippingAddress');
+      //     console.log('send selectedC');
+      //   } else if (checkBoxCart[i].checked === false) {
+      //     setSelectedCart([]);
+      //     dispatch({
+      //       type: 'NOTIFY',
+      //       payload: { error: 'Please Select Items' },
+      //     });
+      //     console.log(selectedCart);
+      //   }
+      // }
     }
   };
   console.log(cartProduct);

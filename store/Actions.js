@@ -3,6 +3,7 @@ export const ACTIONS = {
   AUTH: 'AUTH',
   ADD_CART: 'ADD_CART',
   ADD_WISHLIST: 'ADD_WISHLIST',
+  SELECTED_ITEMS: 'SELECTED_ITEMS',
 };
 
 export const addToCart = (product, quantity, cart, color, size) => {
@@ -12,7 +13,7 @@ export const addToCart = (product, quantity, cart, color, size) => {
       payload: { error: 'This product is out of stock' },
     };
 
-  const check = cart.every(items => {
+  const check = cart.every((items) => {
     return items.item.id !== product.id;
   });
 
@@ -32,7 +33,7 @@ export const addToCart = (product, quantity, cart, color, size) => {
 };
 
 export const addToWishlist = (product, wishlist) => {
-  const check = wishlist.every(items => {
+  const check = wishlist.every((items) => {
     return items.item.id !== product.id;
   });
 
@@ -49,7 +50,7 @@ export const addToWishlist = (product, wishlist) => {
 };
 
 export const removeFromWishlist = (id, wishlist) => {
-  const afterRemove = wishlist.filter(items => items.item.id !== id);
+  const afterRemove = wishlist.filter((items) => items.item.id !== id);
 
   return {
     type: 'ADD_WISHLIST',
@@ -58,7 +59,7 @@ export const removeFromWishlist = (id, wishlist) => {
 };
 
 export const removeFromCard = (id, cart) => {
-  const afterRemove = cart.filter(items => items.item.id !== id);
+  const afterRemove = cart.filter((items) => items.item.id !== id);
 
   return {
     type: 'ADD_CART',
@@ -67,7 +68,7 @@ export const removeFromCard = (id, cart) => {
 };
 
 export const increaseItemQty = (id, cart) => {
-  const afterIncrease = cart.map(items => {
+  const afterIncrease = cart.map((items) => {
     if (items.item.id === id) {
       items.quantity += 1;
       return items;
@@ -82,7 +83,7 @@ export const increaseItemQty = (id, cart) => {
 };
 
 export const decreaseItemQuantity = (id, cart) => {
-  const afterDecrease = cart.map(items => {
+  const afterDecrease = cart.map((items) => {
     if (items.item.id === id) {
       items.quantity -= 1;
       return items;
