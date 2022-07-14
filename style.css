@@ -8,7 +8,7 @@ body {
   /* background-color: #e5e5e5 !important; */
   font-family: 'Montserrat', sans-serif !important;
   font-weight: bold !important;
-  /* background-color: rgb(243, 243, 244) !important; */
+  background-color: #ffffff !important;
 }
 /* button */
 .grayBtn {
@@ -54,8 +54,8 @@ body {
   height: 70px;
   /* background-color: #c4c4c4; */
   /* background: rgba(239, 212, 231, 1); */
-  background-color: #3a5b8b;
-
+  /* background-color: #3a5b8b; */
+background-color: #3c005a;
   /* background-color: rgb(128, 37, 164); */
   font-family: 'Montserrat', sans-serif;
 }
