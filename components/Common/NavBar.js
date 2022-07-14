@@ -112,7 +112,7 @@ function NavBar() {
         </div>
         <div className='icons'>
           <Link href='/wishlist'>
-            <a style={{ color: 'black' }}>
+            <a style={{ color: 'white' }}>
               <i
                 className='fa-solid fa-heart'
                 style={{ position: 'relative', marginTop: '25px' }}
@@ -122,7 +122,7 @@ function NavBar() {
             </a>
           </Link>
           <Link href='/cart'>
-            <a style={{ color: 'black' }}>
+            <a style={{ color: 'white' }}>
               <i
                 className='fa-solid fa-cart-shopping'
                 style={{ position: 'relative', marginTop: '25px' }}
@@ -133,7 +133,7 @@ function NavBar() {
           </Link>
           {Object.keys(auth).length === 0 ? (
             <Link href='/login'>
-              <a style={{ color: 'black', margin: '0' }}>
+              <a style={{ color: 'white', margin: '0' }}>
                 <div className='profileIcon'>
                   <i className='fa-solid fa-user'></i>
                 </div>
