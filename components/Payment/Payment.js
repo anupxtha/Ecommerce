@@ -1,35 +1,40 @@
 import React, { useState } from 'react';
-
+import KhaltiCheckout from 'khalti-checkout-web';
+import config from '../KhaltiIntegration/KhaltiConfig';
 function Payment() {
   const [show, setShow] = useState(false);
 
+  if (process.browser) {
+    let checkout = new KhaltiCheckout(config);
+  }
+
   return (
     <>
-      <div className='khaltiPay'>
-        <div className='innerPayment'>
-          <div className='paymentDetails'>
+      <div className="khaltiPay">
+        <div className="innerPayment">
+          <div className="paymentDetails">
             <h3>Payment Method</h3>
-            <div className='paymentLogo' onClick={() => setShow(true)}>
-              <img src='/images/khalti-logo.svg' alt='Khalti Logo' />
+            <div className="paymentLogo" onClick={() => setShow(true)}>
+              <img src="/images/khalti-logo.svg" alt="Khalti Logo" />
               <p>Khalti Mobile Wallet</p>
             </div>
           </div>
-          <div className='summary'>
-            <div className='innerSummary'>
-              <p className='title'>ORDER SUMMARY</p>
+          <div className="summary">
+            <div className="innerSummary">
+              <p className="title">ORDER SUMMARY</p>
               <p>
                 Subtotal <span>Price</span>
               </p>
               <p>{/* Delivery <span>Free</span> */}</p>
-              <div className='underline'></div>
+              <div className="underline"></div>
               <p>Estimated Total</p>
             </div>
           </div>
         </div>
       </div>
       {show && (
-        <div className='paymentPopup'>
-          <div className='innerPopup'>
+        <div className="paymentPopup">
+          <div className="innerPopup">
             <p>
               You will be redirected to your khalti account to complete your
               payment:
@@ -43,10 +48,15 @@ function Payment() {
                 Ensure your khalti account is active and has sufficient balance
               </li>
             </ul>
-            <img src='/images/khalti-logo.svg' alt='' />
-            <div className='closePopup'>
-              <button className='btn btn-success'>Paynow</button>
-              <button className='btn btn-danger' onClick={() => setShow(false)}>
+            <img src="/images/khalti-logo.svg" alt="" />
+            <div className="closePopup">
+              <button
+                className="btn btn-success"
+                onClick={() => checkout.show({ amount: 1000 })}
+              >
+                Paynow
+              </button>
+              <button className="btn btn-danger" onClick={() => setShow(false)}>
                 Close
               </button>
             </div>
