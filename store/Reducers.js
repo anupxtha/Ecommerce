@@ -22,6 +22,11 @@ const reducers = (state, action) => {
         ...state,
         wishlist: action.payload,
       };
+    case ACTIONS.SELECTED_ITEMS:
+      return {
+        ...state,
+        selected_items: action.payload,
+      };
     default:
       return state;
   }

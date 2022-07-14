@@ -42,6 +42,7 @@ export const DataProvider = ({ children }) => {
 
       const cartProduct = JSON.parse(sessionStorage.getItem('cartProduct'));
       const wishProduct = JSON.parse(sessionStorage.getItem('wishProduct'));
+      const items = JSON.parse(sessionStorage.getItem('selectedItems'));
 
       if (cartProduct) {
         dispatch({
@@ -54,6 +55,13 @@ export const DataProvider = ({ children }) => {
         dispatch({
           type: 'ADD_WISHLIST',
           payload: wishProduct,
+        });
+      }
+
+      if (items) {
+        dispatch({
+          type: 'SELECTED_ITEMS',
+          payload: items,
         });
       }
     }
@@ -77,9 +85,10 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     sessionStorage.setItem('wishProduct', JSON.stringify(wishlist));
   }, [wishlist]);
+
   useEffect(() => {
     sessionStorage.setItem('selectedItems', JSON.stringify(selected_items));
-  }, []);
+  }, [selected_items]);
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

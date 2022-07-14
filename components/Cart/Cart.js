@@ -13,7 +13,7 @@ import Link from 'next/link';
 
 function Cart() {
   const [state, dispatch] = useContext(DataContext);
-  const { cart, auth, wishlist } = state;
+  const { cart, auth, wishlist, selected_items } = state;
   const router = useRouter();
   const [cartProduct, setCartProduct] = useState([]);
 
@@ -26,19 +26,19 @@ function Cart() {
       router.push('/');
     }
     setCartProduct(cart);
-  }, [auth, cart, wishlist]);
+  }, [auth, cart, wishlist, selected_items]);
 
   const removeCartList = (id, color, size) => {
     apiServices
       .removeCartlistById(id, color, size)
-      .then((response) => {
+      .then(response => {
         dispatch(removeFromCard(id, cart));
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'The product is removed from cart' },
         });
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -56,14 +56,14 @@ function Cart() {
 
     apiServices
       .postAddToCart(item.id, 1, size, color)
-      .then((response) => {
+      .then(response => {
         dispatch(increaseItemQty(item.id, cart));
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'The product Quantity is Increased' },
         });
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -80,14 +80,14 @@ function Cart() {
 
     apiServices
       .decreaseItemQty(item.id, size, color)
-      .then((response) => {
+      .then(response => {
         dispatch(decreaseItemQuantity(item.id, cart));
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'The product Quantity is Decreased' },
         });
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -104,7 +104,7 @@ function Cart() {
       setSelectedCart([...selectedCart, { ...items }]);
     } else {
       console.log(selectedCart);
-      const filterCheck = selectedCart.filter((newData) => {
+      const filterCheck = selectedCart.filter(newData => {
         console.log(newData);
         const { id } = newData;
         // console.log(e.target.value);
@@ -114,8 +114,10 @@ function Cart() {
     }
     // console.log(selectedCart);
   };
+
   console.log('sss', selectedCart);
-  const shopping = (e) => {
+
+  const shopping = e => {
     const checkBoxCart = document.querySelectorAll('.cartCheck');
     console.log(selectedCart.length);
 
@@ -125,6 +127,29 @@ function Cart() {
         payload: { error: 'Please Select Items' },
       });
     } else {
+      if (
+        sessionStorage.getItem('selectedItems') &&
+        JSON.parse(sessionStorage.getItem('selectedItems')).length <= 0
+      ) {
+        dispatch({
+          type: 'SELECTED_ITEMS',
+          payload: [],
+        });
+        sessionStorage.removeItem('selectedItems');
+
+        dispatch({
+          type: 'SELECTED_ITEMS',
+          payload: selectedCart,
+        });
+        sessionStorage.setItem('selectedItems', JSON.stringify(selected_items));
+        router.push('/shippingAddress');
+      }
+
+      dispatch({
+        type: 'SELECTED_ITEMS',
+        payload: selectedCart,
+      });
+      sessionStorage.setItem('selectedItems', JSON.stringify(selected_items));
       router.push('/shippingAddress');
       // for (let i = 0; i < checkBoxCart.length; i++) {
 
@@ -143,8 +168,10 @@ function Cart() {
       // }
     }
   };
+
   console.log(cartProduct);
-  const selectAll = (e) => {
+
+  const selectAll = e => {
     if (e.target.checked) {
       setSelectedCart(cartProduct);
     }
@@ -166,14 +193,15 @@ function Cart() {
       }
     }
   };
+
   return (
     <>
       {cartProduct && (
-        <div className="cart">
-          <div className="innerCart">
-            <div className="items">
-              <p className="title">SHOPPING LIST</p>
-              <input type="checkbox" onChange={selectAll} />
+        <div className='cart'>
+          <div className='innerCart'>
+            <div className='items'>
+              <p className='title'>SHOPPING LIST</p>
+              <input type='checkbox' onChange={selectAll} />
               <label>Select All</label>
               {/* {cartProduct.map(items => {
                 return (
@@ -255,19 +283,19 @@ function Cart() {
                 );
               })} */}
 
-              {cartProduct.map((items) => {
+              {cartProduct.map(items => {
                 return (
                   <>
-                    <div className="cartSecondList">
-                      <div className="producDetail">
+                    <div className='cartSecondList'>
+                      <div className='producDetail'>
                         <input
-                          type="checkbox"
-                          className="cartCheck"
+                          type='checkbox'
+                          className='cartCheck'
                           value={items.id}
                           style={{ marginRight: '20px' }}
-                          onChange={(e) => selectedItem(items, e)}
+                          onChange={e => selectedItem(items, e)}
                         />
-                        <div className="productImg">
+                        <div className='productImg'>
                           <img
                             src={
                               'http://127.0.0.1:8000' +
@@ -278,17 +306,17 @@ function Cart() {
                                 )
                               ].product_image
                             }
-                            alt="Product image"
+                            alt='Product image'
                           />
                         </div>
-                        <div className="titles">
+                        <div className='titles'>
                           <p>{items.item.product_name}</p>
                           <p>Color : {items.item_size}</p>
                           <p>Size : {items.item_color}</p>
                         </div>
                       </div>
 
-                      <div className="price">
+                      <div className='price'>
                         <p style={{ marginRight: '10px' }}>
                           {items.item.get_discounted_price}
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -299,7 +327,7 @@ function Cart() {
 
                         {/* <p></p> */}
                         <i
-                          class="fa-solid fa-trash-can"
+                          class='fa-solid fa-trash-can'
                           onClick={() =>
                             removeCartList(
                               items.item.id,
@@ -311,7 +339,7 @@ function Cart() {
                           style={{ cursor: 'pointer' }}
                         ></i>
                       </div>
-                      <div className="quantity">
+                      <div className='quantity'>
                         Quantity : &nbsp; &nbsp; &nbsp;
                         <span>
                           <button
@@ -328,7 +356,7 @@ function Cart() {
                           </button>
                         </span>
                         &nbsp; &nbsp; &nbsp;
-                        <span className="count">{items.quantity}</span>
+                        <span className='count'>{items.quantity}</span>
                         &nbsp; &nbsp; &nbsp;
                         <span>
                           <button
@@ -447,29 +475,29 @@ function Cart() {
                 </div>
               </div> */}
             </div>
-            <div className="summary">
-              <div className="innerSummary">
-                <p className="title">ORDER SUMMARY</p>
+            <div className='summary'>
+              <div className='innerSummary'>
+                <p className='title'>ORDER SUMMARY</p>
                 <p>
                   Item Subtotal <span>Price</span>
                 </p>
                 <p>
                   Delivery <span>Free</span>
                 </p>
-                <div className="underline"></div>
+                <div className='underline'></div>
                 <p>Estimated Total</p>
 
-                <div className="buttons">
+                <div className='buttons'>
                   {/* <Link href="/shippingAddress"> */}
                   <a style={{ color: 'black' }}>
-                    <button className="grayBtnPadding" onClick={shopping}>
+                    <button className='grayBtnPadding' onClick={shopping}>
                       Continue Shopping
                     </button>
                   </a>
                   {/* </Link> */}
                   {/* <button className="secondGrayBtn">Continue Shopping</button>  */}
                 </div>
-                <div className="buttons">
+                <div className='buttons'>
                   {/* <button className="grayBtn">Proceed to checkout</button>  */}
                   {/* <button className='secondGrayBtnPadding'>
                     Continue Shopping
