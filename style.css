@@ -55,7 +55,7 @@ body {
   /* background-color: #c4c4c4; */
   /* background: rgba(239, 212, 231, 1); */
   /* background-color: #3a5b8b; */
-background-color: #3c005a;
+  background-color: #3c005a;
   /* background-color: rgb(128, 37, 164); */
   font-family: 'Montserrat', sans-serif;
 }
@@ -325,7 +325,12 @@ background-color: #3c005a;
   justify-content: center;
   flex-direction: column; */
 }
-
+.navBar .fa-heart {
+  color: white;
+}
+.navBar .fa-cart-shopping {
+  color: white;
+}
 @media screen and (max-width: 1000px) {
   .navBar .icons {
     display: none;
