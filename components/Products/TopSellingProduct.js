@@ -26,10 +26,15 @@ function TopSellingProduct() {
   useEffect(() => {
     if (searchProduct) {
       const searched = productData.filter((newData) => {
-        const { product_name } = newData;
-        return product_name
-          .toLocaleLowerCase()
-          .includes(searchProduct.toLocaleLowerCase());
+        const { product_name, product_category, product_size } = newData;
+        return (
+          product_name
+            .toLocaleLowerCase()
+            .includes(searchProduct.toLocaleLowerCase()) ||
+          product_category.category_name
+            .toLocaleLowerCase()
+            .includes(searchProduct.toLocaleLowerCase())
+        );
       });
       setSearchedProduct(searched);
       // const searched = productData
