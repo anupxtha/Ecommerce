@@ -81,6 +81,7 @@ body {
   float: left;
   height: 100%;
   /* background-color: white; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
 }
 .topSellingProducts .innerTop .cards .lists .cardsPic .cardImage {
   width: 100%;
@@ -94,7 +95,7 @@ body {
 .topSellingProducts .innerTop .cards .lists .cardsPic .cardImage img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
   float: left;
   border-radius: 5px;
   /* border: 1px solid black; */
@@ -159,7 +160,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  /* display: none; */
 }
 .topSellingProducts .innerTop .cards .lists:hover .saleCardBtn {
   display: flex;

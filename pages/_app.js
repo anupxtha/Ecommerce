@@ -15,9 +15,10 @@ import '../payment.css';
 import '../orderDetails.css';
 import '../footerSlider.css';
 import Footer from '../components/Common/Footer';
-import { DataProvider } from '../store/GlobalState';
+import { DataContext, DataProvider } from '../store/GlobalState';
 import Loading from '../components/Common/Loading';
 import { useRouter } from 'next/router';
+import SearchState from '../components/SearchedItems/searchState';
 
 export default function App({ Component, pageProps }) {
   // const router = useRouter();
@@ -55,17 +56,19 @@ export default function App({ Component, pageProps }) {
   return (
     <DataProvider>
       <Loading />
-      <Layout>
-        <Head>
-          <title>Ecommerce</title>
-          <meta
-            name='viewport'
-            content='width=device-width, initial-scale=1.0'
-          />
-        </Head>
-        <Component {...pageProps} />
-        {/* {checkComponent()} */}
-      </Layout>
+      <SearchState>
+        <Layout>
+          <Head>
+            <title>Ecommerce</title>
+            <meta
+              name='viewport'
+              content='width=device-width, initial-scale=1.0'
+            />
+          </Head>
+          <Component {...pageProps} />
+          {/* {checkComponent()} */}
+        </Layout>
+      </SearchState>
       <Footer />
     </DataProvider>
   );

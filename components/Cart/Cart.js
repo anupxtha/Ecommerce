@@ -163,7 +163,7 @@ function Cart() {
       //       type: 'NOTIFY',
       //       payload: { error: 'Please Select Items' },
       //     });
-      //     console.log(selectedCart);
+      //     console.log(selectedC000000000000000000art);
       //   }
       // }
     }

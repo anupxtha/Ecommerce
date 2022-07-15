@@ -1,62 +1,17 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import apiServices from '../../utils/apiServices';
+import React, { useContext, useState } from 'react';
+import SearchContext from './searchContext';
 
-function TopSellingProduct() {
-  const [searchProduct, setSearchProduct] = useState('');
-  const [productData, SetProductData] = useState([]);
-  const [searchedProduct, setSearchedProduct] = useState([]);
-  const [sliced, setSlice] = useState(4);
-  const slice = searchedProduct.slice(0, sliced);
-  console.log(productData);
-
-  useEffect(() => {
-    apiServices
-      .getProduct()
-      .then((response) => {
-        SetProductData(response.data);
-        setSearchedProduct(response.data);
-      })
-      .catch((err) => {
-        dispatch({
-          type: 'NOTIFY',
-          payload: { error: err.message },
-        });
-      });
-  }, []);
-  useEffect(() => {
-    if (searchProduct) {
-      const searched = productData.filter((newData) => {
-        const { product_name, product_category, product_size } = newData;
-        return (
-          product_name
-            .toLocaleLowerCase()
-            .includes(searchProduct.toLocaleLowerCase()) ||
-          product_category.category_name
-            .toLocaleLowerCase()
-            .includes(searchProduct.toLocaleLowerCase())
-        );
-      });
-      setSearchedProduct(searched);
-      // const searched = productData
-      //   .toLocaleString()
-      //   .includes(searchProduct.toLocaleString());
-      console.log(searched);
-    } else {
-      setSearchedProduct(productData);
-    }
-  }, [searchProduct]);
-
-  const loadmore = () => {
-    setSlice(sliced + sliced);
-  };
+function SearchedProducts() {
+  const [searchedProduct, setSearchedProduct] = useState();
+  const { searchedItems, setSearchedItems } = useContext(SearchContext);
 
   return (
     <div className="topSellingProducts">
       <div className="innerTop">
         <div className="head">
           <p className="productTitle">Top Selling Product</p>
-          <div className="search">
+          {/* <div className="search">
             <input
               type="text"
               value={searchProduct}
@@ -65,7 +20,7 @@ function TopSellingProduct() {
             />
 
             <i className="fa-solid fa-magnifying-glass"></i>
-          </div>
+          </div> */}
           <select name="" id="">
             <option value="price">Price</option>
             <option value="availability">Availability</option>
@@ -73,8 +28,8 @@ function TopSellingProduct() {
           </select>
         </div>
         <div className="cards">
-          {slice &&
-            slice.map((items) => {
+          {searchedItems &&
+            searchedItems.map((items) => {
               return (
                 <div className="lists">
                   <div className="cardsPic">
@@ -138,11 +93,11 @@ function TopSellingProduct() {
             })}
         </div>
         <div className="btns">
-          <button onClick={loadmore}>View More</button>
+          {/* <button onClick={loadmore}>View More</button> */}
         </div>
       </div>
     </div>
   );
 }
 
-export default TopSellingProduct;
+export default SearchedProducts;
