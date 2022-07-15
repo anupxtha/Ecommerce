@@ -4,6 +4,7 @@ import apiServices from '../../utils/apiServices';
 import { DataContext } from '../../store/GlobalState';
 import { useRouter } from 'next/router';
 import { validLogin } from '../../utils/valid';
+import Cookies from 'js-cookie';
 
 function Login() {
   const [state, dispatch] = useContext(DataContext);

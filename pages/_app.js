@@ -46,6 +46,12 @@ export default function App({ Component, pageProps }) {
   //   }
   // };
 
+  // useEffect(() => {
+  //   if (sessionStorage.getItem('authToken') === null) {
+  //     return router.push('/login');
+  //   }
+  // }, []);
+
   return (
     <DataProvider>
       <Loading />
@@ -53,8 +59,8 @@ export default function App({ Component, pageProps }) {
         <Head>
           <title>Ecommerce</title>
           <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
+            name='viewport'
+            content='width=device-width, initial-scale=1.0'
           />
         </Head>
         <Component {...pageProps} />

@@ -10,6 +10,7 @@
     "js-cookie": "^3.0.1",
     "khalti-checkout-web": "^2.2.0",
     "next": "latest",
+    "nookies": "^2.5.2",
     "primeicons": "^5.0.0",
     "primereact": "^8.1.1",
     "react": "17.0.2",
