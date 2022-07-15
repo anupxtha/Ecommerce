@@ -3,8 +3,12 @@ import Link from 'next/link';
 import { DataContext } from '../../store/GlobalState';
 import { useRouter } from 'next/router';
 import apiServices from '../../utils/apiServices';
+import SearchedProducts from '../SearchedItems/SearchedProducts';
+import SearchContext from '../SearchedItems/searchContext';
+
 function NavBar() {
   const [state, dispatch] = useContext(DataContext);
+  const [hide, setHide] = useState(false);
   const { auth, cart, wishlist } = state;
   const router = useRouter();
   const details = Object.keys(auth).length !== 0 && auth;
@@ -12,6 +16,8 @@ function NavBar() {
   const [searchProduct, setSearchProduct] = useState('');
   const [productData, SetProductData] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState([]);
+  const { searchedItems, setSearchedItems } = useContext(SearchContext);
+  console.log(searchedItems);
 
   const handleLogout = () => {
     sessionStorage.removeItem('loginStatus');
@@ -79,7 +85,15 @@ function NavBar() {
     }
   }, [searchProduct]);
   console.log(searchedProduct);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Enter pressed');
+    if (searchProduct) {
+      router.push('/searched');
 
+      setSearchedItems(searchedProduct);
+    }
+  };
   return (
     <div className="navBar">
       <div className="innerNav">
@@ -140,14 +154,18 @@ function NavBar() {
           <p>About</p>
         </div>
         <div className="search">
-          <input
-            type="text"
-            value={searchProduct}
-            onChange={(e) => setSearchProduct(e.target.value)}
-            placeholder="search"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={searchProduct}
+              onChange={(e) => setSearchProduct(e.target.value)}
+              placeholder="search"
+            />
 
-          <i className="fa-solid fa-magnifying-glass"></i>
+            <button className="btn" type="submit">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
           {searchedProduct.length != 0 && (
             <div className="dropSearch">
               <div

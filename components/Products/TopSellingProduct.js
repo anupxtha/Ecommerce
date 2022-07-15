@@ -78,7 +78,17 @@ function TopSellingProduct() {
                 <div className="lists">
                   <div className="cardsPic">
                     <div className="cardImage">
-                      <img src="/images/i.jpg" alt="Item" />
+                      <img
+                        src={
+                          'http://127.0.0.1:8000' +
+                          items.product_image[
+                            Math.floor(
+                              Math.random() * items.product_image.length
+                            )
+                          ].product_image
+                        }
+                        alt="Item"
+                      />
                     </div>
                     <div className="descriptions">
                       <p>Title</p>
