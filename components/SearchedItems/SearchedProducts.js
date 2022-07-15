@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useContext, useState } from 'react';
 import SearchContext from './searchContext';
 
@@ -33,19 +34,45 @@ function SearchedProducts() {
                 <div className="lists">
                   <div className="cardsPic">
                     <div className="cardImage">
-                      <img src="/images/i.jpg" alt="Item" />
+                      <img
+                        src={
+                          'http://127.0.0.1:8000' +
+                          items.product_image[
+                            Math.floor(
+                              Math.random() * items.product_image.length
+                            )
+                          ].product_image
+                        }
+                        alt="Item"
+                      />
                     </div>
                     <div className="descriptions">
-                      <p>Title</p>
-                      <p>Categoty</p>
+                      <p>{items.product_name}</p>
+                      <p>{items.product_category.category_name}</p>
                       <p>
-                        <s>price before discount </s>
-                        <span> Real price</span>
+                        <s>
+                          ${items.product_price + items.get_discounted_price}{' '}
+                        </s>
+                        <span> ${items.product_price}</span>
                       </p>
                       {/* <p>real price</p> */}
                     </div>
                     <div className="saleCardBtn">
-                      <button>View Details</button>
+                      <Link
+                        href={
+                          '/product/' +
+                          items.product_category.category_name.replace(
+                            ' ',
+                            '-'
+                          ) +
+                          '/' +
+                          items.product_name.replace(' ', '-') +
+                          '-' +
+                          items.id
+                        }
+                      >
+                        <button>View Details</button>
+                      </Link>
                       <i className="fa-regular fa-heart"></i>
                     </div>
                     {/* <div className="rating">

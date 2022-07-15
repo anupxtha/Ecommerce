@@ -95,7 +95,7 @@ body {
 .topSellingProducts .innerTop .cards .lists .cardsPic .cardImage img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
   float: left;
   border-radius: 5px;
   /* border: 1px solid black; */
