@@ -1,14 +1,52 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { DataContext } from '../../store/GlobalState';
+import { validAddressDetails } from '../../utils/valid';
+import apiServices from '../../utils/apiServices';
 
 function ShippingAddress() {
   const [state, dispatch] = useContext(DataContext);
-  const initialState = { name: '', number: '', email: '', address: '' };
-  const [locationData, setLocationData] = useState(initialState);
+  const initialState = { name: '', phone: '', email: '', address: '' };
+  const [addressData, setAddressData] = useState(initialState);
   const { cart, auth, wishlist, selected_items } = state;
   const router = useRouter();
   const [total, setTotal] = useState(0);
+  const [show, setShow] = useState(false);
+
+  const handleChangeInput = e => {
+    const { name, value } = e.target;
+    setAddressData({ ...addressData, [name]: value });
+    dispatch({ type: 'NOTIFY', payload: {} });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const errMsg = validAddressDetails(
+      addressData.name,
+      addressData.phone,
+      addressData.email,
+      addressData.address
+    );
+
+    if (errMsg) return dispatch({ type: 'NOTIFY', payload: { error: errMsg } });
+
+    apiServices
+      .shippingAddressDetails(addressData)
+      .then(response => {
+        dispatch({
+          type: 'NOTIFY',
+          payload: { success: 'Address Details is added' },
+        });
+        setShow(true);
+        // console.log(response.data);
+      })
+      .catch(err => {
+        dispatch({
+          type: 'NOTIFY',
+          payload: { error: err.message },
+        });
+      });
+  };
 
   useEffect(() => {
     if (sessionStorage.getItem('authToken') === null) {
@@ -32,12 +70,17 @@ function ShippingAddress() {
         <div className='innerMainShipping'>
           <div className='innerDetails'>
             <p>Add Shipping Address</p>
-            <form action=''>
+            <form onSubmit={handleSubmit}>
               <div className='shippForm'>
                 <div className='innerShipForm'>
                   <label>Full Name</label>
                   <br />
-                  <input type='text' name='name' />
+                  <input
+                    type='text'
+                    name='name'
+                    value={addressData.name}
+                    onChange={handleChangeInput}
+                  />
                 </div>
                 {/* <div className='innerShipForm'>
                 <label>Region</label>
@@ -49,7 +92,12 @@ function ShippingAddress() {
                 <div className='innerShipForm'>
                   <label>Phone Number</label>
                   <br />
-                  <input type='text' name='number' />
+                  <input
+                    type='text'
+                    name='phone'
+                    value={addressData.phone}
+                    onChange={handleChangeInput}
+                  />
                 </div>
                 {/* <div className='innerShipForm'>
                 <label>City</label>
@@ -74,17 +122,32 @@ function ShippingAddress() {
                   {/* <label>Colony/ Suburb/ Locality/ Landmark</label> */}
                   <label>Email</label>
                   <br />
-                  <input type='email' name='email' />
+                  <input
+                    type='email'
+                    name='email'
+                    value={addressData.email}
+                    onChange={handleChangeInput}
+                  />
                 </div>
                 <div className='innerShipForm'>
                   <label>Address</label>
                   <br />
-                  <input type='text' name='address' />
+                  <input
+                    type='text'
+                    name='address'
+                    value={addressData.address}
+                    onChange={handleChangeInput}
+                  />
                 </div>
               </div>
               <div className='shippBtn'>
-                <button className='btn btn-success'> Save</button>
-                <button className='btn btn-danger'>Cancel</button>
+                <button type='submit' className='btn btn-success'>
+                  {' '}
+                  Save
+                </button>
+                <button className='btn btn-danger' type='reset'>
+                  Clear
+                </button>
               </div>
             </form>
           </div>
@@ -119,9 +182,15 @@ function ShippingAddress() {
                 </span>
               </p>
 
-              <div className='buttons'>
-                <button disabled> Proceed to checkout </button>
-              </div>
+              {show ? (
+                <div className='buttons'>
+                  <button> Proceed to checkout </button>
+                </div>
+              ) : (
+                <div className='buttons'>
+                  <button disabled> Proceed to checkout </button>
+                </div>
+              )}
               <div className='buttons'></div>
             </div>
           </div>
