@@ -9,18 +9,20 @@ function Categoryitems(props) {
   const slice = products.slice(0, sliced);
   console.log(products);
   useEffect(() => {
-    apiServices
-      .getCategoryProduct({ category: `${catName}` })
-      .then((response) => {
-        setProducts(response.data);
-        // setSearchedProduct(response.data);
-      })
-      .catch((err) => {
-        dispatch({
-          type: 'NOTIFY',
-          payload: { error: err.message },
+    if (catName) {
+      apiServices
+        .getCategoryProduct({ category: `${catName.replace('-', ' ')}` })
+        .then((response) => {
+          setProducts(response.data);
+          // setSearchedProduct(response.data);
+        })
+        .catch((err) => {
+          dispatch({
+            type: 'NOTIFY',
+            payload: { error: err.message },
+          });
         });
-      });
+    }
   }, [catName]);
   const loadmore = () => {
     setSliced(sliced + 8);
