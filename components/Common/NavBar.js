@@ -129,11 +129,7 @@ function NavBar() {
                 {categories.map((newData) => {
                   return (
                     <div className="first">
-                      <Link
-                        href={
-                          '/category/' + newData.category_name.replace(' ', '-')
-                        }
-                      >
+                      <Link href={'/category/' + newData.category_name}>
                         <a>
                           <p className="catTitle">{newData.category_name}</p>
                         </a>
