@@ -362,10 +362,12 @@ body {
   /* height: 100px; */
   /* background-color: blue; */
   float: left;
+
   /* margin-bottom: 10px; */
 }
 .navBar .innerCategoryDrop .first .catTitle {
   font-size: 18px !important;
+
   /* background-color: red; */
 }
 .navBar .innerCategoryDrop .first p {
@@ -374,6 +376,7 @@ body {
   float: left;
   text-align: left;
   font-size: 13px;
+  color: black !important;
 }
 .navBar .menu .catDropDown:hover .innerCategoryDrop {
   display: block;

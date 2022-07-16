@@ -1,5 +1,11 @@
 import ApiBaseURLProps from './apiBaseUrl';
-import { getAxios, getCartAxios, postAxios, postCartAxios, postShippingAddressAxios } from './config';
+import {
+  getAxios,
+  getCartAxios,
+  postAxios,
+  postCartAxios,
+  postShippingAddressAxios,
+} from './config';
 
 class ApiService {
   registerUser(userData) {
@@ -14,6 +20,21 @@ class ApiService {
     return postShippingAddressAxios(
       ApiBaseURLProps.apiBaseURL + '/location/',
       addressData
+    );
+  }
+
+  getCategory() {
+    return getAxios(ApiBaseURLProps.apiBaseURL + '/product/category/');
+  }
+
+  getCategoryProduct(data) {
+    return postAxios(ApiBaseURLProps.apiBaseURL + '/product/category/', data);
+  }
+
+  getSubCategoryProduct(data) {
+    return postAxios(
+      ApiBaseURLProps.apiBaseURL + '/product/subcategory/',
+      data
     );
   }
 

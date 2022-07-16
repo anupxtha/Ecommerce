@@ -10,6 +10,7 @@ function NavBar() {
   const [state, dispatch] = useContext(DataContext);
   const [hide, setHide] = useState(false);
   const { auth, cart, wishlist } = state;
+  const [categories, setCategories] = useState([]);
   const router = useRouter();
   const details = Object.keys(auth).length !== 0 && auth;
 
@@ -69,7 +70,21 @@ function NavBar() {
           payload: { error: err.message },
         });
       });
+
+    apiServices
+      .getCategory()
+      .then((response) => {
+        setCategories(response.data);
+        // setSearchedProduct(response.data);
+      })
+      .catch((err) => {
+        dispatch({
+          type: 'NOTIFY',
+          payload: { error: err.message },
+        });
+      });
   }, []);
+  console.log(categories);
   useEffect(() => {
     if (searchProduct) {
       const searched = productData.filter((newData) => {
@@ -90,7 +105,7 @@ function NavBar() {
     console.log('Enter pressed');
     if (searchProduct) {
       router.push('/searched');
-
+      // setSearchProduct('');
       setSearchedItems(searchedProduct);
     }
   };
@@ -109,42 +124,63 @@ function NavBar() {
             <div className="heading">
               <p>Category</p>
             </div>
-            <div className="innerCategoryDrop">
-              <div className="first">
-                <p className="catTitle">Title</p>
-                <p>Name</p>
-                <p>name</p>
-                <p>Name</p>
-                <p>name</p>
-                <p>Name</p>
-                <p>name</p>
+            {categories && (
+              <div className="innerCategoryDrop">
+                {categories.map((newData) => {
+                  return (
+                    <div className="first">
+                      <Link href={'/category/' + newData.category_name}>
+                        <a>
+                          <p className="catTitle">{newData.category_name}</p>
+                        </a>
+                      </Link>
+                      {newData.sub_category.map((newSub) => {
+                        return (
+                          <Link
+                            href={
+                              '/subCategory/' +
+                              newData.category_name.replace(' ', '-') +
+                              '/' +
+                              newSub.sub_category_name
+                            }
+                          >
+                            <a>
+                              <p>{newSub.sub_category_name}</p>
+                            </a>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+
+                {/* <div className="first">
+                  <p className="catTitle">Title</p>
+                  <p>Name</p>
+                  <p>name</p>
+                </div>
+                <div className="first">
+                  <p className="catTitle">Title</p>
+                  <p>Name</p>
+                  <p>name</p>
+                </div>
+                <div className="first">
+                  <p className="catTitle">Title</p>
+                  <p>Name</p>
+                  <p>name</p>
+                </div>
+                <div className="first">
+                  <p className="catTitle">Title</p>
+                  <p>Name</p>
+                  <p>name</p>
+                </div>
+                <div className="first">
+                  <p className="catTitle">Title</p>
+                  <p>Name</p>
+                  <p>name</p>
+                </div> */}
               </div>
-              <div className="first">
-                <p className="catTitle">Title</p>
-                <p>Name</p>
-                <p>name</p>
-              </div>
-              <div className="first">
-                <p className="catTitle">Title</p>
-                <p>Name</p>
-                <p>name</p>
-              </div>
-              <div className="first">
-                <p className="catTitle">Title</p>
-                <p>Name</p>
-                <p>name</p>
-              </div>
-              <div className="first">
-                <p className="catTitle">Title</p>
-                <p>Name</p>
-                <p>name</p>
-              </div>
-              <div className="first">
-                <p className="catTitle">Title</p>
-                <p>Name</p>
-                <p>name</p>
-              </div>
-            </div>
+            )}
           </div>
           <Link href="/sales">
             <a style={{ color: 'black' }}>

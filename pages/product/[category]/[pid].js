@@ -7,6 +7,7 @@ import ProductSuggestion from '../../../components/Product/ProductSuggestion';
 const Post = () => {
   const router = useRouter();
   const { category, pid } = router.query;
+  console.log(pid);
 
   let num = pid && pid.match(/(\d+)/)[0];
 

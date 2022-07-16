@@ -1,21 +1,19 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import apiServices from '../../utils/apiServices';
 
-function TopSellingProduct() {
-  const [searchProduct, setSearchProduct] = useState('');
-  const [productData, SetProductData] = useState([]);
-  const [searchedProduct, setSearchedProduct] = useState([]);
-  const [sliced, setSlice] = useState(8);
-  const slice = searchedProduct.slice(0, sliced);
-  console.log(productData);
-
+function Categoryitems(props) {
+  const { catName } = props;
+  const [products, setProducts] = useState([]);
+  const [sliced, setSliced] = useState(8);
+  const slice = products.slice(0, sliced);
+  console.log(products);
   useEffect(() => {
     apiServices
-      .getProduct()
+      .getCategoryProduct({ category: `${catName}` })
       .then((response) => {
-        SetProductData(response.data);
-        setSearchedProduct(response.data);
+        setProducts(response.data);
+        // setSearchedProduct(response.data);
       })
       .catch((err) => {
         dispatch({
@@ -23,32 +21,9 @@ function TopSellingProduct() {
           payload: { error: err.message },
         });
       });
-  }, []);
-  useEffect(() => {
-    if (searchProduct) {
-      const searched = productData.filter((newData) => {
-        const { product_name, product_category, product_size } = newData;
-        return (
-          product_name
-            .toLocaleLowerCase()
-            .includes(searchProduct.toLocaleLowerCase()) ||
-          product_category.category_name
-            .toLocaleLowerCase()
-            .includes(searchProduct.toLocaleLowerCase())
-        );
-      });
-      setSearchedProduct(searched);
-      // const searched = productData
-      //   .toLocaleString()
-      //   .includes(searchProduct.toLocaleString());
-      console.log(searched);
-    } else {
-      setSearchedProduct(productData);
-    }
-  }, [searchProduct]);
-
+  }, [catName]);
   const loadmore = () => {
-    setSlice(sliced + 8);
+    setSliced(sliced + 8);
   };
 
   return (
@@ -56,7 +31,7 @@ function TopSellingProduct() {
       <div className="innerTop">
         <div className="head">
           <p className="productTitle">Top Selling Product</p>
-          <div className="search">
+          {/* <div className="search">
             <input
               type="text"
               value={searchProduct}
@@ -65,7 +40,7 @@ function TopSellingProduct() {
             />
 
             <i className="fa-solid fa-magnifying-glass"></i>
-          </div>
+          </div> */}
           <select name="" id="">
             <option value="price">Price</option>
             <option value="availability">Availability</option>
@@ -76,7 +51,7 @@ function TopSellingProduct() {
           {slice &&
             slice.map((items) => {
               return (
-                <div className="lists">
+                <div className="lists" key={items.id}>
                   <div className="cardsPic">
                     <div className="cardImage">
                       <img
@@ -145,4 +120,4 @@ function TopSellingProduct() {
   );
 }
 
-export default TopSellingProduct;
+export default Categoryitems;
