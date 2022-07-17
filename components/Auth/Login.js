@@ -59,11 +59,11 @@ function Login() {
           .then(res => {
             dispatch({
               type: 'ADD_CART',
-              payload: res.data.length > 0 ? res.data[0].item : [],
+              payload: res.data !== null ? res.data.item : [],
             });
             sessionStorage.setItem(
               'cartProduct',
-              JSON.stringify(res.data.length > 0 ? res.data[0].item : [])
+              JSON.stringify(res.data !== null ? res.data.item : [])
             );
           })
           .catch(err => {

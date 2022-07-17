@@ -11,7 +11,7 @@ import {
 } from '../../store/Actions';
 import Link from 'next/link';
 
-function Cart() {
+function Cart({ user }) {
   const [state, dispatch] = useContext(DataContext);
   const { cart, auth, wishlist, selected_items } = state;
   const router = useRouter();

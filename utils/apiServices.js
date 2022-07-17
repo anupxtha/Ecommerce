@@ -50,7 +50,7 @@ class ApiService {
     console.log(size, color);
     return postCartAxios(
       ApiBaseURLProps.apiBaseURL +
-        '/cart/?id=' +
+        '/items/?id=' +
         id +
         '&quantity=' +
         quantity +
@@ -63,7 +63,7 @@ class ApiService {
   }
 
   getAddToCart() {
-    return getCartAxios(ApiBaseURLProps.apiBaseURL + '/cart/');
+    return getCartAxios(ApiBaseURLProps.apiBaseURL + '/items/');
   }
 
   getAddToWishlist() {
