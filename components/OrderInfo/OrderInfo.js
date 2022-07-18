@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../../store/GlobalState';
 
 function OrderInfo() {
+  const [state, dispatch] = useContext(DataContext);
+  const { selected_items } = state;
+
   return (
     <>
       {/* {orderDetailsProduct && ( */}
