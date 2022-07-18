@@ -1,9 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DataContext } from '../../store/GlobalState';
 
 function OrderInfo() {
   const [state, dispatch] = useContext(DataContext);
   const { selected_items } = state;
+  const [totalPrice, setTotalPrice] = useState([]);
+
+  const tprice =
+    selected_items && selected_items.map(newData => newData.item.product_price);
+  console.log(tprice);
+  console.log(selected_items);
 
   return (
     <>
@@ -11,7 +17,12 @@ function OrderInfo() {
       <div className='orderDetails'>
         <div className='innerorderDetails'>
           <div className='items'>
-            <p className='title'>Order Details</p>
+            <p
+              className='title'
+              style={{ marginBottom: '0', paddingTop: '20px' }}
+            >
+              Order Details
+            </p>
             <div className='tableTitle'>
               <div className='producDetail'>
                 <p>Items</p>
@@ -25,34 +36,64 @@ function OrderInfo() {
               </div>
             </div>
 
-            <div className='orderDetailsSecondList'>
-              <div className='producDetail'>
-                <input type='checkbox' style={{ marginRight: '20px' }} />
-                <div className='productImg'>
-                  <img src='' alt='Product image' />
-                </div>
-                <div className='titles'>
-                  <p style={{ marginBottom: '10px' }}>title</p>
-                  <p>
-                    Color: <span>Red</span>
-                  </p>
-                  <p>
-                    Size: <span>L</span>
-                  </p>
-                </div>
-              </div>
+            <div className='allItems'>
+              {selected_items && (
+                <div className='orderDetailsSecondList'>
+                  {selected_items.map(newData => {
+                    const { product_price } = newData.item;
 
-              <div className='price'>
-                <p>price</p>
-                <p>
-                  <s>price</s>
-                </p>
-                <i class='fa-solid fa-trash-can'></i>
-              </div>
-              <div className='quantity'>
-                Qty : &nbsp;
-                <span className='count'>2</span>
-              </div>
+                    return (
+                      <>
+                        <div className='producDetail'>
+                          {/* <input type='checkbox' style={{ marginRight: '20px' }} /> */}
+                          <div className='productImg'>
+                            <img
+                              src={
+                                'http://127.0.0.1:8000' +
+                                newData.item.product_image[
+                                  Math.floor(
+                                    Math.random() *
+                                      newData.item.product_image.length
+                                  )
+                                ].product_image
+                              }
+                              alt='Product image'
+                            />
+                          </div>
+                          <div className='titles'>
+                            <p style={{ marginBottom: '10px' }}>
+                              {newData.item.product_name}
+                            </p>
+                            <p>
+                              Color: <span>{newData.item_color}</span>
+                            </p>
+                            <p>
+                              Size: <span>{newData.item_size}</span>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className='price'>
+                          <p>
+                            <s>
+                              {newData.item.product_price +
+                                newData.item.get_discounted_price}
+                            </s>
+                          </p>
+                          <p>{newData.item.product_price}</p>
+                          {/* <i class="fa-solid fa-trash-can"></i> */}
+                        </div>
+                        <div className='quantity'>
+                          Qty : &nbsp;
+                          <span className='count'>
+                            {newData.item.product_quantity}
+                          </span>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
           <div className='summary'>
@@ -65,7 +106,8 @@ function OrderInfo() {
               </div>
               <p className='title'>ORDER SUMMARY</p>
               <p>
-                Item Subtotal <span>Price</span>
+                Item Subtotal{' '}
+                <span>{tprice ? eval(tprice.join('+')) : 'XXXX'}</span>
               </p>
               <p>
                 Delivery <span>Free</span>
@@ -76,7 +118,8 @@ function OrderInfo() {
               </div>
               {/* <div className="underline"></div> */}
               <p style={{ marginTop: '10px' }}>
-                Estimated Total <span>Total</span>
+                Estimated Total{' '}
+                <span>{tprice ? eval(tprice.join('+')) : 'XXXX'}</span>
               </p>
 
               <div className='buttons'>
