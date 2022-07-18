@@ -22,20 +22,31 @@
   margin: 0 10%;
   float: left;
   height: 100%;
+  height: 550px;
+
   /* border: 1px solid black; */
 }
 .orderDetails .innerorderDetails .innerItems {
   height: 100%;
   float: left;
   /* overflow-y: scroll; */
+
   width: 40%;
 }
 .orderDetails .innerorderDetails .items {
   float: left;
   width: 65%;
   /* background-color: red; */
+  /* background-color: red !important; */
   height: 100%;
   /* overflow-y: scroll; */
+}
+.orderDetails .innerorderDetails .items .allItems {
+  width: 100%;
+  float: left;
+  height: 70%;
+  /* background-color: red; */
+  overflow-y: scroll;
 }
 .orderDetails .innerorderDetails .items .orderDetailsList {
   width: 100%;
@@ -138,7 +149,7 @@
   width: 100%;
   height: 40px;
   float: left;
-  margin: 20px 0;
+  margin: 20px 0 5px 0;
   /* background-color: red; */
 }
 .orderDetails .tableTitle p {
@@ -178,7 +189,7 @@
   width: 100%;
   height: 100px;
   float: left;
-  margin: 20px 0;
+  margin: 5px 0 0 0;
   /* background-color: red; */
 }
 .orderDetails .orderDetailsSecondList .producDetail {
