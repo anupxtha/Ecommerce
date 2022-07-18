@@ -169,10 +169,13 @@ function ShippingAddress() {
               <p>
                 Delivery <span>Rs. 100</span>
               </p>
-              <div className='voucher'>
+              {/* <div className='voucher'>
                 <input type='text' placeholder='Enter Voucher Code' />
                 <button className='btn btn-success'>Apply</button>
-              </div>
+              </div> */}
+              {'-------------------------------------------------------------'}
+              <br />
+              <br />
               <div className='underline'></div>
               <p>
                 Estimated Total{' '}
@@ -181,6 +184,10 @@ function ShippingAddress() {
                   {total}
                 </span>
               </p>
+
+              <br />
+              <br />
+              <br />
 
               {show ? (
                 <div className='buttons'>

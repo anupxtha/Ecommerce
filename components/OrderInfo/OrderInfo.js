@@ -4,12 +4,12 @@ import { DataContext } from '../../store/GlobalState';
 function OrderInfo() {
   const [state, dispatch] = useContext(DataContext);
   const { selected_items } = state;
-  const [totalPrice, setTotalPrice] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  const tprice =
-    selected_items && selected_items.map(newData => newData.item.product_price);
-  console.log(tprice);
-  console.log(selected_items);
+  // const tprice =
+  //   selected_items && selected_items.map(newData => newData.item.product_price);
+  // console.log(tprice);
+  // console.log(selected_items);
 
   return (
     <>
@@ -76,18 +76,15 @@ function OrderInfo() {
                         <div className='price'>
                           <p>
                             <s>
-                              {newData.item.product_price +
-                                newData.item.get_discounted_price}
+                              {newData.quantity * newData.item.product_price}
                             </s>
                           </p>
-                          <p>{newData.item.product_price}</p>
+                          <p>{newData.item.get_discounted_price}</p>
                           {/* <i class="fa-solid fa-trash-can"></i> */}
                         </div>
                         <div className='quantity'>
                           Qty : &nbsp;
-                          <span className='count'>
-                            {newData.item.product_quantity}
-                          </span>
+                          <span className='count'>{newData.quantity}</span>
                         </div>
                       </>
                     );
@@ -106,8 +103,15 @@ function OrderInfo() {
               </div>
               <p className='title'>ORDER SUMMARY</p>
               <p>
-                Item Subtotal{' '}
-                <span>{tprice ? eval(tprice.join('+')) : 'XXXX'}</span>
+                Item Subtotal ( {selected_items.length} )
+                <span>
+                  {selected_items.map(item => {
+                    totalPrice += parseInt(
+                      item.quantity * item.item.get_discounted_price
+                    );
+                  })}
+                  {totalPrice ? totalPrice : 'XXXX'}
+                </span>
               </p>
               <p>
                 Delivery <span>Free</span>
@@ -118,8 +122,7 @@ function OrderInfo() {
               </div>
               {/* <div className="underline"></div> */}
               <p style={{ marginTop: '10px' }}>
-                Estimated Total{' '}
-                <span>{tprice ? eval(tprice.join('+')) : 'XXXX'}</span>
+                Estimated Total <span>{totalPrice ? totalPrice : 'XXXX'}</span>
               </p>
 
               <div className='buttons'>

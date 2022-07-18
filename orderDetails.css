@@ -46,7 +46,7 @@
   float: left;
   height: 70%;
   /* background-color: red; */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .orderDetails .innerorderDetails .items .orderDetailsList {
   width: 100%;
