@@ -73,7 +73,7 @@ function TopSellingProduct() {
           </select>
         </div>
         <div className="cards">
-          {slice &&
+          {slice ? (
             slice.map((items) => {
               return (
                 <div className="lists">
@@ -135,7 +135,19 @@ function TopSellingProduct() {
             </div> */}
                 </div>
               );
-            })}
+            })
+          ) : (
+            <p
+              style={{
+                textAlign: 'center',
+                marginTop: '20px',
+                marginBottom: '20px',
+                fontSize: '18px',
+              }}
+            >
+              No products to display...
+            </p>
+          )}
         </div>
         <div className="btns">
           <button onClick={loadmore}>View More</button>

@@ -113,10 +113,24 @@ function Categoryitems(props) {
                 </div>
               );
             })}
+          {slice.length === 0 && (
+            <p
+              style={{
+                textAlign: 'center',
+                marginTop: '20px',
+                marginBottom: '20px',
+                fontSize: '18px',
+              }}
+            >
+              No products to display...
+            </p>
+          )}
         </div>
-        <div className="btns">
-          <button onClick={loadmore}>View More</button>
-        </div>
+        {slice.length >= 4 && (
+          <div className="btns">
+            <button onClick={loadmore}>View More</button>
+          </div>
+        )}
       </div>
     </div>
   );

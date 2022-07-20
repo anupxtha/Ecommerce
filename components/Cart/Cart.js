@@ -203,6 +203,18 @@ function Cart({ user }) {
               <p className="title">SHOPPING LIST</p>
               <input type="checkbox" onChange={selectAll} />
               <label>Select All</label>
+              {cartProduct.length === 0 && (
+                <p
+                  style={{
+                    textAlign: 'center',
+                    marginTop: '20px',
+                    marginBottom: '20px',
+                    fontSize: '18px',
+                  }}
+                >
+                  Cart is empty...
+                </p>
+              )}
               {/* {cartProduct.map(items => {
                 return (
                   <>
