@@ -7,7 +7,7 @@ function Categoryitems(props) {
   const [products, setProducts] = useState([]);
   const [sliced, setSliced] = useState(8);
   const slice = products.slice(0, sliced);
-  console.log(products);
+  // console.log(products);
   useEffect(() => {
     if (catName) {
       apiServices
@@ -126,7 +126,7 @@ function Categoryitems(props) {
             </p>
           )}
         </div>
-        {slice.length >= 4 && (
+        {slice.length < products.length && (
           <div className="btns">
             <button onClick={loadmore}>View More</button>
           </div>

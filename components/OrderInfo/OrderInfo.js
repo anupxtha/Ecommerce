@@ -14,98 +14,96 @@ function OrderInfo() {
   return (
     <>
       {/* {orderDetailsProduct && ( */}
-      <div className='orderDetails'>
-        <div className='innerorderDetails'>
-          <div className='items'>
+      <div className="orderDetails">
+        <div className="innerorderDetails">
+          <div className="items">
             <p
-              className='title'
+              className="title"
               style={{ marginBottom: '0', paddingTop: '20px' }}
             >
               Order Details
             </p>
-            <div className='tableTitle'>
-              <div className='producDetail'>
+            <div className="tableTitle">
+              <div className="producDetail">
                 <p>Items</p>
               </div>
 
-              <div className='price'>
+              <div className="price">
                 <p>price</p>
               </div>
-              <div className='quantity'>
+              <div className="quantity">
                 <p>Quantity</p>
               </div>
             </div>
 
-            <div className='allItems'>
-              {selected_items && (
-                <div className='orderDetailsSecondList'>
-                  {selected_items.map(newData => {
-                    const { product_price } = newData.item;
+            {/* <div className="allItems"> */}
+            {selected_items && (
+              <div className="orderDetailsSecondList">
+                {selected_items.map((newData) => {
+                  const { product_price } = newData.item;
 
-                    return (
-                      <>
-                        <div className='producDetail'>
-                          {/* <input type='checkbox' style={{ marginRight: '20px' }} /> */}
-                          <div className='productImg'>
-                            <img
-                              src={
-                                'http://127.0.0.1:8000' +
-                                newData.item.product_image[
-                                  Math.floor(
-                                    Math.random() *
-                                      newData.item.product_image.length
-                                  )
-                                ].product_image
-                              }
-                              alt='Product image'
-                            />
-                          </div>
-                          <div className='titles'>
-                            <p style={{ marginBottom: '10px' }}>
-                              {newData.item.product_name}
-                            </p>
-                            <p>
-                              Color: <span>{newData.item_color}</span>
-                            </p>
-                            <p>
-                              Size: <span>{newData.item_size}</span>
-                            </p>
-                          </div>
+                  return (
+                    <div className="allItems">
+                      <div className="producDetail">
+                        {/* <input type='checkbox' style={{ marginRight: '20px' }} /> */}
+                        <div className="productImg">
+                          <img
+                            src={
+                              'http://127.0.0.1:8000' +
+                              newData.item.product_image[
+                                Math.floor(
+                                  Math.random() *
+                                    newData.item.product_image.length
+                                )
+                              ].product_image
+                            }
+                            alt="Product image"
+                          />
                         </div>
-
-                        <div className='price'>
-                          <p>
-                            <s>
-                              {newData.quantity * newData.item.product_price}
-                            </s>
+                        <div className="titles">
+                          <p style={{ marginBottom: '10px' }}>
+                            {newData.item.product_name}
                           </p>
-                          <p>{newData.item.get_discounted_price}</p>
-                          {/* <i class="fa-solid fa-trash-can"></i> */}
+                          <p>
+                            Color: <span>{newData.item_color}</span>
+                          </p>
+                          <p>
+                            Size: <span>{newData.item_size}</span>
+                          </p>
                         </div>
-                        <div className='quantity'>
-                          Qty : &nbsp;
-                          <span className='count'>{newData.quantity}</span>
-                        </div>
-                      </>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
+                      </div>
+
+                      <div className="price">
+                        <p>
+                          <s>{newData.quantity * newData.item.product_price}</s>
+                        </p>
+                        <p>{newData.item.get_discounted_price}</p>
+                        {/* <i class="fa-solid fa-trash-can"></i> */}
+                      </div>
+                      <div className="quantity">
+                        Qty : &nbsp;
+                        <span className="count">{newData.quantity}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            {/* </div> */}
           </div>
-          <div className='summary'>
-            <div className='innerSummary'>
-              <p className='title'>Shipping Address</p>
-              <div className='address'>
+          <div className="summary">
+            <div className="innerSummary">
+              <p className="title">Shipping Address</p>
+              <div className="address">
                 <p>Address</p>
                 <p>Phone number</p>
                 <p>Email</p>
               </div>
-              <p className='title'>ORDER SUMMARY</p>
+              <p className="title">ORDER SUMMARY</p>
               <p>
                 Item Subtotal ( {selected_items.length} )
                 <span>
-                  {selected_items.map(item => {
+                  {selected_items.map((item) => {
                     totalPrice += parseInt(
                       item.quantity * item.item.get_discounted_price
                     );
@@ -116,19 +114,19 @@ function OrderInfo() {
               <p>
                 Delivery <span>Free</span>
               </p>
-              <div className='voucher'>
-                <input type='text' placeholder='Enter Voucher Code' />
-                <button className='btn btn-success'>Apply</button>
+              <div className="voucher">
+                <input type="text" placeholder="Enter Voucher Code" />
+                <button className="btn btn-success">Apply</button>
               </div>
               {/* <div className="underline"></div> */}
               <p style={{ marginTop: '10px' }}>
                 Estimated Total <span>{totalPrice ? totalPrice : 'XXXX'}</span>
               </p>
 
-              <div className='buttons'>
-                <button className='grayBtnPadding'>Proceed to Payout</button>
+              <div className="buttons">
+                <button className="grayBtnPadding">Proceed to Payout</button>
               </div>
-              <div className='buttons'></div>
+              <div className="buttons"></div>
             </div>
           </div>
         </div>

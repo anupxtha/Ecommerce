@@ -9,6 +9,7 @@ function SubCat(props) {
   const [sliced, setSliced] = useState(8);
   const slice = subCategory.slice(0, sliced);
   //   const catName = category.replace('-', ' ');
+  // console.log(subCategory.length);
 
   useEffect(() => {
     if (category) {
@@ -132,7 +133,7 @@ function SubCat(props) {
             </p>
           )}
         </div>
-        {slice.length >= 4 && (
+        {slice.length < subCategory.length && (
           <div className="btns">
             <button onClick={loadmore}>View More</button>
           </div>

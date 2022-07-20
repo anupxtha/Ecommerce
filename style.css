@@ -1097,6 +1097,8 @@ body {
   float: left;
 }
 .slideContain .active {
+  position: relative;
+  z-index: 999;
   /* width: 50%; */
   float: left;
   /* height: 100%; */
@@ -1110,12 +1112,16 @@ body {
 .slideContain .prevSlide {
   transform: translateX(105%);
   opacity: 1;
+  position: absolute;
+  z-index: 888;
 }
 .slideContain .nextSlide {
   /* width: 50%; */
   opacity: 1;
   /* float: left; */
   transform: translateX(-105%);
+  position: absolute;
+  z-index: 888;
 }
 .slideContain .prev {
   position: absolute;
