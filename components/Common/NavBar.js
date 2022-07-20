@@ -294,6 +294,25 @@ function NavBar() {
             LoggedRouter()
           )}
         </div>
+        <div class="dropdown" style={{ float: 'right' }}>
+          <button class="dropbtn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Shop</a>
+            <a href="#">Sale</a>
+            <a href="#">About</a>
+            <a href="#">
+              <i class="fa-solid fa-user"></i> Profile
+            </a>
+            <a href="#">
+              <i class="fa-solid fa-heart"></i> Whislist
+            </a>
+            <a href="#">
+              <i class="fa-solid fa-cart-shopping"></i> Cart
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
