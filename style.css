@@ -53,11 +53,10 @@ body {
   float: left;
   /* padding: 1% 0 0 0; */
   height: 70px;
-  /* background-color: #c4c4c4; */
-  /* background: rgba(239, 212, 231, 1); */
-  /* background-color: #3a5b8b; */
-  background-color: #3c005a;
-  /* background-color: rgb(128, 37, 164); */
+
+  /* background-color: #3c005a; */
+  background-color: #602280;
+
   font-family: 'Montserrat', sans-serif;
 }
 .navBar .innerNav {
@@ -79,8 +78,8 @@ body {
   /* text-align: center; */
 }
 .navBar .logo img {
-  width: 50%;
-  height: 70px;
+  width: 60%;
+  height: 80px;
   float: left;
   object-fit: fill;
   /* background-color: blue; */

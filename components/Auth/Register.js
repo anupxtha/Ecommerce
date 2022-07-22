@@ -25,13 +25,13 @@ function Register() {
     }
   }, [auth]);
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
     dispatch({ type: 'NOTIFY', payload: {} });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const errMsg = validRegister(
       userData.email,
@@ -46,7 +46,7 @@ function Register() {
 
     apiServices
       .registerUser(userData)
-      .then(response => {
+      .then((response) => {
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'Successfully Register' },
@@ -54,7 +54,7 @@ function Register() {
         router.push('/login');
         // console.log(response.data);
       })
-      .catch(err => {
+      .catch((err) => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -63,114 +63,115 @@ function Register() {
   };
 
   return (
-    <div className='register'>
-      <p className='head'>WELCOME TO LEGO</p>
-      <form style={{ width: '60%' }} onSubmit={handleSubmit}>
-        <div className='containForm'>
-          <div className='form'>
-            <label>
-              First Name
-              <span style={{ color: 'red' }}>
-                *<br />
-              </span>
-            </label>
-            <input
-              type='text'
-              id='name'
-              name='name'
-              value={userData.name}
-              onChange={handleChangeInput}
-            />
+    <div className="register">
+      <div className="inner-register">
+        <p className="head">WELCOME TO LEGO</p>
+        <form style={{ width: '80%' }} onSubmit={handleSubmit}>
+          <div className="containForm">
+            <div className="form">
+              <label>
+                First Name
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={userData.name}
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className="form">
+              <label>
+                Email
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={userData.email}
+                onChange={handleChangeInput}
+              />
+            </div>
           </div>
-          <div className='form'>
-            <label>
-              Email
-              <span style={{ color: 'red' }}>
-                *<br />
-              </span>
-            </label>
-            <input
-              type='email'
-              id='email'
-              name='email'
-              value={userData.email}
-              onChange={handleChangeInput}
-            />
-          </div>
-        </div>
-        <div className='containForm'>
-          <div className='form'>
-            <label>
-              Address
-              <span style={{ color: 'red' }}>
-                *<br />
-              </span>
-            </label>
-            <input
-              type='text'
-              id='address'
-              name='address'
-              value={userData.address}
-              onChange={handleChangeInput}
-            />
-          </div>
-          <div className='form radios'>
-            <label>
-              Gender
-              <span style={{ color: 'red' }}>
-                *<br />
-              </span>
-            </label>
-            {/* <input
+          <div className="containForm">
+            <div className="form">
+              <label>
+                Address
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={userData.address}
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className="form radios">
+              <label>
+                Gender
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              {/* <input
               type="text"
               id="gender"
               name="gender"
               value={userData.email}
               onChange={handleChangeInput}
             /> */}
-            <select name='gender' id='gender' onClick={handleChangeInput}>
-              <option value='' defaultChecked disabled>
-                Choose Your Gender
-              </option>
-              <option value='male'>Male</option>
-              <option value='female'>Female</option>
-              <option value='other'>Other</option>
-            </select>
+              <select name="gender" id="gender" onClick={handleChangeInput}>
+                <option value="" defaultChecked disabled>
+                  Choose Your Gender
+                </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div className='containForm'>
-          <div className='form'>
-            <label>
-              Phone
-              <span style={{ color: 'red' }}>
-                *<br />
-              </span>
-            </label>
-            <input
-              type='text'
-              id='phone'
-              name='phone'
-              value={userData.phone}
-              onChange={handleChangeInput}
-            />
+          <div className="containForm">
+            <div className="form">
+              <label>
+                Phone
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                value={userData.phone}
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className="form">
+              <label>
+                Password
+                <span style={{ color: 'red' }}>
+                  *<br />
+                </span>
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={userData.password}
+                onChange={handleChangeInput}
+              />
+            </div>
           </div>
-          <div className='form'>
-            <label>
-              Password
-              <span style={{ color: 'red' }}>
-                *<br />
-              </span>
-            </label>
-            <input
-              type='password'
-              id='password'
-              name='password'
-              value={userData.password}
-              onChange={handleChangeInput}
-            />
-          </div>
-        </div>
-        {/* <div className='form'>
+          {/* <div className='form'>
           <label className='label'>
             Email{' '}
             <span style={{ color: 'red' }}>
@@ -188,19 +189,20 @@ function Register() {
           </label>
           <input type='text' id='email' name='email' />
         </div> */}
-        <div className='registerBtn'>
-          <button type='submit' className='grayBtn'>
-            SIGN ME UP
-          </button>
-        </div>
-      </form>
+          <div className="registerBtn">
+            <button type="submit" className="grayBtn">
+              SIGN ME UP
+            </button>
+          </div>
+        </form>
 
-      <div className='Line'>
-        <span className='shortLine'></span>
-        <span>OR</span>
-        <span className='shortLine'></span>
+        <div className="Line">
+          <span className="shortLine"></span>
+          <span>OR</span>
+          <span className="shortLine"></span>
+        </div>
+        <p className="grayBtn">SIGN ME UP WITH GOOGLE</p>
       </div>
-      <p className='grayBtn'>SIGN ME UP WITH GOOGLE</p>
     </div>
   );
 }

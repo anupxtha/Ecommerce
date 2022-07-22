@@ -1,14 +1,16 @@
 .mainShippingAddress {
   width: 100%;
   float: left;
-  height: calc(100vh - 70px);
-
+  /* height: calc(100vh - 70px); */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
   background-color: white;
   /* background-color: red; */
 }
 .mainShippingAddress .innerMainShipping {
   width: 80%;
-  margin: 20px 10%;
+  margin: 40px 10%;
 
   /* background-color: blue; */
   float: left;
@@ -16,6 +18,8 @@
 .mainShippingAddress .innerMainShipping .innerDetails {
   width: 65%;
   float: left;
+  padding: 3% 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
 .mainShippingAddress .innerMainShipping p {
   margin: 0;
@@ -25,14 +29,18 @@
 .mainShippingAddress .innerMainShipping .shippForm {
   width: 100%;
   float: left;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   /* background-color: yellow; */
   /* margin-top: 20px; */
 }
 .mainShippingAddress .innerMainShipping .shippForm .innerShipForm {
-  width: 45%;
+  width: 80%;
   float: left;
   height: 80px;
-  margin: 0 2.5%;
+  /* margin: 0 2.5%; */
   /* background-color: red; */
 }
 .mainShippingAddress .innerMainShipping .shippForm .innerShipForm label {
@@ -47,10 +55,13 @@
   height: 35px;
 }
 .mainShippingAddress .shippBtn {
-  width: 100%;
+  width: 80%;
   float: left;
-  margin-top: 20px;
+  margin: 20px 10% 0 10%;
   padding: 1% 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* background-color: red; */
 }
 .mainShippingAddress .shippBtn button {

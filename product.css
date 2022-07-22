@@ -58,14 +58,17 @@ body {
   height: 100%;
   float: left;
   /* border: 1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
   margin-right: 5%;
 }
 .productDetails .innerProductDetail .productImage .active img {
   width: 100%;
-  object-fit: fill;
+  height: 100%;
+  object-fit: contain;
 }
 .productDetails .innerProductDetail .productImage .nextImg {
   width: 35%;
+
   float: left;
   height: 500px;
   /* background-color: blue; */
@@ -75,6 +78,7 @@ body {
 .productDetails .innerProductDetail .productImage .nextImg img {
   width: 100%;
   object-fit: contain;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
 .productDetails .innerProductDetail .productImage .innerNextImg {
   width: 100%;
