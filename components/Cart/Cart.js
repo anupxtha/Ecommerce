@@ -18,6 +18,8 @@ function Cart({ user }) {
   const [cartProduct, setCartProduct] = useState([]);
 
   const [selectedCart, setSelectedCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [selectsCart, setSelectsCart] = useState([]);
 
   // console.log(cartProduct);
 
@@ -95,13 +97,22 @@ function Cart({ user }) {
       });
   };
 
-  const selectedItem = (items, e) => {
+  const selectedItem = (items, e, ids) => {
     // console.log(items);
     // console.log(e);
     // console.log(e.target.checked);
+    // console.log(selectsCart);
+    // if (ids) {
+    console.log('items', ids);
+    const filterProduct = cartProduct.filter((newData) => {
+      const { id } = newData.item;
+
+      return id === ids;
+    });
+    console.log('filterProduct', filterProduct);
 
     if (e.target.checked === true) {
-      setSelectedCart([...selectedCart, { ...items }]);
+      setSelectedCart([...selectedCart, ...filterProduct]);
     } else {
       console.log(selectedCart);
       const filterCheck = selectedCart.filter((newData) => {
@@ -112,6 +123,7 @@ function Cart({ user }) {
       });
       setSelectedCart(filterCheck);
     }
+    // }
     // console.log(selectedCart);
   };
 
@@ -306,7 +318,10 @@ function Cart({ user }) {
                             className="cartCheck"
                             value={items.id}
                             style={{ marginRight: '20px' }}
-                            onChange={(e) => selectedItem(items, e)}
+                            onChange={(e) => {
+                              selectedItem(items, e, items.item.id);
+                              // setItems(items)
+                            }}
                           />
                           <div className="productImg">
                             <img
@@ -334,7 +349,10 @@ function Cart({ user }) {
                             {items.item.get_discounted_price}
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <span>
-                              <s>{items.item.product_price}</s>
+                              <s>
+                                {items.item.product_price}
+                                {/* {items.quantity * items.item.product_price} */}
+                              </s>
                             </span>
                           </p>
 
@@ -493,13 +511,25 @@ function Cart({ user }) {
               <div className="innerSummary">
                 <p className="title">ORDER SUMMARY</p>
                 <p>
-                  Item Subtotal <span>Price</span>
+                  Item Subtotal ( {selectedCart.length} )
+                  <span>
+                    {selectedCart.map((item) => {
+                      totalPrice += parseInt(
+                        item.quantity * item.item.get_discounted_price
+                      );
+                      console.log(item.quantity);
+                    })}
+                    {totalPrice ? totalPrice : 'XXXX'}
+                  </span>
                 </p>
                 <p>
                   Delivery <span>Free</span>
                 </p>
                 <div className="underline"></div>
-                <p>Estimated Total</p>
+                <p style={{ marginTop: '10px' }}>
+                  Estimated Total{' '}
+                  <span>{totalPrice ? totalPrice : 'XXXX'}</span>
+                </p>
 
                 <div className="buttons">
                   {/* <Link href="/shippingAddress"> */}
