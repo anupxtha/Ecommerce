@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar from './Navbar';
+import NavBar from './NavBar';
 import Notify from './Notify';
 
 function Layout({ children }) {
   return (
     <div style={{ width: '100%', float: 'left' }}>
       <div
-        className="navss"
+        className='navss'
         style={{
           position: 'sticky',
           top: '0',
