@@ -50,6 +50,28 @@
   float: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
+.mainProfile .mainCustomerInfo .form .profileImg {
+  width: 100%;
+  float: left;
+  /* background-color: red; */
+  /* height: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 0;
+}
+.mainProfile .mainCustomerInfo .form .profileImg .photo {
+  width: 20%;
+  float: left;
+  height: 150px;
+  border: 1px solid black;
+}
+.mainProfile .mainCustomerInfo .form .profileImg .photo img {
+  width: 100%;
+  height: 100%;
+  float: left;
+  object-fit: contain;
+}
 .mainProfile .mainCustomerInfo .form .innerForm {
   width: 45%;
   margin: 5% 2.5%;

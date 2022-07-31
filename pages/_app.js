@@ -18,9 +18,10 @@ import Footer from '../components/Common/Footer';
 import { DataContext, DataProvider } from '../store/GlobalState';
 import Loading from '../components/Common/Loading';
 import { useRouter } from 'next/router';
-import SearchState from '../components/SearchedItems/searchState';
+import SearchState from '../components/SearchedItems/SearchState';
 import MainState from '../components/context/mainState';
-
+import '../addressBook.css';
+import '../changePass.css';
 export default function App({ Component, pageProps }) {
   // const router = useRouter();
 

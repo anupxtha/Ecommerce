@@ -1,0 +1,30 @@
+.changePass {
+  width: 65%;
+  margin-left: 5%;
+  float: left;
+
+  /* background-color: rgba(0, 0, 0, 0.5); */
+
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+}
+
+.changePass .innerChangepass {
+  width: 100%;
+  float: left;
+  padding: 5% 2%;
+}
+.changePass .innerChangepass .form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.changePass .innerChangepass .form label {
+  margin: 0 5% 10px 5%;
+}
+.changePass .innerChangepass .form input {
+  width: 90%;
+  float: left;
+  height: 30px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+}

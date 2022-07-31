@@ -1,0 +1,28 @@
+.addressBook {
+  width: 65%;
+  margin-left: 5%;
+  float: left;
+}
+.addressBook .innerAddress {
+  width: 100%;
+  float: left;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  padding: 4% 2%;
+}
+.addressBook .innerAddress .form {
+  width: 100%;
+  float: left;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+}
+.addressBook .innerAddress .form label {
+  margin-top: 20px;
+  margin-left: 5%;
+}
+.addressBook .innerAddress .form input {
+  width: 90%;
+  height: 30px;
+  padding-left: 10px;
+  margin-left: 5%;
+}

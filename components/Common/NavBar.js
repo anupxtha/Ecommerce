@@ -17,8 +17,12 @@ function NavBar() {
   const [searchProduct, setSearchProduct] = useState('');
   const [productData, SetProductData] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState([]);
-  const { searchedItems, setSearchedItems } = useContext(SearchContext);
-  console.log(searchedItems);
+  const { searchedItems, setSearchedItems, visibleSearch, setVisibleSearch } =
+    useContext(SearchContext);
+  const [visible, setVisible] = useState();
+  if (visible) {
+    console.log(visible.length);
+  }
 
   const handleLogout = () => {
     sessionStorage.removeItem('loginStatus');
@@ -85,6 +89,7 @@ function NavBar() {
       });
   }, []);
   console.log(categories);
+
   useEffect(() => {
     if (searchProduct) {
       const searched = productData.filter((newData) => {
@@ -95,6 +100,7 @@ function NavBar() {
       });
 
       setSearchedProduct(searched);
+      setVisible(searched);
     } else {
       setSearchedProduct([]);
     }
@@ -107,8 +113,10 @@ function NavBar() {
       router.push('/searched');
       // setSearchProduct('');
       setSearchedItems(searchedProduct);
+      setVisible('');
     }
   };
+
   return (
     <div className="navBar">
       <div className="innerNav">
@@ -206,7 +214,7 @@ function NavBar() {
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
-          {searchedProduct.length != 0 && (
+          {visible && (
             <div className="dropSearch">
               <div
                 className="innerDropSearch"

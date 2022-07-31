@@ -149,9 +149,14 @@ function TopSellingProduct() {
             </p>
           )}
         </div>
-        <div className="btns">
+        {/* <div className="btns">
           <button onClick={loadmore}>View More</button>
-        </div>
+        </div> */}
+        {slice.length < searchedProduct.length && (
+          <div className="btns">
+            <button onClick={loadmore}>View More</button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -5,6 +5,11 @@ function CustomerInfo() {
     <div className="mainCustomerInfo">
       <p>Your Personal Details</p>
       <div className="form">
+        <div className="profileImg">
+          <div className="photo">
+            <img src="" alt="user image" />
+          </div>
+        </div>
         <div className="innerForm">
           <label>
             First Name: <span className="required">*</span>
