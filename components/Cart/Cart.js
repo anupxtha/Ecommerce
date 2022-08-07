@@ -33,14 +33,14 @@ function Cart({ user }) {
   const removeCartList = (id, color, size) => {
     apiServices
       .removeCartlistById(id, color, size)
-      .then((response) => {
+      .then(response => {
         dispatch(removeFromCard(id, cart));
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'The product is removed from cart' },
         });
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -58,14 +58,14 @@ function Cart({ user }) {
 
     apiServices
       .postAddToCart(item.id, 1, size, color)
-      .then((response) => {
+      .then(response => {
         dispatch(increaseItemQty(item.id, cart));
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'The product Quantity is Increased' },
         });
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -82,14 +82,14 @@ function Cart({ user }) {
 
     apiServices
       .decreaseItemQty(item.id, size, color)
-      .then((response) => {
+      .then(response => {
         dispatch(decreaseItemQuantity(item.id, cart));
         dispatch({
           type: 'NOTIFY',
           payload: { success: 'The product Quantity is Decreased' },
         });
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({
           type: 'NOTIFY',
           payload: { error: err.message },
@@ -104,7 +104,7 @@ function Cart({ user }) {
     // console.log(selectsCart);
     // if (ids) {
     console.log('items', ids);
-    const filterProduct = cartProduct.filter((newData) => {
+    const filterProduct = cartProduct.filter(newData => {
       const { id } = newData.item;
 
       return id === ids;
@@ -115,7 +115,7 @@ function Cart({ user }) {
       setSelectedCart([...selectedCart, ...filterProduct]);
     } else {
       console.log(selectedCart);
-      const filterCheck = selectedCart.filter((newData) => {
+      const filterCheck = selectedCart.filter(newData => {
         console.log(newData);
         const { id } = newData;
         // console.log(e.target.value);
@@ -129,7 +129,7 @@ function Cart({ user }) {
 
   console.log('sss', selectedCart);
 
-  const shopping = (e) => {
+  const shopping = e => {
     const checkBoxCart = document.querySelectorAll('.cartCheck');
     console.log(selectedCart.length);
 
@@ -153,7 +153,8 @@ function Cart({ user }) {
           type: 'SELECTED_ITEMS',
           payload: selectedCart,
         });
-        sessionStorage.setItem('selectedItems', JSON.stringify(selected_items));
+        // sessionStorage.setItem('selectedItems', JSON.stringify(selected_items));
+        sessionStorage.setItem('selectedItems', JSON.stringify(selectedCart));
         router.push('/shippingAddress');
       }
 
@@ -183,7 +184,7 @@ function Cart({ user }) {
 
   console.log(cartProduct);
 
-  const selectAll = (e) => {
+  const selectAll = e => {
     if (e.target.checked) {
       setSelectedCart(cartProduct);
     }
@@ -209,11 +210,11 @@ function Cart({ user }) {
   return (
     <>
       {cartProduct && (
-        <div className="cart">
-          <div className="innerCart">
-            <div className="items">
-              <p className="title">SHOPPING LIST</p>
-              <input type="checkbox" onChange={selectAll} />
+        <div className='cart'>
+          <div className='innerCart'>
+            <div className='items'>
+              <p className='title'>SHOPPING LIST</p>
+              <input type='checkbox' onChange={selectAll} />
               <label>Select All</label>
               {cartProduct.length === 0 && (
                 <p
@@ -307,23 +308,23 @@ function Cart({ user }) {
                 );
               })} */}
 
-              <div className="cartAll">
-                {cartProduct.map((items) => {
+              <div className='cartAll'>
+                {cartProduct.map(items => {
                   return (
                     <>
-                      <div className="cartSecondList">
-                        <div className="producDetail">
+                      <div className='cartSecondList'>
+                        <div className='producDetail'>
                           <input
-                            type="checkbox"
-                            className="cartCheck"
+                            type='checkbox'
+                            className='cartCheck'
                             value={items.id}
                             style={{ marginRight: '20px' }}
-                            onChange={(e) => {
+                            onChange={e => {
                               selectedItem(items, e, items.item.id);
                               // setItems(items)
                             }}
                           />
-                          <div className="productImg">
+                          <div className='productImg'>
                             <img
                               src={
                                 'http://127.0.0.1:8000' +
@@ -334,17 +335,17 @@ function Cart({ user }) {
                                   )
                                 ].product_image
                               }
-                              alt="Product image"
+                              alt='Product image'
                             />
                           </div>
-                          <div className="titles">
+                          <div className='titles'>
                             <p>{items.item.product_name}</p>
                             <p>Color : {items.item_size}</p>
                             <p>Size : {items.item_color}</p>
                           </div>
                         </div>
 
-                        <div className="price">
+                        <div className='price'>
                           <p style={{ marginRight: '10px' }}>
                             {items.item.get_discounted_price}
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -358,7 +359,7 @@ function Cart({ user }) {
 
                           {/* <p></p> */}
                           <i
-                            class="fa-solid fa-trash-can"
+                            class='fa-solid fa-trash-can'
                             onClick={() =>
                               removeCartList(
                                 items.item.id,
@@ -370,7 +371,7 @@ function Cart({ user }) {
                             style={{ cursor: 'pointer' }}
                           ></i>
                         </div>
-                        <div className="quantity">
+                        <div className='quantity'>
                           Quantity : &nbsp; &nbsp; &nbsp;
                           <span>
                             <button
@@ -387,7 +388,7 @@ function Cart({ user }) {
                             </button>
                           </span>
                           &nbsp; &nbsp; &nbsp;
-                          <span className="count">{items.quantity}</span>
+                          <span className='count'>{items.quantity}</span>
                           &nbsp; &nbsp; &nbsp;
                           <span>
                             <button
@@ -507,13 +508,13 @@ function Cart({ user }) {
                 </div>
               </div> */}
             </div>
-            <div className="summary">
-              <div className="innerSummary">
-                <p className="title">ORDER SUMMARY</p>
+            <div className='summary'>
+              <div className='innerSummary'>
+                <p className='title'>ORDER SUMMARY</p>
                 <p>
                   Item Subtotal ( {selectedCart.length} )
                   <span>
-                    {selectedCart.map((item) => {
+                    {selectedCart.map(item => {
                       totalPrice += parseInt(
                         item.quantity * item.item.get_discounted_price
                       );
@@ -525,23 +526,23 @@ function Cart({ user }) {
                 <p>
                   Delivery <span>Free</span>
                 </p>
-                <div className="underline"></div>
+                <div className='underline'></div>
                 <p style={{ marginTop: '10px' }}>
                   Estimated Total{' '}
                   <span>{totalPrice ? totalPrice : 'XXXX'}</span>
                 </p>
 
-                <div className="buttons">
+                <div className='buttons'>
                   {/* <Link href="/shippingAddress"> */}
                   {/* <a style={{ color: 'black' }}> */}
-                  <button className="grayBtnPadding" onClick={shopping}>
+                  <button className='grayBtnPadding' onClick={shopping}>
                     Continue Shopping
                   </button>
                   {/* </a> */}
                   {/* </Link> */}
                   {/* <button className="secondGrayBtn">Continue Shopping</button>  */}
                 </div>
-                <div className="buttons">
+                <div className='buttons'>
                   {/* <button className="grayBtn">Proceed to checkout</button>  */}
                   {/* <button className='secondGrayBtnPadding'>
                     Continue Shopping

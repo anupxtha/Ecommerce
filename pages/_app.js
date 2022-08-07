@@ -18,7 +18,7 @@ import Footer from '../components/Common/Footer';
 import { DataContext, DataProvider } from '../store/GlobalState';
 import Loading from '../components/Common/Loading';
 import { useRouter } from 'next/router';
-import SearchState from '../components/SearchedItems/searchState';
+import SearchState from '../components/SearchedItems/SearchState';
 import MainState from '../components/context/mainState';
 
 export default function App({ Component, pageProps }) {
@@ -63,8 +63,8 @@ export default function App({ Component, pageProps }) {
             <Head>
               <title>Ecommerce</title>
               <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1.0"
+                name='viewport'
+                content='width=device-width, initial-scale=1.0'
               />
             </Head>
             <Component {...pageProps} />
